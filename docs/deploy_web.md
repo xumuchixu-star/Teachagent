@@ -4,7 +4,7 @@
 
 ## 先决条件
 
-- Python 3.10+
+- Python 3.11+ 推荐
 - 建议使用 PostgreSQL
 - 诊断 / coach 若要在云端可用，需提供 Azure 可用凭证
 
@@ -128,11 +128,15 @@ docker compose down
 1. 直接用 Dockerfile 部署
 2. 让平台执行 `python app/server.py`
 
+如果你现在准备走 Azure，优先看：
+
+- `docs/deploy_azure_app_service.md`
+
 若不用 Docker，启动命令建议：
 
 ```bash
-python3 -m pip install -r app/requirements-web.txt
-python3 app/server.py
+python3 -m pip install -r requirements.txt
+sh startup.sh
 ```
 
 ## 上线前检查

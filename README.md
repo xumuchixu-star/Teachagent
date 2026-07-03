@@ -17,6 +17,7 @@ TeachAgent 当前是一套围绕高中数学知识树搭建的本地工作区，
 如果你现在的目标是把这个项目对外发布，而不是继续本地开发，先看：
 
 - `docs/deploy_web.md`
+- `docs/deploy_azure_app_service.md`
 - `docs/github_render_launch_checklist.md`
 - `render.yaml`
 - `Dockerfile`

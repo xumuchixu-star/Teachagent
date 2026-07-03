@@ -112,6 +112,14 @@ FALSY_TEXT = {"0", "false", "no", "n", "off"}
 DEFAULT_SERVER_HOST = "127.0.0.1"
 DEFAULT_DEPLOY_HOST = "0.0.0.0"
 DEFAULT_SERVER_PORT = 8765
+DEPLOY_HOST_HINT_ENV_KEYS = (
+    "WEBSITE_HOSTNAME",
+    "WEBSITE_SITE_NAME",
+    "RENDER",
+    "RENDER_SERVICE_ID",
+    "RAILWAY_PROJECT_ID",
+    "K_SERVICE",
+)
 
 
 def empty_review_state(*, student_id: str) -> dict[str, Any]:
@@ -2999,9 +3007,12 @@ def resolve_server_host() -> str:
         return raw_host
     raw_port = (
         str(os.getenv("TEACHAGENT_PORT") or "").strip()
+        or str(os.getenv("WEBSITES_PORT") or "").strip()
         or str(os.getenv("PORT") or "").strip()
     )
     if raw_port:
+        return DEFAULT_DEPLOY_HOST
+    if any(str(os.getenv(key) or "").strip() for key in DEPLOY_HOST_HINT_ENV_KEYS):
         return DEFAULT_DEPLOY_HOST
     return DEFAULT_SERVER_HOST
 
@@ -3010,6 +3021,7 @@ def resolve_server_port() -> int:
     load_teachagent_env()
     raw_port = (
         str(os.getenv("TEACHAGENT_PORT") or "").strip()
+        or str(os.getenv("WEBSITES_PORT") or "").strip()
         or str(os.getenv("PORT") or "").strip()
     )
     if not raw_port:
