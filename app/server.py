@@ -1134,14 +1134,7 @@ class ReviewAppState:
         self.current_memory_profile = self._load_current_memory_profile()
         self.tree_notes = self._load_tree_notes()
         self.tree_custom_nodes = self._load_tree_custom_nodes()
-        if self.using_database_store() and (
-            self.tree_custom_nodes.get("nodes") or self.tree_notes
-        ):
-            self.persist_tree_state()
         self._reset_runtime_state()
-        self.persist_session_state()
-        self.persist_memory_profile()
-        self.persist_wrongbook_state()
         return self.build_workspace_payload()
 
     def _build_store(self) -> TeachAgentPostgresStore | None:
@@ -1432,12 +1425,18 @@ class ReviewAppState:
             )
         self.persist_memory_profile()
 
-    def _append_memory_event(self, event: dict[str, Any]) -> None:
+    def _append_memory_event(
+        self,
+        event: dict[str, Any],
+        *,
+        refresh_profile: bool = True,
+    ) -> None:
         if self.using_database_store():
             self.store.append_memory_event(event)
         else:
             append_event(event, path=self._student_memory_events_path())
-        self._refresh_memory_profile_from_store()
+        if refresh_profile:
+            self._refresh_memory_profile_from_store()
 
     def _question_id_for_problem(self, prefix: str, problem_text: str) -> str:
         return stable_question_id_from_text(prefix, problem_text)
@@ -1463,6 +1462,7 @@ class ReviewAppState:
         binding_source: str,
         candidate_node_ids: list[str] | None = None,
         binding_confidence: float | str | None = None,
+        refresh_profile: bool = True,
     ) -> None:
         question_id, question_type, source_name, source_section = self._question_context(question_state)
         event = binding_result_to_memory_event(
@@ -1478,7 +1478,7 @@ class ReviewAppState:
             session_id=self.session_id,
             binding_confidence=binding_confidence,
         )
-        self._append_memory_event(event)
+        self._append_memory_event(event, refresh_profile=refresh_profile)
 
     def _log_student_choice_for_question_state(
         self,
@@ -1486,6 +1486,7 @@ class ReviewAppState:
         *,
         action_type: str,
         note: str | None = None,
+        refresh_profile: bool = True,
     ) -> None:
         question_id, question_type, source_name, source_section = self._question_context(question_state)
         selected_node_ids = list(question_state.get("linked_node_ids") or [])
@@ -1503,7 +1504,7 @@ class ReviewAppState:
             student_id=self.student_id,
             session_id=self.session_id,
         )
-        self._append_memory_event(event)
+        self._append_memory_event(event, refresh_profile=refresh_profile)
 
     def _log_review_event(self, update_payload: dict[str, Any]) -> None:
         target_type = str(update_payload.get("target_type") or "").strip()
@@ -2192,10 +2193,17 @@ class ReviewAppState:
         self.custom_question_states.setdefault("questions", []).append(copy.deepcopy(question_state))
         self.current_review_state.setdefault("example_question_states", []).append(copy.deepcopy(question_state))
         self._ensure_review_nodes_for_question_state(question_state)
-        if note.strip():
-            self.tree_notes[resolved_question_id] = note.strip()
+        note_text = note.strip()
+        if note_text:
+            self.tree_notes[resolved_question_id] = note_text
+            if self.using_database_store():
+                self.store.save_question_note(
+                    self.student_id,
+                    resolved_question_id,
+                    note_text,
+                )
+            write_json(self._student_tree_notes_path(), self.tree_notes)
         self.persist_wrongbook_state()
-        self.persist_tree_state()
         self.persist_session_state()
         self._log_binding_for_question_state(
             question_state,
@@ -2206,12 +2214,15 @@ class ReviewAppState:
             ),
             candidate_node_ids=linked_node_ids,
             binding_confidence=1.0,
+            refresh_profile=False,
         )
         self._log_student_choice_for_question_state(
             question_state,
             action_type="attach_wrong_question",
-            note=priority_note.strip() or note.strip() or "学生将题目挂到知识点下。",
+            note=priority_note.strip() or note_text or "学生将题目挂到知识点下。",
+            refresh_profile=False,
         )
+        self._refresh_memory_profile_from_store()
         return {
             "dashboard": self.build_dashboard_payload(mode=self.last_mode),
             "tree": self.build_tree_payload(),
