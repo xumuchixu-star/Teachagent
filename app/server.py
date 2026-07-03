@@ -14,6 +14,7 @@ import re
 import shutil
 import subprocess
 import sys
+import traceback
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 from uuid import uuid4
@@ -2660,7 +2661,6 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
     server_version = "TeachAgentApp/0.1"
 
     def do_GET(self) -> None:
-        state = get_app_state()
         parsed = urlparse(self.path)
         if parsed.path == "/":
             self.serve_file(STATIC_DIR / "index.html", "text/html; charset=utf-8")
@@ -2678,6 +2678,21 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
             self.respond_json(
                 {
                     "status": "ok",
+                    "app_state_initialized": APP_STATE is not None,
+                    "database_configured": bool(str(database_url_from_env() or "").strip()),
+                    "credential_mode": (
+                        "default" if should_use_default_credential() else "azure_cli"
+                    ),
+                }
+            )
+            return
+        if parsed.path == "/readyz":
+            state = self.require_app_state()
+            if state is None:
+                return
+            self.respond_json(
+                {
+                    "status": "ok",
                     "student_id": state.student_id,
                     "storage_label": (
                         "PostgreSQL" if state.using_database_store() else "本地 JSON"
@@ -2685,6 +2700,18 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
                     "database_enabled": state.using_database_store(),
                 }
             )
+            return
+        if parsed.path == "/api/agent-meta":
+            self.respond_json(
+                {
+                    "diagnosis_environment": diagnosis_environment(),
+                    "coach_environment": diagnose_environment(),
+                    "orchestrator_environment": orchestrator_environment(),
+                }
+            )
+            return
+        state = self.require_app_state()
+        if state is None:
             return
         if parsed.path == "/api/dashboard":
             params = parse_qs(parsed.query)
@@ -2706,15 +2733,6 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
         if parsed.path == "/api/wrongbook":
             self.respond_json(state.build_wrongbook_payload())
             return
-        if parsed.path == "/api/agent-meta":
-            self.respond_json(
-                {
-                    "diagnosis_environment": diagnosis_environment(),
-                    "coach_environment": diagnose_environment(),
-                    "orchestrator_environment": orchestrator_environment(),
-                }
-            )
-            return
         if parsed.path == "/api/diagnosis/state":
             self.respond_json({"flow": state.build_diagnosis_flow_payload()})
             return
@@ -2727,7 +2745,6 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
         self.send_error(HTTPStatus.NOT_FOUND, "Not Found")
 
     def do_POST(self) -> None:
-        state = get_app_state()
         parsed = urlparse(self.path)
         if parsed.path not in {
             "/api/action",
@@ -2752,6 +2769,11 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
             return
 
         try:
+            state = None
+            if parsed.path != "/api/ocr/extract":
+                state = self.require_app_state()
+                if state is None:
+                    return
             if parsed.path == "/api/ocr/extract":
                 fields, files = self.read_multipart_form_body()
                 uploads = [
@@ -2893,6 +2915,22 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
 
     def log_message(self, format: str, *args: Any) -> None:
         return
+
+    def require_app_state(self) -> ReviewAppState | None:
+        try:
+            return get_app_state()
+        except Exception as exc:
+            print("[TeachAgent] app state initialization failed")
+            print(traceback.format_exc())
+            self.respond_json(
+                {
+                    "status": "error",
+                    "error": str(exc),
+                    "kind": "app_state_init_failed",
+                },
+                status=HTTPStatus.SERVICE_UNAVAILABLE,
+            )
+            return None
 
     def serve_file(self, path: Path, content_type: str) -> None:
         if not path.exists():
