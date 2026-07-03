@@ -700,7 +700,8 @@ function resetStudentScopedViewState() {
 
 async function switchStudent(nextStudentId = null) {
   const input = $("studentIdInput");
-  const studentId = String(nextStudentId ?? input?.value ?? "").trim();
+  const requestedStudentId = typeof nextStudentId === "string" ? nextStudentId : null;
+  const studentId = String(requestedStudentId ?? input?.value ?? "").trim();
   if (!studentId) {
     showStatus("先填学生 ID");
     return;
@@ -717,7 +718,6 @@ async function switchStudent(nextStudentId = null) {
     });
     resetStudentScopedViewState();
     applyWorkspacePayload(payload);
-    await Promise.all([loadTree(), loadWrongbook(), loadDiagnosisState(), loadCoachState(), loadStudentDirectory()]);
     state.activeTab = "import";
     render();
     showStatus(
@@ -1373,7 +1373,6 @@ async function createWrongbookQuestion() {
     $("wrongbookQuestionId").value = payload.created_question_id;
   }
   state.selectedWrongbookNodeId = $("wrongbookPrimaryNodeId").value || state.selectedWrongbookNodeId;
-  await Promise.all([loadDashboard(), loadTree(), loadWrongbook(), loadStudentDirectory()]);
   render();
   showStatus(`错题已加入错题本：${payload.created_question_id || "已保存"}`);
 }
