@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeachAgent</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['\\[', '\\]'], ['$$', '$$']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="app-rail">
+        <div class="rail-brand">
+          <p class="eyebrow">TeachAgent</p>
+          <h1>数学错题本</h1>
+          <p class="rail-copy">拍题，看问题，继续学，存起来。</p>
+        </div>
+
+        <section class="rail-card rail-card-compact student-switch-card">
+          <p class="section-tag">学生</p>
+          <h2 class="card-title">切换学生</h2>
+          <label class="field field-compact">
+            <span>学生 ID</span>
+            <input id="studentIdInput" type="text" placeholder="例如 stu_001" />
+          </label>
+          <div class="control-actions">
+            <button class="ghost-btn" id="switchStudentBtn" type="button">切换学生</button>
+          </div>
+          <p class="memory-note" id="studentStorageMeta"></p>
+          <div class="student-directory" id="studentDirectory"></div>
+        </section>
+
+        <nav class="app-nav" id="tabbar"></nav>
+        <section class="rail-card rail-card-compact" id="quickStartCard"></section>
+
+        <section class="rail-card" id="sessionSummary"></section>
+        <section class="memory-card" id="memoryCard"></section>
+      </aside>
+
+      <div class="app-stage">
+        <header class="workspace-head">
+          <div id="pageIntro" class="page-intro"></div>
+          <div id="workflowStrip" class="workflow-strip"></div>
+        </header>
+
+        <main class="page-stack">
+          <section class="page panel panel-review" data-panel="review">
+            <div class="page-grid review-grid">
+              <section class="control-card review-controls-card">
+                <p class="section-tag">再练</p>
+                <h2 class="card-title">系统推题</h2>
+                <p class="memory-note">把前面存下来的题再练一遍。</p>
+                <div class="mode-switch" id="modeSwitch"></div>
+                <div class="control-actions">
+                  <button class="ghost-btn" id="refreshBtn" type="button">刷新当前轮</button>
+                  <button class="ghost-btn danger" id="resetBtn" type="button">重置会话</button>
+                </div>
+              </section>
+
+              <section class="page-surface">
+                <div class="section-head">
+                  <div>
+                    <p class="section-tag">复习队列</p>
+                    <h2>这一轮练什么</h2>
+                  </div>
+                  <p class="inline-note" id="bundleMeta"></p>
+                </div>
+                <div id="bundleList" class="bundle-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page panel panel-import" data-panel="import">
+            <div class="page-grid import-grid">
+              <section class="control-card">
+                <p class="section-tag">导入</p>
+                <h2 class="card-title">拍题</h2>
+                <p class="memory-note">上传图片或 PDF，先出草稿。</p>
+                <section class="starter-card">
+                  <p class="starter-kicker">推荐</p>
+                  <h3>整题一起拍</h3>
+                  <p>有题目、答案、解析就直接一起识别。</p>
+                </section>
+
+                <label class="ocr-dropzone" id="importOcrDropzone" for="importOcrFile">
+                  <input id="importOcrFile" type="file" accept="image/*,.pdf" capture="environment" multiple hidden />
+                  <span class="ocr-dropzone-title">点这里拍照，或拖入图片 / PDF</span>
+                  <span class="ocr-dropzone-meta" id="importOcrFileName">未选择文件</span>
+                </label>
+
+                <div class="control-actions">
+                  <button class="ghost-btn primary-btn" id="importOcrBtn" type="button">开始识别</button>
+                </div>
+
+                <details class="details-card import-advanced-panel">
+                  <summary>
+                    <span class="details-summary-main">高级导入：指定目标或分字段 OCR</span>
+                    <span class="details-summary-note">分开拍时再用。</span>
+                  </summary>
+                  <label class="field">
+                    <span>识别模板</span>
+                    <select id="importTarget">
+                      <option value="wrongbook">错题本模板</option>
+                      <option value="diagnosis">诊断模板</option>
+                      <option value="coach">引导模板</option>
+                    </select>
+                  </label>
+
+                  <label class="field">
+                    <span>导入方式</span>
+                    <select id="importFieldMode"></select>
+                  </label>
+
+                  <div class="field-ocr-grid">
+                    <section class="field-ocr-card">
+                      <p class="field-ocr-title">题目 OCR</p>
+                      <label class="ocr-dropzone compact" id="importQuestionOcrDropzone" for="importQuestionOcrFile">
+                        <input id="importQuestionOcrFile" type="file" accept="image/*,.pdf" capture="environment" multiple hidden />
+                        <span class="ocr-dropzone-title">上传题目图片 / PDF</span>
+                        <span class="ocr-dropzone-meta" id="importQuestionOcrFileName">未选择文件</span>
+                      </label>
+                      <div class="control-actions">
+                        <button class="ghost-btn" id="importQuestionOcrBtn" type="button">识别到题目</button>
+                      </div>
+                    </section>
+
+                    <section class="field-ocr-card">
+                      <p class="field-ocr-title">答案 OCR</p>
+                      <label class="ocr-dropzone compact" id="importAnswerOcrDropzone" for="importAnswerOcrFile">
+                        <input id="importAnswerOcrFile" type="file" accept="image/*,.pdf" capture="environment" multiple hidden />
+                        <span class="ocr-dropzone-title">上传答案图片 / PDF</span>
+                        <span class="ocr-dropzone-meta" id="importAnswerOcrFileName">未选择文件</span>
+                      </label>
+                      <div class="control-actions">
+                        <button class="ghost-btn" id="importAnswerOcrBtn" type="button">识别到答案</button>
+                      </div>
+                    </section>
+
+                    <section class="field-ocr-card">
+                      <p class="field-ocr-title">解析 OCR</p>
+                      <label class="ocr-dropzone compact" id="importSolutionOcrDropzone" for="importSolutionOcrFile">
+                        <input id="importSolutionOcrFile" type="file" accept="image/*,.pdf" capture="environment" multiple hidden />
+                        <span class="ocr-dropzone-title">上传解析图片 / PDF</span>
+                        <span class="ocr-dropzone-meta" id="importSolutionOcrFileName">未选择文件</span>
+                      </label>
+                      <div class="control-actions">
+                        <button class="ghost-btn" id="importSolutionOcrBtn" type="button">识别到解析</button>
+                      </div>
+                    </section>
+                  </div>
+                </details>
+
+                <div id="importOcrFeedback" class="ocr-feedback"></div>
+              </section>
+
+              <section class="page-surface">
+                <div class="section-head">
+                  <div>
+                    <p class="section-tag">OCR 预览</p>
+                    <h2>看一下再继续</h2>
+                  </div>
+                </div>
+                <div id="importResultPanel" class="import-result-panel"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page panel panel-diagnosis" data-panel="diagnosis">
+            <div class="page-grid split-grid">
+              <section class="control-card">
+                <p class="section-tag">诊断</p>
+                <h2 class="card-title">看问题</h2>
+                <section class="starter-card starter-card-compact">
+                  <p class="starter-kicker">这一页</p>
+                  <h3>看学生错在哪</h3>
+                  <p>填题目、答案、学生回答。</p>
+                </section>
+                <div id="diagnosisSetupPanel">
+                  <label class="field">
+                    <span>题目</span>
+                    <textarea id="diagnosisProblemText" rows="7"></textarea>
+                  </label>
+                  <label class="field">
+                    <span>标准答案</span>
+                    <textarea id="diagnosisReferenceAnswer" rows="6"></textarea>
+                  </label>
+                  <label class="field">
+                    <span>学生回答</span>
+                    <textarea id="diagnosisStudentAnswer" rows="4"></textarea>
+                  </label>
+
+                  <details class="details-card">
+                  <summary>
+                    <span class="details-summary-main">高级设置</span>
+                    <span class="details-summary-note">长期画像、最大轮数</span>
+                  </summary>
+                    <label class="field">
+                      <span>长期画像</span>
+                      <textarea id="diagnosisStudentProfile" rows="3"></textarea>
+                    </label>
+                    <label class="field">
+                      <span>引导最大轮数</span>
+                      <input id="diagnosisCoachMaxTurns" type="number" min="1" max="12" value="8" />
+                    </label>
+                  </details>
+
+                  <div class="control-actions">
+                    <button class="ghost-btn primary-btn" id="runDiagnosisBtn" type="button">开始诊断</button>
+                  </div>
+                </div>
+
+                <div id="diagnosisLivePanel" class="live-panel">
+                  <h3 class="card-title">改一下判断</h3>
+                  <p class="memory-note" id="diagnosisLiveHint"></p>
+                  <label class="field">
+                    <span>你的补充 / 反馈</span>
+                    <textarea id="diagnosisFollowupInput" rows="4" placeholder="如果判断不对，直接改。"></textarea>
+                  </label>
+                  <div class="control-actions">
+                    <button class="ghost-btn primary-btn" id="continueDiagnosisBtn" type="button">发送反馈</button>
+                    <button class="ghost-btn" id="diagnosisToCoachBtn" type="button">去引导</button>
+                    <button class="ghost-btn" id="diagnosisToWrongbookBtn" type="button">存到错题本</button>
+                    <button class="ghost-btn" id="cancelDiagnosisBtn" type="button">重来</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="page-surface">
+                <div class="section-head">
+                  <div>
+                    <p class="section-tag">诊断结果</p>
+                    <h2>先看结果</h2>
+                  </div>
+                </div>
+                <div id="diagnosisOutput" class="chat-shell"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page panel panel-coach" data-panel="coach">
+            <div class="page-grid split-grid">
+              <section class="control-card">
+                <p class="section-tag">引导</p>
+                <h2 class="card-title">继续学</h2>
+                <section class="starter-card starter-card-compact">
+                  <p class="starter-kicker">建议</p>
+                  <h3>最好先做诊断</h3>
+                  <p>也可以直接开始。</p>
+                </section>
+                <div id="coachSetupPanel">
+                  <label class="field">
+                    <span>题目</span>
+                    <textarea id="coachProblemText" rows="7"></textarea>
+                  </label>
+                  <label class="field">
+                    <span>错误类型</span>
+                    <select id="coachErrorType">
+                      <option value="concept_gap">概念漏洞</option>
+                      <option value="misreading">读题偏差</option>
+                      <option value="calculation">计算错误</option>
+                      <option value="missing_strategy">缺少思路</option>
+                      <option value="careless">粗心失误</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>学生当前回复</span>
+                    <textarea id="coachStudentReply" rows="4"></textarea>
+                  </label>
+
+                  <details class="details-card">
+                  <summary>
+                    <span class="details-summary-main">高级设置</span>
+                    <span class="details-summary-note">长期画像、最大轮数</span>
+                  </summary>
+                    <label class="field">
+                      <span>长期画像</span>
+                      <textarea id="coachStudentProfile" rows="3"></textarea>
+                    </label>
+                    <label class="field">
+                      <span>最大轮数</span>
+                      <input id="coachMaxTurns" type="number" min="1" max="12" value="8" />
+                    </label>
+                  </details>
+
+                  <div class="control-actions">
+                    <button class="ghost-btn primary-btn" id="runCoachBtn" type="button">开始引导</button>
+                  </div>
+                </div>
+
+                <div id="coachLivePanel" class="live-panel">
+                  <h3 class="card-title">继续回答</h3>
+                  <p class="memory-note" id="coachLiveHint"></p>
+                  <label class="field">
+                    <span>继续回复</span>
+                    <textarea id="coachFollowupInput" rows="4" placeholder="把下一步想法写出来。"></textarea>
+                  </label>
+                  <div class="control-actions">
+                    <button class="ghost-btn primary-btn" id="continueCoachBtn" type="button">继续</button>
+                    <button class="ghost-btn" id="resumeCoachBtn" type="button">再问一步</button>
+                    <button class="ghost-btn" id="coachToWrongbookBtn" type="button">存到错题本</button>
+                    <button class="ghost-btn" id="cancelCoachBtn" type="button">重来</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="page-surface">
+                <div class="section-head">
+                  <div>
+                    <p class="section-tag">引导记录</p>
+                    <h2>聊天记录</h2>
+                  </div>
+                </div>
+                <div id="coachOutput" class="chat-shell"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page panel panel-wrongbook" data-panel="wrongbook">
+            <div class="page-grid wrongbook-grid">
+              <section class="control-card wrongbook-entry-card">
+                <p class="section-tag">错题本</p>
+                <h2 class="card-title">存错题</h2>
+                <p class="memory-note">先点右侧知识点，再存题。</p>
+
+                <label class="field">
+                  <span>主知识点</span>
+                  <input id="wrongbookPrimaryNodeId" type="text" placeholder="先点右侧知识点" />
+                </label>
+                <label class="field">
+                  <span>题目</span>
+                  <textarea id="wrongbookStem" rows="6" placeholder="把题目放这里"></textarea>
+                </label>
+                <label class="field">
+                  <span>标准答案</span>
+                  <textarea id="wrongbookCorrectAnswer" rows="3" placeholder="标准答案"></textarea>
+                </label>
+                <label class="field">
+                  <span>参考解析</span>
+                  <textarea id="wrongbookSolutionText" rows="4" placeholder="参考解析"></textarea>
+                </label>
+
+                <details class="details-card">
+                  <summary>
+                    <span class="details-summary-main">更多设置</span>
+                    <span class="details-summary-note">最少填知识点、题目、答案。</span>
+                  </summary>
+                  <label class="field">
+                    <span>辅助知识点（可选）</span>
+                    <input id="wrongbookSecondaryNodeIds" type="text" placeholder="例如 math.xxx, math.yyy" />
+                  </label>
+                  <label class="field">
+                    <span>题目编号（可选）</span>
+                    <input id="wrongbookQuestionId" type="text" placeholder="例如 wq_manual_001" />
+                  </label>
+                  <label class="field">
+                    <span>题型</span>
+                    <input id="wrongbookQuestionType" type="text" placeholder="例如 证明题 / 解答题 / 选择题" />
+                  </label>
+                  <label class="field">
+                    <span>学生答案（可选）</span>
+                    <textarea id="wrongbookStudentAnswer" rows="3" placeholder="学生原始作答"></textarea>
+                  </label>
+                  <label class="field">
+                    <span>来源名称（可选）</span>
+                    <input id="wrongbookSourceName" type="text" placeholder="例如 学生手动录入 / 模拟卷 / 学科网" />
+                  </label>
+                  <label class="field">
+                    <span>来源类型</span>
+                    <select id="wrongbookSourceType">
+                      <option value="manual_entry">手动加入</option>
+                      <option value="ocr_direct">OCR 直入</option>
+                      <option value="diagnosis_transfer">诊断转入</option>
+                      <option value="coach_transfer">引导转入</option>
+                      <option value="binder_import">系统绑定导入</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>来源章节（可选）</span>
+                    <input id="wrongbookSourceChapter" type="text" placeholder="例如 数列 / 双曲线 / 导数" />
+                  </label>
+                  <label class="field">
+                    <span>优先提示（可选）</span>
+                    <input id="wrongbookPriorityNote" type="text" placeholder="例如 先复习这题" />
+                  </label>
+                  <label class="field">
+                    <span>错题笔记（可选）</span>
+                    <textarea id="wrongbookQuestionNote" rows="3" placeholder="记录错因、补充思路或复盘笔记"></textarea>
+                  </label>
+                </details>
+
+                <div class="control-actions">
+                  <button class="ghost-btn primary-btn" id="createWrongbookQuestionBtn" type="button">加入错题本</button>
+                </div>
+
+                <details class="details-card">
+                  <summary>
+                    <span class="details-summary-main">新建知识点</span>
+                    <span class="details-summary-note">没有合适位置时再新建。</span>
+                  </summary>
+                  <label class="field">
+                    <span>父节点编号</span>
+                    <input id="wrongbookParentNodeId" type="text" placeholder="例如 math.解析几何.圆锥曲线" />
+                  </label>
+                  <label class="field">
+                    <span>新节点标题</span>
+                    <input id="wrongbookNodeTitle" type="text" placeholder="例如 圆锥曲线中最值范围问题" />
+                  </label>
+                  <label class="field">
+                    <span>备注说明</span>
+                    <textarea id="wrongbookNodeDescription" rows="3" placeholder="为什么要新建这个点"></textarea>
+                  </label>
+                  <div class="control-actions">
+                    <button class="ghost-btn" id="createWrongbookNodeBtn" type="button">新建知识点</button>
+                  </div>
+                </details>
+              </section>
+
+              <section class="page-surface">
+                <div class="section-head">
+                  <div>
+                    <p class="section-tag">知识点目录</p>
+                    <h2>按知识点看题</h2>
+                  </div>
+                  <p class="inline-note" id="wrongbookMeta"></p>
+                </div>
+                <div class="wrongbook-workspace">
+                  <aside class="wrongbook-sidebar-shell">
+                    <div class="wrongbook-toolbar">
+                      <div>
+                        <p class="section-tag">知识点目录</p>
+                        <p class="tree-toolbar-text">点左边知识点，右边看题。</p>
+                      </div>
+                      <div class="tree-toolbar-actions">
+                        <button class="ghost-btn" id="wrongbookBackBtn" type="button">上一级</button>
+                        <button class="ghost-btn" id="wrongbookRootBtn" type="button">根目录</button>
+                      </div>
+                    </div>
+                    <div id="wrongbookTreeRoot" class="wrongbook-tree"></div>
+                  </aside>
+                  <section id="wrongbookDetailPanel" class="wrongbook-detail-panel"></section>
+                </div>
+              </section>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>

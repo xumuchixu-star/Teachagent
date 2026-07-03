@@ -1,0 +1,214 @@
+{
+  "record_id": "review_state.teachagent_system_overview.v1",
+  "student_id": "student_overview_demo",
+  "generated_at": "2026-06-24T09:19:58.892898+00:00",
+  "knowledge_point_states": [
+    {
+      "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_seq_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。"
+    },
+    {
+      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_seq_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_vec_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_vec_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+    },
+    {
+      "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_circle_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+    },
+    {
+      "node_id": "math.解析几何.圆的方程.圆的标准方程",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "wq_overview_circle_001"
+      ],
+      "source_batch_ids": [
+        "teachagent_system_overview_batch_01"
+      ],
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+    }
+  ],
+  "example_question_states": [
+    {
+      "question_id": "wq_overview_seq_001",
+      "state": "new",
+      "linked_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "primary_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+      ],
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "question_payload": {
+        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+        "question_type": "证明题",
+        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。",
+        "teacher_comment": "核心卡点是把递推式通过同时加 1/2 变形成 b_{n+1}=3b_n，再用等比数列定义完成证明。",
+        "source_name": "binder_harness",
+        "source_section": "数列递推转等比",
+        "tags": [
+          "数列",
+          "递推",
+          "构造新数列",
+          "等比数列"
+        ]
+      },
+      "source_batch_id": "teachagent_system_overview_batch_01",
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。"
+    },
+    {
+      "question_id": "wq_overview_vec_001",
+      "state": "new",
+      "linked_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "primary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+      ],
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "question_payload": {
+        "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+        "question_type": "选择题",
+        "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+        "correct_answer": "2π/3",
+        "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。",
+        "teacher_comment": "核心是先把向量和关系转成模平方，再用数量积和夹角公式完成求角。",
+        "source_name": "binder_harness",
+        "source_section": "平面向量夹角",
+        "tags": [
+          "平面向量",
+          "数量积",
+          "夹角公式"
+        ]
+      },
+      "source_batch_id": "teachagent_system_overview_batch_01",
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+    },
+    {
+      "question_id": "wq_overview_circle_001",
+      "state": "new",
+      "linked_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "primary_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式"
+      ],
+      "secondary_node_ids": [
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "question_payload": {
+        "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+        "question_type": "选择题",
+        "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+        "correct_answer": "-12≤t≤8",
+        "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+        "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+        "source_name": "binder_harness",
+        "source_section": "圆与直线综合",
+        "tags": [
+          "解析几何",
+          "圆",
+          "点到直线距离"
+        ]
+      },
+      "source_batch_id": "teachagent_system_overview_batch_01",
+      "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+      "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+    }
+  ],
+  "notes": {
+    "annotation_bridge": {
+      "bridge_source": "annotation_to_review_state",
+      "source_batch_id": "teachagent_system_overview_batch_01",
+      "annotation_record_count": 3,
+      "imported_question_count": 3,
+      "skipped_records": []
+    }
+  }
+}

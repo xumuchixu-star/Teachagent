@@ -1,0 +1,126 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "typed_leaf_card_schema",
+  "layers": [
+    "knowledge_tree",
+    "leaf_cards",
+    "relations"
+  ],
+  "tree_node_kinds": [
+    "category",
+    "concept",
+    "formula",
+    "method",
+    "application"
+  ],
+  "leaf_node_kinds": [
+    "concept",
+    "formula",
+    "method",
+    "application"
+  ],
+  "review_roles": [
+    "core",
+    "supporting"
+  ],
+  "binding_roles": [
+    "primary_allowed",
+    "secondary_only"
+  ],
+  "base_fields": {
+    "required": [
+      "chunk_id",
+      "node_id",
+      "node_kind",
+      "review_role",
+      "binding_role",
+      "card_type",
+      "title",
+      "path",
+      "is_primary",
+      "text",
+      "keywords",
+      "source"
+    ],
+    "field_specs": {
+      "chunk_id": "Unique chunk id. Recommended format: chunk.<node_id>.<card_type>.v<version>",
+      "node_id": "Stable leaf node id from the knowledge tree",
+      "node_kind": "Leaf node type: concept, formula, method, or application",
+      "review_role": "core leaves are default review units; supporting leaves are usually expansion targets",
+      "binding_role": "primary_allowed can be the main wrong-question binding target; secondary_only is auxiliary",
+      "card_type": "Typed leaf card category",
+      "title": "Human-readable card title",
+      "path": "Full tree path, from root to leaf",
+      "is_primary": "Whether this card is the leaf's primary retrieval target",
+      "text": "Flattened retrieval text for embedding/BM25. Must restate title, path, core content, common errors, and review cue",
+      "keywords": "Short retrieval keywords",
+      "source": "Source file or generator"
+    },
+    "optional": [
+      "aliases",
+      "tags",
+      "prerequisite_node_ids",
+      "example_refs"
+    ]
+  },
+  "card_types": {
+    "concept_card": {
+      "purpose": "Represents a concept that should be understood, recognized, and distinguished from nearby concepts",
+      "required": [
+        "definition",
+        "recognition_signals",
+        "common_errors",
+        "review_cue"
+      ],
+      "optional": [
+        "boundary",
+        "core_idea"
+      ]
+    },
+    "formula_card": {
+      "purpose": "Represents a formula or rule that has expression, conditions, and special cases",
+      "required": [
+        "formula",
+        "applicable_conditions",
+        "special_cases",
+        "common_errors",
+        "review_cue"
+      ],
+      "optional": [
+        "variable_notes",
+        "derivation_hint"
+      ]
+    },
+    "method_card": {
+      "purpose": "Represents a stable solving procedure or transferable method",
+      "required": [
+        "method_goal",
+        "trigger_signals",
+        "steps",
+        "failure_modes",
+        "review_cue"
+      ],
+      "optional": [
+        "applicable_problem_types"
+      ]
+    }
+  },
+  "generation_rules": [
+    "Every leaf node must generate at least one primary card",
+    "Primary cards are the default retrieval units for first-pass RAG",
+    "Supporting method leaves should usually use binding_role=secondary_only",
+    "The text field should be self-contained enough to work without reading sibling cards",
+    "Structured fields should be preserved even when text is embedded",
+    "Future extensions such as example_card and error_card can be added without changing the current base fields"
+  ],
+  "recommended_embedding_fields": [
+    "title",
+    "aliases",
+    "text",
+    "keywords",
+    "recognition_signals",
+    "applicable_conditions",
+    "trigger_signals"
+  ]
+}

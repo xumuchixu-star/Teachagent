@@ -1,0 +1,612 @@
+错题 — 叶子知识点绑定方案
+
+目标
+
+把每一道错题稳定地绑定到 1 个主叶子知识点 + 0~2 个辅助叶子知识点，并且：
+
+1. 给出 `top-k` 候选，而不是只给单点答案
+2. 给出每个候选的“为什么匹配”的理由
+3. 结合遗忘函数，形成“这道错题现在最该复习什么”的排序
+4. 后续能随着做题数据不断更新，而不是一次性静态匹配
+
+
+一、你现在最适合做的版本
+
+先不要上复杂训练模型，先做一个三段式绑定器：
+
+1. 候选召回层
+   输入：错题文本、标准答案、可选的学生错误答案、题型标签
+   输出：`top-k` 叶子候选，建议 `k=5`
+
+2. 候选打分层
+   对这 `top-k` 做细打分，输出：
+   - 主叶子 `top-1`
+   - 辅助叶子 `top-2`
+   - 每个候选的理由
+
+3. 记忆调度层
+   不改变“题目属于哪个知识点”的事实判断
+   只回答：“这些已绑定知识点里，哪个现在最该复习”
+
+这个结构非常重要：
+
+绑定是知识判断
+遗忘函数是复习优先级判断
+
+这两个不要混成一个分数。
+
+
+二、输入对象设计
+
+每道错题建议统一成一个 `wrong_question_record`：
+
+```json
+{
+  "question_id": "wq_000123",
+  "stem": "题干全文",
+  "question_type": "选择题/填空题/大题",
+  "student_answer": "学生作答，可为空",
+  "correct_answer": "标准答案",
+  "solution_text": "标准解析，可为空",
+  "teacher_comment": "老师点评，可为空",
+  "source": "试卷名/章节名/日期",
+  "created_at": "2026-06-20T10:00:00+08:00"
+}
+```
+
+如果你以后有 OCR 笔记、错题截图，也先转成这个统一结构。
+
+
+三、知识库侧要用到哪些字段
+
+现在你的叶子卡已经够用了，绑定时优先用这些字段：
+
+1. `title`
+2. `aliases`
+3. `keywords`
+4. `text`
+5. `node_kind`
+6. `path`
+7. `review_role`
+8. `binding_role`
+
+推荐做一个“绑定专用索引文本”：
+
+```text
+title + aliases + keywords + path + text
+```
+
+理由：
+
+`title` 和 `aliases` 负责显式命中
+`keywords` 负责题目术语和常见叫法
+`path` 负责学科上下文
+`text` 负责细粒度语义
+
+
+四、候选召回层
+
+目标：先把可能相关的叶子召回来，不要求一次排最准。
+
+推荐混合召回：
+
+1. 稠密召回
+   - 用 `embedding(question_text)` 去搜叶子卡
+   - 建议字段：`stem + correct_answer + solution_text`
+
+2. 稀疏召回
+   - BM25 / keyword overlap
+   - 特别适合“导数”“二倍角”“圆标准方程”这种显式词
+
+3. 规则召回
+   - 从题目里抽显式数学词
+   - 例如：
+     - 出现“导数”“单调”“极值” → 导数子树加权
+     - 出现“正弦定理”“余弦定理” → 解三角形子树加权
+     - 出现“圆心”“半径”“切线” → 圆的方程子树加权
+
+最终召回分建议：
+
+```text
+recall_score
+= 0.55 * embedding_score
++ 0.30 * sparse_score
++ 0.15 * rule_score
+```
+
+然后取 `top-5`。
+
+为什么 `top-5` 可以接受：
+
+因为这一层目标不是“直接定罪”，而是“不要漏掉真正答案”。
+后面还有精排和理由生成。
+
+
+五、候选打分层
+
+对召回出的 `top-5` 候选做更细判断。
+
+建议每个候选叶子计算 5 个子分：
+
+1. `semantic_match_score`
+   题目语义和叶子内容是否一致
+
+2. `keyword_match_score`
+   显式词是否重合
+
+3. `solution_alignment_score`
+   标准答案/解析中使用的方法，是否和叶子一致
+
+4. `granularity_fit_score`
+   这个叶子粒度是否合适
+   例如：
+   - “导数”太大，粒度偏粗
+   - “利用导数求函数极值”更合适
+
+5. `binding_role_score`
+   优先 `primary_allowed`
+   `secondary_only` 只适合做辅助叶子
+
+精排总分建议：
+
+```text
+bind_score
+= 0.35 * semantic_match_score
++ 0.20 * keyword_match_score
++ 0.25 * solution_alignment_score
++ 0.15 * granularity_fit_score
++ 0.05 * binding_role_score
+```
+
+然后输出：
+
+- `primary_leaf`: `top-1`
+- `secondary_leaves`: 后续 0~2 个
+
+建议规则：
+
+1. 主叶子必须只有 1 个
+2. 辅助叶子最多 2 个
+3. 辅助叶子必须解释“为什么不是主叶子”
+
+
+六、为什么需要“给出理由”
+
+因为你后面一定会问：
+
+“为什么这道题是这个知识点，不是那个？”
+
+所以每个候选都要输出机器可读理由。
+
+推荐结构：
+
+```json
+{
+  "node_id": "...",
+  "rank": 1,
+  "bind_score": 0.87,
+  "reason": {
+    "matched_keywords": ["单调性", "导数", "导函数符号"],
+    "matched_solution_pattern": "解析中先求导，再列符号表判断区间增减",
+    "granularity_judgment": "比“导数”更细，比“导数四则运算法则”更贴题",
+    "why_selected": "题目核心不是求导本身，而是利用导数判断函数单调性"
+  }
+}
+```
+
+你后续在产品上就可以直接展示：
+
+- 主绑定知识点
+- top-5 候选
+- 每个候选的匹配理由
+
+
+七、绑定结果的数据结构
+
+建议最终产物叫 `wrong_question_leaf_binding`：
+
+```json
+{
+  "question_id": "wq_000123",
+  "primary_leaf_node_id": "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+  "secondary_leaf_node_ids": [
+    "math.集合_映射_函数与导数.导数.导数四则运算法则"
+  ],
+  "top_k_candidates": [
+    {
+      "node_id": "...",
+      "rank": 1,
+      "bind_score": 0.87,
+      "reason": {...}
+    },
+    {
+      "node_id": "...",
+      "rank": 2,
+      "bind_score": 0.73,
+      "reason": {...}
+    }
+  ],
+  "binding_confidence": 0.87,
+  "binding_version": "binding_v1",
+  "created_at": "2026-06-20T12:00:00+08:00"
+}
+```
+
+
+八、遗忘函数怎么接进来
+
+这里最容易乱。
+
+遗忘函数不要参与“题目属于哪个叶子”的语义绑定。
+遗忘函数只参与“绑定后哪个叶子优先复习”。
+
+也就是：
+
+```text
+绑定分 = 这题像不像这个知识点
+遗忘分 = 这个知识点现在忘得多不多
+```
+
+两个分最后组合成“复习优先分”。
+
+
+九、建议的遗忘状态记录
+
+对每个学生、每个叶子，维护一个 `memory_state`：
+
+```json
+{
+  "student_id": "stu_001",
+  "node_id": "math....",
+  "mastery": 0.58,
+  "last_seen_at": "2026-06-18T20:00:00+08:00",
+  "last_wrong_at": "2026-06-20T09:00:00+08:00",
+  "wrong_count": 4,
+  "correct_count": 2,
+  "stability": 0.42,
+  "difficulty_estimate": 0.71
+}
+```
+
+可以先做一个轻量版本：
+
+1. `mastery`
+   当前掌握度，0 到 1
+
+2. `stability`
+   记忆稳定性，越大衰减越慢
+
+3. `last_seen_at`
+   最近一次接触时间
+
+4. `wrong_count / correct_count`
+   历史表现
+
+
+十、一个够用的轻量遗忘函数
+
+先不做很学术的 SRS 模型，先上一个能跑的：
+
+```text
+forget_score = 1 - mastery * exp(-lambda * delta_t / max(stability, s_min))
+```
+
+其中：
+
+- `delta_t`: 距离上次复习/做题过去的时间
+- `mastery`: 当前掌握度
+- `stability`: 稳定性
+- `lambda`: 衰减系数
+- `s_min`: 防止除零的最小稳定度
+
+直观理解：
+
+- 掌握度低 → 更容易忘
+- 时间久 → 更容易忘
+- 稳定性低 → 忘得更快
+
+
+十点五、遗忘对象不应只有“错题”，还要有“知识点”
+
+这里建议你把复习体系拆成两条线：
+
+1. 错题复习线
+   作用：
+   - 让学生回看自己曾经错过的具体题目
+   - 保留原始错误情境
+   - 适合查“这题我当时错在哪”
+
+2. 知识点复习线
+   作用：
+   - 直接复习叶子卡本身
+   - 不依赖某一道具体题
+   - 适合查“这个知识点我整体熟不熟”
+
+最重要的原则：
+
+错题不是遗忘系统的唯一主体。
+真正稳定的记忆单位应该是 `leaf node`。
+
+也就是说：
+
+- 错题是证据
+- 叶子知识点是记忆状态主对象
+
+推荐数据结构：
+
+```text
+student -> leaf memory state
+student -> wrong question review state
+```
+
+其中：
+
+1. `leaf memory state`
+   负责判断：
+   - 哪个知识点忘得快
+   - 哪个知识点掌握不稳
+   - 今天先复习哪个叶子
+
+2. `wrong question review state`
+   负责判断：
+   - 哪道错题该回看
+   - 哪道题已经看过很多次但仍反复出错
+   - 哪些题可以作为某叶子的代表题
+
+所以调度时最好输出两类队列：
+
+```text
+leaf_review_queue
+wrong_question_review_queue
+```
+
+更进一步，你可以做成联动：
+
+- 若某叶子 `forget_score` 很高
+  - 先推这个叶子的叶子卡
+  - 再推 1~2 道绑定到该叶子的代表错题
+
+- 若某道错题最近连续错
+  - 先回看该错题
+  - 再顺带拉起它对应的主叶子知识点
+
+这样复习就不会只停留在“刷旧题”，也不会变成“空背知识点”。
+
+
+十一、错题后的状态更新
+
+每做完一道题，对绑定到的叶子更新状态。
+
+建议简单规则：
+
+1. 主叶子答错：
+   - `mastery -= 0.12`
+   - `stability *= 0.82`
+   - `wrong_count += 1`
+
+2. 辅助叶子答错：
+   - `mastery -= 0.06`
+   - `stability *= 0.90`
+
+3. 若后续同叶子题答对：
+   - `mastery += 0.05 ~ 0.10`
+   - `stability *= 1.08 ~ 1.15`
+
+4. 所有更新都截断在合理范围：
+   - `mastery ∈ [0,1]`
+   - `stability ∈ [s_min, s_max]`
+
+
+十二、最终复习优先级怎么排
+
+对某道错题绑定后的几个叶子，给一个最终复习优先分：
+
+```text
+review_priority_score
+= 0.55 * forget_score
++ 0.30 * bind_score
++ 0.15 * error_severity_score
+```
+
+其中：
+
+1. `forget_score`
+   这个叶子现在忘得多不多
+
+2. `bind_score`
+   这道题与这个叶子贴不贴
+
+3. `error_severity_score`
+   这次错得有多关键
+   例如：
+   - 主知识点错：高
+   - 辅助知识点错：中
+   - 只是计算失误：低
+
+这样输出时你就能得到：
+
+- 这题主知识点是谁
+- top-k 候选是谁
+- 为什么
+- 先复习哪个
+
+
+十二点五、建议再单独维护一个“知识点复习优先分”
+
+因为你现在已经明确：不仅错题要复习，知识点也要复习。
+
+所以建议单独有一个叶子级别分数：
+
+```text
+leaf_review_priority_score
+= 0.60 * forget_score
++ 0.20 * recent_wrong_pressure
++ 0.10 * low_mastery_penalty
++ 0.10 * importance_weight
+```
+
+解释：
+
+1. `forget_score`
+   这个知识点时间上是不是该复习了
+
+2. `recent_wrong_pressure`
+   最近是否连续有错题打到这个叶子
+
+3. `low_mastery_penalty`
+   这个叶子整体掌握度是否长期偏低
+
+4. `importance_weight`
+   核心高频叶子可以额外抬一点优先级
+
+这样你就会有两种优先级：
+
+1. `wrong_question_review_priority_score`
+   面向“题”的复习
+
+2. `leaf_review_priority_score`
+   面向“知识点”的复习
+
+最终调度可以按比例混合，比如：
+
+- `60%` 知识点复习
+- `40%` 错题回看
+
+或者根据学生阶段动态调整。
+
+
+十三、推荐的最终输出
+
+给前端/Agent 用的输出建议是：
+
+```json
+{
+  "question_id": "wq_000123",
+  "primary_leaf": {
+    "node_id": "...",
+    "bind_score": 0.87,
+    "forget_score": 0.61,
+    "review_priority_score": 0.73,
+    "reason": "解析核心是先求导，再列符号表判断区间增减"
+  },
+  "secondary_leaves": [
+    {
+      "node_id": "...",
+      "bind_score": 0.73,
+      "forget_score": 0.54,
+      "review_priority_score": 0.60,
+      "reason": "题中还涉及导数运算法则，但不是主考点"
+    }
+  ],
+  "top_k_candidates": [...],
+  "review_order": [
+    "primary_leaf_node_id",
+    "secondary_leaf_node_id_1"
+  ]
+}
+```
+
+
+十四、最重要的一个产品规则
+
+一个错题通常只绑定：
+
+- `1` 个主叶子
+- `0~2` 个辅助叶子
+
+不要让一题挂 5 个知识点。
+
+否则后面：
+
+- 复习调度会发散
+- 遗忘函数会污染
+- 学生也会觉得“这题哪都不会”
+
+你现在的知识树已经细了，反而更要克制绑定数量。
+
+
+十五、推荐实现顺序
+
+第 1 步
+
+先做一个离线脚本：
+
+- 输入：一道错题 JSON
+- 输出：
+  - `top-5`
+  - 主叶子
+  - 辅助叶子
+  - 理由
+
+第 2 步
+
+再维护 `student_leaf_memory_state`
+
+- 每做一题更新
+- 计算 `forget_score`
+
+第 3 步
+
+再做“复习推荐器”
+
+- 给学生输出：
+  - 今天最该复习的叶子
+  - 对应错题
+  - 推荐原因
+
+
+十六、和你当前工程最贴合的落点
+
+你现在最适合新增 3 个产物：
+
+1. `wrong_question_binding_schema.json`
+   规范错题绑定结果格式
+
+2. `memory_state_schema.json`
+   规范学生-叶子记忆状态格式
+
+3. `wrong_question_leaf_binding_design.md`
+   说明召回、精排、遗忘调度的流程
+
+
+十七、最小可用版本
+
+如果你现在想先快速做出来，建议 MVP 如下：
+
+1. 用叶子卡 `title + aliases + keywords + text` 建 embedding
+2. 每道错题召回 `top-5`
+3. 用规则 + 一个轻模型重排
+4. 输出：
+   - 主叶子
+   - 辅助叶子
+   - top-k
+   - 理由
+5. 先用简单遗忘函数做复习排序
+
+先不要上：
+
+- 复杂监督训练
+- 端到端 classifier
+- 多层 relation 图推理
+
+先把“绑定对 + 理由清楚 + 能排复习优先级”做好。
+
+
+十八、一句话总结
+
+最合理的结构不是：
+
+错题 -> 一个知识点
+
+而是：
+
+错题 -> top-k 候选 -> 主/辅叶子绑定 -> 每个绑定给理由 -> 再用遗忘函数决定复习优先级
+
+这样你后面无论做：
+
+- 错题本
+- 个性化复习
+- RAG 检索
+- Agent 讲题
+
+都会更稳。

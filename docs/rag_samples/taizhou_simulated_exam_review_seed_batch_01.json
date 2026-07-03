@@ -1,0 +1,331 @@
+{
+  "record_id": "review_seed.taizhou_simulated_exam_examples_batch_01.v1",
+  "student_id": "demo_student",
+  "generated_at": "2026-06-21T00:00:00+08:00",
+  "knowledge_point_states": [
+    {
+      "node_id": "math.集合_映射_函数与导数.集合.集合交集运算",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q001"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.集合_映射_函数与导数.集合.数轴表示集合关系",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q001"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q002"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q002"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.空间几何.空间几何体.柱体.棱柱.正棱柱",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q003"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q004"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q004"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q005"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q005"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q006"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q006"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.解析几何.圆的方程.直线与圆的位置关系",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q007"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q007"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.解析几何.圆的方程.圆的标准方程",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q007"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q010"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    },
+    {
+      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": ["q010"],
+      "source_batch_ids": ["taizhou_simulated_exam_examples_batch_01"],
+      "priority_note": "例题首轮导入"
+    }
+  ],
+  "example_question_states": [
+    {
+      "question_id": "q001",
+      "state": "new",
+      "linked_node_ids": [
+        "math.集合_映射_函数与导数.集合.集合交集运算",
+        "math.集合_映射_函数与导数.集合.数轴表示集合关系"
+      ],
+      "primary_node_ids": [
+        "math.集合_映射_函数与导数.集合.集合交集运算"
+      ],
+      "secondary_node_ids": [
+        "math.集合_映射_函数与导数.集合.数轴表示集合关系"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "集合基础例题"
+    },
+    {
+      "question_id": "q002",
+      "state": "new",
+      "linked_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义",
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算"
+      ],
+      "primary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+      ],
+      "secondary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "复数基础例题"
+    },
+    {
+      "question_id": "q003",
+      "state": "new",
+      "linked_node_ids": [
+        "math.空间几何.空间几何体.柱体.棱柱.正棱柱"
+      ],
+      "primary_node_ids": [
+        "math.空间几何.空间几何体.柱体.棱柱.正棱柱"
+      ],
+      "secondary_node_ids": [],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "当前知识树缺少更细的棱锥体积叶子"
+    },
+    {
+      "question_id": "q004",
+      "state": "new",
+      "linked_node_ids": [
+        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+      ],
+      "primary_node_ids": [
+        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+      ],
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "图象变换例题"
+    },
+    {
+      "question_id": "q005",
+      "state": "new",
+      "linked_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+        "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定"
+      ],
+      "primary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+      ],
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "逻辑判断和数列性质结合题"
+    },
+    {
+      "question_id": "q006",
+      "state": "new",
+      "linked_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "primary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+      ],
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "平面向量例题"
+    },
+    {
+      "question_id": "q007",
+      "state": "new",
+      "linked_node_ids": [
+        "math.解析几何.圆的方程.直线与圆的位置关系",
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "primary_node_ids": [
+        "math.解析几何.圆的方程.直线与圆的位置关系"
+      ],
+      "secondary_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "圆与直线综合例题"
+    },
+    {
+      "question_id": "q010",
+      "state": "new",
+      "linked_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "primary_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+      ],
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "source_batch_id": "taizhou_simulated_exam_examples_batch_01",
+      "last_result": "unseen",
+      "review_count": 0,
+      "priority_note": "递推数列转化例题"
+    }
+  ],
+  "review_plan": {
+    "mode": "mixed",
+    "recommended_node_ids": [
+      "math.集合_映射_函数与导数.集合.集合交集运算",
+      "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义",
+      "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+      "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+      "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+    ],
+    "recommended_question_ids": [
+      "q001",
+      "q002",
+      "q004",
+      "q005",
+      "q010"
+    ],
+    "recommended_bundles": [
+      {
+        "node_id": "math.集合_映射_函数与导数.集合.集合交集运算",
+        "question_id": "q001"
+      },
+      {
+        "node_id": "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义",
+        "question_id": "q002"
+      },
+      {
+        "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+        "question_id": "q010"
+      }
+    ]
+  },
+  "notes": [
+    "这是一份例题首轮导入样例，不是学生真实做题后的状态。",
+    "后续接入真实学生复习时，只需要更新 mastery、stability、last_result、next_review_at 等字段。"
+  ]
+}

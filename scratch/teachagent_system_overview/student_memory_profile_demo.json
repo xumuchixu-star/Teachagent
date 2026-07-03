@@ -1,0 +1,1929 @@
+{
+  "record_id": "student_memory.student_overview_demo",
+  "student_id": "student_overview_demo",
+  "profile_version": "student_memory_profile_v1",
+  "generated_at": "2026-06-24T09:19:58.906429+00:00",
+  "updated_at": "2026-06-27T20:00:00+08:00",
+  "error_type_counts": {
+    "concept_gap": 1,
+    "missing_strategy": 2,
+    "misreading": 0,
+    "calculation": 0,
+    "careless": 0
+  },
+  "node_memories": [
+    {
+      "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "linked_question_ids": [
+        "wq_overview_seq_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 1,
+      "consecutive_wrong_count": 2,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.25,
+      "last_seen_at": "2026-06-27T20:00:00+08:00",
+      "last_wrong_at": "2026-06-24T20:03:00+08:00",
+      "last_event_at": "2026-06-27T20:00:00+08:00",
+      "dominant_error_type": "missing_strategy",
+      "recommended_intervention": "show_strategy_first",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "linked_question_ids": [
+        "wq_overview_seq_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 0,
+      "consecutive_wrong_count": 1,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.0,
+      "last_seen_at": "2026-06-26T20:00:00+08:00",
+      "last_wrong_at": "2026-06-24T20:03:00+08:00",
+      "last_event_at": "2026-06-26T20:00:00+08:00",
+      "dominant_error_type": "missing_strategy",
+      "recommended_intervention": null,
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "linked_question_ids": [
+        "wq_overview_vec_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 0,
+      "consecutive_wrong_count": 1,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.0,
+      "last_seen_at": "2026-06-26T20:25:00+08:00",
+      "last_wrong_at": "2026-06-24T20:28:00+08:00",
+      "last_event_at": "2026-06-26T20:25:00+08:00",
+      "dominant_error_type": "missing_strategy",
+      "recommended_intervention": null,
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "linked_question_ids": [
+        "wq_overview_vec_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 0,
+      "consecutive_wrong_count": 1,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.0,
+      "last_seen_at": "2026-06-26T20:25:00+08:00",
+      "last_wrong_at": "2026-06-24T20:28:00+08:00",
+      "last_event_at": "2026-06-26T20:25:00+08:00",
+      "dominant_error_type": "missing_strategy",
+      "recommended_intervention": null,
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "linked_question_ids": [
+        "wq_overview_circle_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 1,
+        "missing_strategy": 0,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 0,
+      "consecutive_wrong_count": 1,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.0,
+      "last_seen_at": "2026-06-26T20:50:00+08:00",
+      "last_wrong_at": "2026-06-24T20:53:00+08:00",
+      "last_event_at": "2026-06-26T20:50:00+08:00",
+      "dominant_error_type": "concept_gap",
+      "recommended_intervention": "reteach_concept",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "node_id": "math.解析几何.圆的方程.圆的标准方程",
+      "linked_question_ids": [
+        "wq_overview_circle_001"
+      ],
+      "error_type_counts": {
+        "concept_gap": 1,
+        "missing_strategy": 0,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "observed_wrong_count": 1,
+      "review_wrong_count": 0,
+      "review_correct_count": 0,
+      "review_partial_count": 0,
+      "practice_request_count": 0,
+      "consecutive_wrong_count": 1,
+      "mastery_hint": 0.0,
+      "stability_hint": 0.0,
+      "last_seen_at": "2026-06-26T20:50:00+08:00",
+      "last_wrong_at": "2026-06-24T20:53:00+08:00",
+      "last_event_at": "2026-06-26T20:50:00+08:00",
+      "dominant_error_type": "concept_gap",
+      "recommended_intervention": "reteach_concept",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    }
+  ],
+  "question_memories": [
+    {
+      "question_id": "wq_overview_seq_001",
+      "question_type": "证明题",
+      "linked_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "review_count": 1,
+      "wrong_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "last_result": "wrong",
+      "last_error_type": "missing_strategy",
+      "source_name": "binder_harness",
+      "source_section": "数列递推转等比",
+      "last_seen_at": "2026-06-26T20:00:00+08:00",
+      "last_wrong_at": "2026-06-24T20:03:00+08:00",
+      "last_event_at": "2026-06-26T20:00:00+08:00",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "question_id": "wq_overview_vec_001",
+      "question_type": "选择题",
+      "linked_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "error_type_counts": {
+        "concept_gap": 0,
+        "missing_strategy": 1,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "review_count": 1,
+      "wrong_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "last_result": "partial",
+      "last_error_type": "missing_strategy",
+      "source_name": "binder_harness",
+      "source_section": "平面向量夹角",
+      "last_seen_at": "2026-06-26T20:25:00+08:00",
+      "last_wrong_at": "2026-06-24T20:28:00+08:00",
+      "last_event_at": "2026-06-26T20:25:00+08:00",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    },
+    {
+      "question_id": "wq_overview_circle_001",
+      "question_type": "选择题",
+      "linked_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "error_type_counts": {
+        "concept_gap": 1,
+        "missing_strategy": 0,
+        "misreading": 0,
+        "calculation": 0,
+        "careless": 0
+      },
+      "diagnosis_count": 1,
+      "review_count": 1,
+      "wrong_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "last_result": "wrong",
+      "last_error_type": "concept_gap",
+      "source_name": "binder_harness",
+      "source_section": "圆与直线综合",
+      "last_seen_at": "2026-06-26T20:50:00+08:00",
+      "last_wrong_at": "2026-06-24T20:53:00+08:00",
+      "last_event_at": "2026-06-26T20:50:00+08:00",
+      "signal_strength": "tentative",
+      "observation_stage": "early_observation"
+    }
+  ],
+  "event_history": [
+    {
+      "event_type": "binding",
+      "occurred_at": "2026-06-24T20:00:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "question_id": "wq_overview_seq_001",
+      "question_type": "证明题",
+      "primary_node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "candidate_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "binding_source": "student_confirmed",
+      "binding_confidence": "0.9",
+      "annotation_mode": null,
+      "source_name": "binder_harness",
+      "source_section": "数列递推转等比",
+      "metadata": null
+    },
+    {
+      "event_type": "student_choice",
+      "occurred_at": "2026-06-24T20:01:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action_type": "select_node",
+      "question_id": "wq_overview_seq_001",
+      "question_type": "证明题",
+      "target_type": "question",
+      "target_id": "wq_overview_seq_001",
+      "selected_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "primary_node_id": null,
+      "secondary_node_ids": [],
+      "note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+      "source_name": "binder_harness",
+      "source_section": "数列递推转等比",
+      "metadata": null
+    },
+    {
+      "event_type": "diagnosis",
+      "occurred_at": "2026-06-24T20:03:00+08:00",
+      "question_id": "wq_overview_seq_001",
+      "question_type": "证明题",
+      "error_type": "missing_strategy",
+      "primary_node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "reason": "学生知道要从递推式入手，但不会自己提出构造新数列这个中间目标。",
+      "evidence": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2。",
+      "confidence": 0.84,
+      "coach_mode": "socratic_light",
+      "coach_trap": "学生知道局部知识，但不会先确定中间目标。",
+      "coach_prompt": "先让学生明确中间目标，再推进具体变形。",
+      "diagnosis_source": null
+    },
+    {
+      "event_type": "coach",
+      "occurred_at": "2026-06-24T20:06:00+08:00",
+      "question_id": "wq_overview_seq_001",
+      "question_type": "证明题",
+      "primary_node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "error_type": "missing_strategy",
+      "coach_mode": "socratic_light",
+      "coach_trap": "学生知道局部知识，但不会先确定中间目标。",
+      "coach_prompt": "先让学生明确中间目标，再推进具体变形。",
+      "reply_quality": "empty",
+      "understands": false,
+      "completed": false,
+      "turn_index": 1,
+      "done": false,
+      "stop_reason": "continue",
+      "reason": "学生还说不出“后一项等于前一项乘固定因子”这个中间目标。"
+    },
+    {
+      "event_type": "binding",
+      "occurred_at": "2026-06-24T20:25:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "question_id": "wq_overview_vec_001",
+      "question_type": "选择题",
+      "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "candidate_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "binding_source": "student_confirmed",
+      "binding_confidence": "0.9",
+      "annotation_mode": null,
+      "source_name": "binder_harness",
+      "source_section": "平面向量夹角",
+      "metadata": null
+    },
+    {
+      "event_type": "student_choice",
+      "occurred_at": "2026-06-24T20:26:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action_type": "select_node",
+      "question_id": "wq_overview_vec_001",
+      "question_type": "选择题",
+      "target_type": "question",
+      "target_id": "wq_overview_vec_001",
+      "selected_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "primary_node_id": null,
+      "secondary_node_ids": [],
+      "note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+      "source_name": "binder_harness",
+      "source_section": "平面向量夹角",
+      "metadata": null
+    },
+    {
+      "event_type": "diagnosis",
+      "occurred_at": "2026-06-24T20:28:00+08:00",
+      "question_id": "wq_overview_vec_001",
+      "question_type": "选择题",
+      "error_type": "missing_strategy",
+      "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "reason": "学生知道数量积，但不会先把向量和关系转成模平方结构。",
+      "evidence": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+      "confidence": 0.79,
+      "coach_mode": "socratic_light",
+      "coach_trap": "学生会局部公式，但不会先做结构转换。",
+      "coach_prompt": "先提醒把向量和关系改写成模平方，再问下一步。",
+      "diagnosis_source": null
+    },
+    {
+      "event_type": "coach",
+      "occurred_at": "2026-06-24T20:31:00+08:00",
+      "question_id": "wq_overview_vec_001",
+      "question_type": "选择题",
+      "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "error_type": "missing_strategy",
+      "coach_mode": "socratic_light",
+      "coach_trap": "学生会局部公式，但不会先做结构转换。",
+      "coach_prompt": "先点出结构转换，再只追问一个关键中间量。",
+      "reply_quality": "weak",
+      "understands": true,
+      "completed": false,
+      "turn_index": 1,
+      "done": false,
+      "stop_reason": "continue",
+      "reason": "学生已经想到数量积，但还不会主动把向量和改写成模平方。"
+    },
+    {
+      "event_type": "binding",
+      "occurred_at": "2026-06-24T20:50:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "question_id": "wq_overview_circle_001",
+      "question_type": "选择题",
+      "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "secondary_node_ids": [
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "candidate_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "binding_source": "student_confirmed",
+      "binding_confidence": "0.9",
+      "annotation_mode": null,
+      "source_name": "binder_harness",
+      "source_section": "圆与直线综合",
+      "metadata": null
+    },
+    {
+      "event_type": "student_choice",
+      "occurred_at": "2026-06-24T20:51:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action_type": "select_node",
+      "question_id": "wq_overview_circle_001",
+      "question_type": "选择题",
+      "target_type": "question",
+      "target_id": "wq_overview_circle_001",
+      "selected_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "primary_node_id": null,
+      "secondary_node_ids": [],
+      "note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+      "source_name": "binder_harness",
+      "source_section": "圆与直线综合",
+      "metadata": null
+    },
+    {
+      "event_type": "diagnosis",
+      "occurred_at": "2026-06-24T20:53:00+08:00",
+      "question_id": "wq_overview_circle_001",
+      "question_type": "选择题",
+      "error_type": "concept_gap",
+      "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "secondary_node_ids": [
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "reason": "学生不会把张角存在性先转成圆心到直线距离范围，几何判定概念不稳。",
+      "evidence": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+      "confidence": 0.82,
+      "coach_mode": "direct_explain",
+      "coach_trap": "学生缺少必要概念，继续追问会放大挫败。",
+      "coach_prompt": "先讲清存在性转化，再回到距离公式。",
+      "diagnosis_source": null
+    },
+    {
+      "event_type": "coach",
+      "occurred_at": "2026-06-24T20:56:00+08:00",
+      "question_id": "wq_overview_circle_001",
+      "question_type": "选择题",
+      "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "secondary_node_ids": [
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "error_type": "concept_gap",
+      "coach_mode": "direct_explain",
+      "coach_trap": "学生缺少必要概念，继续追问会放大挫败。",
+      "coach_prompt": "先讲清存在性转化，再回到距离公式。",
+      "reply_quality": "good",
+      "understands": true,
+      "completed": false,
+      "turn_index": 1,
+      "done": false,
+      "stop_reason": "continue",
+      "reason": "学生已经接住了“先转成距离范围”这个核心概念，但还没把后续不等式写完。"
+    },
+    {
+      "event_type": "review",
+      "occurred_at": "2026-06-26T20:00:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action": "review_result",
+      "target_type": "wrong_question",
+      "target_id": "wq_overview_seq_001",
+      "question_id": "wq_overview_seq_001",
+      "primary_node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "linked_node_ids": [
+        "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+      ],
+      "linked_question_ids": [],
+      "result": null,
+      "updated_payload": {
+        "record_id": "review_state.teachagent_system_overview.v1",
+        "student_id": "student_overview_demo",
+        "generated_at": "2026-06-24T09:19:58.892898+00:00",
+        "knowledge_point_states": [
+          {
+            "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+          },
+          {
+            "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          },
+          {
+            "node_id": "math.解析几何.圆的方程.圆的标准方程",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          }
+        ],
+        "example_question_states": [
+          {
+            "question_id": "wq_overview_seq_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "primary_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+            ],
+            "secondary_node_ids": [
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "question_payload": {
+              "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+              "question_type": "证明题",
+              "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+              "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+              "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。",
+              "teacher_comment": "核心卡点是把递推式通过同时加 1/2 变形成 b_{n+1}=3b_n，再用等比数列定义完成证明。",
+              "source_name": "binder_harness",
+              "source_section": "数列递推转等比",
+              "tags": [
+                "数列",
+                "递推",
+                "构造新数列",
+                "等比数列"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.65,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "本轮刚做错，立即回炉复习"
+          },
+          {
+            "question_id": "wq_overview_vec_001",
+            "state": "new",
+            "linked_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "primary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+            ],
+            "secondary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "question_payload": {
+              "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+              "question_type": "选择题",
+              "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+              "correct_answer": "2π/3",
+              "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。",
+              "teacher_comment": "核心是先把向量和关系转成模平方，再用数量积和夹角公式完成求角。",
+              "source_name": "binder_harness",
+              "source_section": "平面向量夹角",
+              "tags": [
+                "平面向量",
+                "数量积",
+                "夹角公式"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "last_result": "unseen",
+            "review_count": 0,
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。"
+          },
+          {
+            "question_id": "wq_overview_circle_001",
+            "state": "new",
+            "linked_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式",
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "primary_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式"
+            ],
+            "secondary_node_ids": [
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "question_payload": {
+              "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+              "question_type": "选择题",
+              "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+              "correct_answer": "-12≤t≤8",
+              "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+              "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+              "source_name": "binder_harness",
+              "source_section": "圆与直线综合",
+              "tags": [
+                "解析几何",
+                "圆",
+                "点到直线距离"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "last_result": "unseen",
+            "review_count": 0,
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          }
+        ],
+        "notes": {
+          "annotation_bridge": {
+            "bridge_source": "annotation_to_review_state",
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "annotation_record_count": 3,
+            "imported_question_count": 3,
+            "skipped_records": []
+          }
+        }
+      },
+      "source_name": null,
+      "source_section": null,
+      "metadata": null
+    },
+    {
+      "event_type": "review",
+      "occurred_at": "2026-06-26T20:25:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action": "review_result",
+      "target_type": "wrong_question",
+      "target_id": "wq_overview_vec_001",
+      "question_id": "wq_overview_vec_001",
+      "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "linked_node_ids": [
+        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+      ],
+      "linked_question_ids": [],
+      "result": null,
+      "updated_payload": {
+        "record_id": "review_state.teachagent_system_overview.v1",
+        "student_id": "student_overview_demo",
+        "generated_at": "2026-06-24T09:19:58.892898+00:00",
+        "knowledge_point_states": [
+          {
+            "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "state": "learning",
+            "mastery": 0.03,
+            "stability": 0.2625,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "state": "learning",
+            "mastery": 0.01,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          },
+          {
+            "node_id": "math.解析几何.圆的方程.圆的标准方程",
+            "state": "new",
+            "mastery": 0.0,
+            "stability": 0.0,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          }
+        ],
+        "example_question_states": [
+          {
+            "question_id": "wq_overview_seq_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "primary_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+            ],
+            "secondary_node_ids": [
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "question_payload": {
+              "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+              "question_type": "证明题",
+              "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+              "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+              "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。",
+              "teacher_comment": "核心卡点是把递推式通过同时加 1/2 变形成 b_{n+1}=3b_n，再用等比数列定义完成证明。",
+              "source_name": "binder_harness",
+              "source_section": "数列递推转等比",
+              "tags": [
+                "数列",
+                "递推",
+                "构造新数列",
+                "等比数列"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.65,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "本轮刚做错，立即回炉复习"
+          },
+          {
+            "question_id": "wq_overview_vec_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "primary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+            ],
+            "secondary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "question_payload": {
+              "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+              "question_type": "选择题",
+              "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+              "correct_answer": "2π/3",
+              "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。",
+              "teacher_comment": "核心是先把向量和关系转成模平方，再用数量积和夹角公式完成求角。",
+              "source_name": "binder_harness",
+              "source_section": "平面向量夹角",
+              "tags": [
+                "平面向量",
+                "数量积",
+                "夹角公式"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "last_result": "partial",
+            "review_count": 1,
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "mastery": 0.03,
+            "stability": 0.275,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.35,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "本轮部分会做，建议继续趁热练"
+          },
+          {
+            "question_id": "wq_overview_circle_001",
+            "state": "new",
+            "linked_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式",
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "primary_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式"
+            ],
+            "secondary_node_ids": [
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "question_payload": {
+              "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+              "question_type": "选择题",
+              "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+              "correct_answer": "-12≤t≤8",
+              "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+              "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+              "source_name": "binder_harness",
+              "source_section": "圆与直线综合",
+              "tags": [
+                "解析几何",
+                "圆",
+                "点到直线距离"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-24T09:19:58.892898+00:00",
+            "last_result": "unseen",
+            "review_count": 0,
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。"
+          }
+        ],
+        "notes": {
+          "annotation_bridge": {
+            "bridge_source": "annotation_to_review_state",
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "annotation_record_count": 3,
+            "imported_question_count": 3,
+            "skipped_records": []
+          }
+        }
+      },
+      "source_name": null,
+      "source_section": null,
+      "metadata": null
+    },
+    {
+      "event_type": "review",
+      "occurred_at": "2026-06-26T20:50:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action": "review_result",
+      "target_type": "wrong_question",
+      "target_id": "wq_overview_circle_001",
+      "question_id": "wq_overview_circle_001",
+      "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "secondary_node_ids": [
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "linked_node_ids": [
+        "math.解析几何.直线的方程.点到直线的距离公式",
+        "math.解析几何.圆的方程.圆的标准方程"
+      ],
+      "linked_question_ids": [],
+      "result": null,
+      "updated_payload": {
+        "record_id": "review_state.teachagent_system_overview.v1",
+        "student_id": "student_overview_demo",
+        "generated_at": "2026-06-24T09:19:58.892898+00:00",
+        "knowledge_point_states": [
+          {
+            "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "state": "learning",
+            "mastery": 0.03,
+            "stability": 0.2625,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "state": "learning",
+            "mastery": 0.01,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.解析几何.圆的方程.圆的标准方程",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          }
+        ],
+        "example_question_states": [
+          {
+            "question_id": "wq_overview_seq_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "primary_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+            ],
+            "secondary_node_ids": [
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "question_payload": {
+              "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+              "question_type": "证明题",
+              "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+              "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+              "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。",
+              "teacher_comment": "核心卡点是把递推式通过同时加 1/2 变形成 b_{n+1}=3b_n，再用等比数列定义完成证明。",
+              "source_name": "binder_harness",
+              "source_section": "数列递推转等比",
+              "tags": [
+                "数列",
+                "递推",
+                "构造新数列",
+                "等比数列"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.65,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "本轮刚做错，立即回炉复习"
+          },
+          {
+            "question_id": "wq_overview_vec_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "primary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+            ],
+            "secondary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "question_payload": {
+              "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+              "question_type": "选择题",
+              "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+              "correct_answer": "2π/3",
+              "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。",
+              "teacher_comment": "核心是先把向量和关系转成模平方，再用数量积和夹角公式完成求角。",
+              "source_name": "binder_harness",
+              "source_section": "平面向量夹角",
+              "tags": [
+                "平面向量",
+                "数量积",
+                "夹角公式"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "last_result": "partial",
+            "review_count": 1,
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "mastery": 0.03,
+            "stability": 0.275,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.35,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "本轮部分会做，建议继续趁热练"
+          },
+          {
+            "question_id": "wq_overview_circle_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式",
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "primary_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式"
+            ],
+            "secondary_node_ids": [
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "question_payload": {
+              "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+              "question_type": "选择题",
+              "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+              "correct_answer": "-12≤t≤8",
+              "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+              "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+              "source_name": "binder_harness",
+              "source_section": "圆与直线综合",
+              "tags": [
+                "解析几何",
+                "圆",
+                "点到直线距离"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.65,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "本轮刚做错，立即回炉复习"
+          }
+        ],
+        "notes": {
+          "annotation_bridge": {
+            "bridge_source": "annotation_to_review_state",
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "annotation_record_count": 3,
+            "imported_question_count": 3,
+            "skipped_records": []
+          }
+        }
+      },
+      "source_name": null,
+      "source_section": null,
+      "metadata": null
+    },
+    {
+      "event_type": "review",
+      "occurred_at": "2026-06-27T20:00:00+08:00",
+      "event_id": null,
+      "student_id": "student_overview_demo",
+      "session_id": "session_overview_demo_001",
+      "action": "node_needs_more_practice",
+      "target_type": "knowledge_point",
+      "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "question_id": null,
+      "primary_node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "secondary_node_ids": [],
+      "linked_node_ids": [],
+      "linked_question_ids": [
+        "wq_overview_seq_001"
+      ],
+      "result": null,
+      "updated_payload": {
+        "record_id": "review_state.teachagent_system_overview.v1",
+        "student_id": "student_overview_demo",
+        "generated_at": "2026-06-24T09:19:58.892898+00:00",
+        "knowledge_point_states": [
+          {
+            "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-27T20:00:00+08:00",
+            "priority_note": "学生反馈：知识点看懂但还需要继续练题。",
+            "correct_count": 0,
+            "wrong_count": 2,
+            "last_reviewed_at": "2026-06-27T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-28T04:00:00+08:00",
+            "session_priority_reason": "学生希望继续围绕该知识点练题"
+          },
+          {
+            "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_seq_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "priority_note": "学生确认这题主错点是递推转等比，递推公式解读作为辅助点。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:00:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "state": "learning",
+            "mastery": 0.03,
+            "stability": 0.2625,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "state": "learning",
+            "mastery": 0.01,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_vec_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "correct_count": 0,
+            "wrong_count": 0,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.28,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "关联题部分会做，当前知识点建议继续跟进"
+          },
+          {
+            "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          },
+          {
+            "node_id": "math.解析几何.圆的方程.圆的标准方程",
+            "state": "learning",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "linked_question_ids": [
+              "wq_overview_circle_001"
+            ],
+            "source_batch_ids": [
+              "teachagent_system_overview_batch_01"
+            ],
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "correct_count": 0,
+            "wrong_count": 1,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+          }
+        ],
+        "example_question_states": [
+          {
+            "question_id": "wq_overview_seq_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "primary_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+            ],
+            "secondary_node_ids": [
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "question_payload": {
+              "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+              "question_type": "证明题",
+              "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+              "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+              "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。",
+              "teacher_comment": "核心卡点是把递推式通过同时加 1/2 变形成 b_{n+1}=3b_n，再用等比数列定义完成证明。",
+              "source_name": "binder_harness",
+              "source_section": "数列递推转等比",
+              "tags": [
+                "数列",
+                "递推",
+                "构造新数列",
+                "等比数列"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:00:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "关联知识点复习后，学生选择继续练题。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:00:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.55,
+            "session_priority_until": "2026-06-28T04:00:00+08:00",
+            "session_priority_reason": "关联知识点刚复习完，学生要求立刻继续练这类题",
+            "manual_priority_bias": 0.18
+          },
+          {
+            "question_id": "wq_overview_vec_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "primary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+            ],
+            "secondary_node_ids": [
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+            ],
+            "question_payload": {
+              "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+              "question_type": "选择题",
+              "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。",
+              "correct_answer": "2π/3",
+              "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。",
+              "teacher_comment": "核心是先把向量和关系转成模平方，再用数量积和夹角公式完成求角。",
+              "source_name": "binder_harness",
+              "source_section": "平面向量夹角",
+              "tags": [
+                "平面向量",
+                "数量积",
+                "夹角公式"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:25:00+08:00",
+            "last_result": "partial",
+            "review_count": 1,
+            "priority_note": "学生确认核心在夹角公式，数量积几何意义作为前置背景。",
+            "mastery": 0.03,
+            "stability": 0.275,
+            "last_reviewed_at": "2026-06-26T20:25:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.35,
+            "session_priority_until": "2026-06-27T04:25:00+08:00",
+            "session_priority_reason": "本轮部分会做，建议继续趁热练"
+          },
+          {
+            "question_id": "wq_overview_circle_001",
+            "state": "learning",
+            "linked_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式",
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "primary_node_ids": [
+              "math.解析几何.直线的方程.点到直线的距离公式"
+            ],
+            "secondary_node_ids": [
+              "math.解析几何.圆的方程.圆的标准方程"
+            ],
+            "question_payload": {
+              "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+              "question_type": "选择题",
+              "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+              "correct_answer": "-12≤t≤8",
+              "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+              "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+              "source_name": "binder_harness",
+              "source_section": "圆与直线综合",
+              "tags": [
+                "解析几何",
+                "圆",
+                "点到直线距离"
+              ]
+            },
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "first_seen_at": "2026-06-24T09:19:58.892898+00:00",
+            "next_review_at": "2026-06-26T20:50:00+08:00",
+            "last_result": "wrong",
+            "review_count": 1,
+            "priority_note": "学生确认这题最终落脚在点到直线距离，但必须联动圆的标准方程。",
+            "mastery": 0.0,
+            "stability": 0.25,
+            "last_reviewed_at": "2026-06-26T20:50:00+08:00",
+            "manual_skip_until": null,
+            "session_priority_boost": 0.65,
+            "session_priority_until": "2026-06-27T04:50:00+08:00",
+            "session_priority_reason": "本轮刚做错，立即回炉复习"
+          }
+        ],
+        "notes": {
+          "annotation_bridge": {
+            "bridge_source": "annotation_to_review_state",
+            "source_batch_id": "teachagent_system_overview_batch_01",
+            "annotation_record_count": 3,
+            "imported_question_count": 3,
+            "skipped_records": []
+          }
+        }
+      },
+      "source_name": null,
+      "source_section": null,
+      "metadata": null
+    }
+  ],
+  "teaching_preferences": {
+    "dominant_error_type": "missing_strategy",
+    "scores": {
+      "concept_explain_bias": 1.0,
+      "strategy_scaffold_bias": 0.9412,
+      "step_by_step_bias": 0.8676,
+      "condition_reading_bias": 0.0,
+      "self_check_bias": 0.0,
+      "direct_explain_bias": 0.9118
+    },
+    "recommended_mode": "concept_first"
+  },
+  "practice_preferences": {
+    "scores": {
+      "leaf_first_bias": 1.0,
+      "question_first_bias": 0.0,
+      "concept_card_bias": 0.2564,
+      "method_card_bias": 0.5128,
+      "representative_question_bias": 0.8205,
+      "retry_recent_wrong_bias": 0.0
+    },
+    "recommended_review_mode": "leaf_first"
+  },
+  "personalization_summary": {
+    "dominant_error_type": "missing_strategy",
+    "dominant_error_signal_strength": "tentative",
+    "dominant_error_share": 0.6667,
+    "memory_stage": "forming_pattern",
+    "observation_counts": {
+      "diagnosis_event_count": 3,
+      "coach_event_count": 3,
+      "review_event_count": 4,
+      "distinct_question_count": 3
+    },
+    "top_error_types": [
+      {
+        "error_type": "missing_strategy",
+        "count": 2,
+        "signal_strength": "tentative"
+      },
+      {
+        "error_type": "concept_gap",
+        "count": 1,
+        "signal_strength": "tentative"
+      }
+    ],
+    "top_recurrent_nodes": [
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "title": "向量夹角公式",
+        "dominant_error_type": "missing_strategy",
+        "recommended_intervention": null,
+        "signal_strength": "tentative",
+        "observation_stage": "early_observation"
+      },
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "title": "数量积几何意义",
+        "dominant_error_type": "missing_strategy",
+        "recommended_intervention": null,
+        "signal_strength": "tentative",
+        "observation_stage": "early_observation"
+      },
+      {
+        "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "title": "数列递推公式解读",
+        "dominant_error_type": "missing_strategy",
+        "recommended_intervention": null,
+        "signal_strength": "tentative",
+        "observation_stage": "early_observation"
+      },
+      {
+        "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "title": "构造等比数列",
+        "dominant_error_type": "missing_strategy",
+        "recommended_intervention": "show_strategy_first",
+        "signal_strength": "tentative",
+        "observation_stage": "early_observation"
+      },
+      {
+        "node_id": "math.解析几何.圆的方程.圆的标准方程",
+        "title": "圆的标准方程",
+        "dominant_error_type": "concept_gap",
+        "recommended_intervention": "reteach_concept",
+        "signal_strength": "tentative",
+        "observation_stage": "early_observation"
+      }
+    ],
+    "recommended_teaching_mode": "concept_first",
+    "recommended_review_mode": "leaf_first",
+    "alerts": [
+      {
+        "kind": "dominant_error_pattern",
+        "error_type": "missing_strategy",
+        "share": 0.6667,
+        "signal_strength": "established",
+        "reason": "A single error pattern is dominating the student's recent mistakes."
+      }
+    ],
+    "notes": [
+      "This student more often knows local facts but misses the solving route. Explain intermediate goals first."
+    ]
+  },
+  "memory_graph": {
+    "nodes": [
+      {
+        "node_id": "student:student_overview_demo",
+        "node_type": "student_profile",
+        "title": "student_overview_demo",
+        "embedding_text": "Student ID: student_overview_demo\nMemory stage: forming_pattern\nDominant error type: missing_strategy\nDominant error signal: tentative\nRecommended teaching mode: concept_first\nRecommended review mode: leaf_first\nRecent error mix: missing_strategy=2; concept_gap=1\nRecurrent trouble nodes: 向量夹角公式(missing_strategy); 数量积几何意义(missing_strategy); 数列递推公式解读(missing_strategy); 构造等比数列(missing_strategy)\nTeaching emphasis: concept_explain_bias=1.0; strategy_scaffold_bias=0.9412; step_by_step_bias=0.8676; condition_reading_bias=0.0; self_check_bias=0.0; direct_explain_bias=0.9118\nPractice emphasis: leaf_first_bias=1.0; question_first_bias=0.0; concept_card_bias=0.2564; method_card_bias=0.5128; representative_question_bias=0.8205; retry_recent_wrong_bias=0.0\nPersonalization notes: This student more often knows local facts but misses the solving route. Explain intermediate goals first."
+      },
+      {
+        "node_id": "error_type:missing_strategy",
+        "node_type": "error_type",
+        "title": "missing_strategy",
+        "weight": 2,
+        "embedding_text": "Student repeatedly shows missing_strategy. Count=2."
+      },
+      {
+        "node_id": "error_type:concept_gap",
+        "node_type": "error_type",
+        "title": "concept_gap",
+        "weight": 1,
+        "embedding_text": "Student repeatedly shows concept_gap. Count=1."
+      },
+      {
+        "node_id": "leaf:math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "node_type": "knowledge_leaf",
+        "title": "向量夹角公式",
+        "embedding_text": "Student recurrently struggles with 向量夹角公式. Dominant error=missing_strategy. Recommended intervention=none."
+      },
+      {
+        "node_id": "leaf:math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "node_type": "knowledge_leaf",
+        "title": "数量积几何意义",
+        "embedding_text": "Student recurrently struggles with 数量积几何意义. Dominant error=missing_strategy. Recommended intervention=none."
+      },
+      {
+        "node_id": "leaf:math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "node_type": "knowledge_leaf",
+        "title": "数列递推公式解读",
+        "embedding_text": "Student recurrently struggles with 数列递推公式解读. Dominant error=missing_strategy. Recommended intervention=none."
+      },
+      {
+        "node_id": "leaf:math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "node_type": "knowledge_leaf",
+        "title": "构造等比数列",
+        "embedding_text": "Student recurrently struggles with 构造等比数列. Dominant error=missing_strategy. Recommended intervention=show_strategy_first."
+      },
+      {
+        "node_id": "leaf:math.解析几何.圆的方程.圆的标准方程",
+        "node_type": "knowledge_leaf",
+        "title": "圆的标准方程",
+        "embedding_text": "Student recurrently struggles with 圆的标准方程. Dominant error=concept_gap. Recommended intervention=reteach_concept."
+      },
+      {
+        "node_id": "question:wq_overview_circle_001",
+        "node_type": "wrong_question",
+        "title": "wq_overview_circle_001",
+        "embedding_text": "Question wq_overview_circle_001 has wrong_count=1 and last_error_type=concept_gap."
+      },
+      {
+        "node_id": "question:wq_overview_seq_001",
+        "node_type": "wrong_question",
+        "title": "wq_overview_seq_001",
+        "embedding_text": "Question wq_overview_seq_001 has wrong_count=1 and last_error_type=missing_strategy."
+      },
+      {
+        "node_id": "question:wq_overview_vec_001",
+        "node_type": "wrong_question",
+        "title": "wq_overview_vec_001",
+        "embedding_text": "Question wq_overview_vec_001 has wrong_count=1 and last_error_type=missing_strategy."
+      }
+    ],
+    "edges": [
+      {
+        "source": "student:student_overview_demo",
+        "target": "error_type:missing_strategy",
+        "relation": "shows_error_pattern",
+        "weight": 2
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "error_type:concept_gap",
+        "relation": "shows_error_pattern",
+        "weight": 1
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "leaf:math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "relation": "recurrently_struggles_with",
+        "weight": 1.0
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "leaf:math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "relation": "recurrently_struggles_with",
+        "weight": 1.0
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "leaf:math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "relation": "recurrently_struggles_with",
+        "weight": 1.0
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "leaf:math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "relation": "recurrently_struggles_with",
+        "weight": 1.0
+      },
+      {
+        "source": "student:student_overview_demo",
+        "target": "leaf:math.解析几何.圆的方程.圆的标准方程",
+        "relation": "recurrently_struggles_with",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_circle_001",
+        "target": "leaf:math.解析几何.直线的方程.点到直线的距离公式",
+        "relation": "binds_to",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_circle_001",
+        "target": "leaf:math.解析几何.圆的方程.圆的标准方程",
+        "relation": "binds_to",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_seq_001",
+        "target": "leaf:math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "relation": "binds_to",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_seq_001",
+        "target": "leaf:math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "relation": "binds_to",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_vec_001",
+        "target": "leaf:math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "relation": "binds_to",
+        "weight": 1.0
+      },
+      {
+        "source": "question:wq_overview_vec_001",
+        "target": "leaf:math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "relation": "binds_to",
+        "weight": 1.0
+      }
+    ]
+  },
+  "agent_memory_text": "Student ID: student_overview_demo\nMemory stage: forming_pattern\nDominant error type: missing_strategy\nDominant error signal: tentative\nRecommended teaching mode: concept_first\nRecommended review mode: leaf_first\nRecent error mix: missing_strategy=2; concept_gap=1\nRecurrent trouble nodes: 向量夹角公式(missing_strategy); 数量积几何意义(missing_strategy); 数列递推公式解读(missing_strategy); 构造等比数列(missing_strategy)\nTeaching emphasis: concept_explain_bias=1.0; strategy_scaffold_bias=0.9412; step_by_step_bias=0.8676; condition_reading_bias=0.0; self_check_bias=0.0; direct_explain_bias=0.9118\nPractice emphasis: leaf_first_bias=1.0; question_first_bias=0.0; concept_card_bias=0.2564; method_card_bias=0.5128; representative_question_bias=0.8205; retry_recent_wrong_bias=0.0\nPersonalization notes: This student more often knows local facts but misses the solving route. Explain intermediate goals first.",
+  "notes": {}
+}

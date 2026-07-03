@@ -1,0 +1,24 @@
+{
+  "case_id": "review_case_question_correct",
+  "description": "题目模式下做对后，该题应从第一位移开",
+  "review_state_fixture": "review_state_fixture_v1.json",
+  "mode": "question_first",
+  "steps": [
+    {
+      "action": "build_bundle"
+    },
+    {
+      "action": "review_action",
+      "review_action": "review_result",
+      "target_type": "wrong_question",
+      "target_source": "first_bundle_question",
+      "result": "correct"
+    },
+    {
+      "action": "build_bundle"
+    }
+  ],
+  "expectation": {
+    "first_question_should_drop_out_of_top_n": 1
+  }
+}

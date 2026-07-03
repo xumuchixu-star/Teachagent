@@ -1,0 +1,23 @@
+{
+  "case_id": "review_case_question_skip_temporarily",
+  "description": "题目模式下暂时跳过后，该题应从第一位移开",
+  "review_state_fixture": "review_state_fixture_v1.json",
+  "mode": "question_first",
+  "steps": [
+    {
+      "action": "build_bundle"
+    },
+    {
+      "action": "review_action",
+      "review_action": "skip_temporarily",
+      "target_type": "wrong_question",
+      "target_source": "first_bundle_question"
+    },
+    {
+      "action": "build_bundle"
+    }
+  ],
+  "expectation": {
+    "first_question_should_drop_out_of_top_n": 1
+  }
+}

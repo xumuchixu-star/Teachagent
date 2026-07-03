@@ -1,0 +1,26 @@
+{
+  "case_id": "binder_case_derivative_monotonicity",
+  "description": "导数判断单调性的典型讲解题",
+  "question_payload": {
+    "stem": "已知函数f(x)在某点附近可导，题目要求判断该函数在某区间内的单调性，并结合导函数符号说明增减区间。",
+    "question_type": "大题",
+    "student_answer": "我先求了导，但是后面不知道怎么判断单调。",
+    "correct_answer": "先求导，再求出导函数为零的点，分区间讨论导函数符号，由此判断函数的单调递增区间和单调递减区间。",
+    "solution_text": "解析的关键是先求导，再根据导函数正负做符号表，最后写出增减区间。",
+    "teacher_comment": "学生会求导，但不会根据导函数符号和关键点做分区间讨论。",
+    "source_name": "binder_harness"
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+      "math.集合_映射_函数与导数.函数.基础性质.函数单调性判断与应用"
+    ],
+    "must_hit_node_ids": [
+      "math.集合_映射_函数与导数.导数.利用导数判断单调性"
+    ],
+    "must_hit_within_top_k": 3,
+    "allowed_coarse_subtrees": [
+      "math.集合_映射_函数与导数.导数"
+    ]
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "generated_at": "2026-06-21T11:08:05.415846+00:00",
+  "node_priorities": [
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+      "priority_score": 0.855,
+      "forget_score": 0.95,
+      "low_mastery_score": 1.0,
+      "linked_wrong_pressure": 0.4,
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "q004"
+      ],
+      "priority_note": "例题首轮导入",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "priority_score": 0.855,
+      "forget_score": 0.95,
+      "low_mastery_score": 1.0,
+      "linked_wrong_pressure": 0.4,
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "q006"
+      ],
+      "priority_note": "例题首轮导入",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "priority_score": 0.855,
+      "forget_score": 0.95,
+      "low_mastery_score": 1.0,
+      "linked_wrong_pressure": 0.4,
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "q006"
+      ],
+      "priority_note": "例题首轮导入",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "priority_score": 0.855,
+      "forget_score": 0.95,
+      "low_mastery_score": 1.0,
+      "linked_wrong_pressure": 0.4,
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "q010",
+        "wq_demo_001"
+      ],
+      "priority_note": "学生确认这题主要错在递推变形。",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "node_id": "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定",
+      "priority_score": 0.855,
+      "forget_score": 0.95,
+      "low_mastery_score": 1.0,
+      "linked_wrong_pressure": 0.4,
+      "state": "new",
+      "mastery": 0.0,
+      "stability": 0.0,
+      "linked_question_ids": [
+        "q005"
+      ],
+      "priority_note": "例题首轮导入",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    }
+  ],
+  "question_priorities": [
+    {
+      "question_id": "q001",
+      "priority_score": 0.7925,
+      "forget_score": 0.95,
+      "wrong_pressure": 0.4,
+      "primary_node_weakness": 1.0,
+      "state": "new",
+      "last_result": "unseen",
+      "linked_node_ids": [
+        "math.集合_映射_函数与导数.集合.集合交集运算",
+        "math.集合_映射_函数与导数.集合.数轴表示集合关系"
+      ],
+      "primary_node_ids": [
+        "math.集合_映射_函数与导数.集合.集合交集运算"
+      ],
+      "secondary_node_ids": [
+        "math.集合_映射_函数与导数.集合.数轴表示集合关系"
+      ],
+      "priority_note": "集合基础例题",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "question_id": "q002",
+      "priority_score": 0.7925,
+      "forget_score": 0.95,
+      "wrong_pressure": 0.4,
+      "primary_node_weakness": 1.0,
+      "state": "new",
+      "last_result": "unseen",
+      "linked_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义",
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算"
+      ],
+      "primary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+      ],
+      "secondary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算"
+      ],
+      "priority_note": "复数基础例题",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "question_id": "q003",
+      "priority_score": 0.7925,
+      "forget_score": 0.95,
+      "wrong_pressure": 0.4,
+      "primary_node_weakness": 1.0,
+      "state": "new",
+      "last_result": "unseen",
+      "linked_node_ids": [
+        "math.空间几何.空间几何体.柱体.棱柱.正棱柱"
+      ],
+      "primary_node_ids": [
+        "math.空间几何.空间几何体.柱体.棱柱.正棱柱"
+      ],
+      "secondary_node_ids": [],
+      "priority_note": "当前知识树缺少更细的棱锥体积叶子",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "question_id": "q004",
+      "priority_score": 0.7925,
+      "forget_score": 0.95,
+      "wrong_pressure": 0.4,
+      "primary_node_weakness": 1.0,
+      "state": "new",
+      "last_result": "unseen",
+      "linked_node_ids": [
+        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+      ],
+      "primary_node_ids": [
+        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+      ],
+      "secondary_node_ids": [
+        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+      ],
+      "priority_note": "图象变换例题",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    },
+    {
+      "question_id": "q005",
+      "priority_score": 0.7925,
+      "forget_score": 0.95,
+      "wrong_pressure": 0.4,
+      "primary_node_weakness": 1.0,
+      "state": "new",
+      "last_result": "unseen",
+      "linked_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+        "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定"
+      ],
+      "primary_node_ids": [
+        "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+      ],
+      "secondary_node_ids": [
+        "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定"
+      ],
+      "priority_note": "逻辑判断和数列性质结合题",
+      "manual_priority_bias": 0.0,
+      "manual_skip_until": null,
+      "is_temporarily_skipped": false
+    }
+  ],
+  "review_plan": {
+    "mode": "mixed",
+    "recommended_node_ids": [
+      "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+      "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定"
+    ],
+    "recommended_question_ids": [
+      "q001",
+      "q002",
+      "q003",
+      "q004",
+      "q005"
+    ],
+    "recommended_bundles": [
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+        "question_ids": [
+          "q004"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.855
+      },
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "question_ids": [
+          "q006"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.855
+      },
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "question_ids": [
+          "q006"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.855
+      },
+      {
+        "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "question_ids": [
+          "q010",
+          "wq_demo_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.855
+      },
+      {
+        "node_id": "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定",
+        "question_ids": [
+          "q005"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.855
+      }
+    ],
+    "student_override_supported": true,
+    "override_actions": [
+      "mark_important",
+      "skip_temporarily"
+    ]
+  }
+}

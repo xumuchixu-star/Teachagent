@@ -1,0 +1,24 @@
+{
+  "case_id": "review_case_question_wrong",
+  "description": "题目模式下做错后，该题应继续保持在顶部",
+  "review_state_fixture": "review_state_fixture_v1.json",
+  "mode": "question_first",
+  "steps": [
+    {
+      "action": "build_bundle"
+    },
+    {
+      "action": "review_action",
+      "review_action": "review_result",
+      "target_type": "wrong_question",
+      "target_source": "first_bundle_question",
+      "result": "wrong"
+    },
+    {
+      "action": "build_bundle"
+    }
+  ],
+  "expectation": {
+    "first_question_should_remain_within_top_n": 1
+  }
+}

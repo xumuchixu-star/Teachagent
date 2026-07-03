@@ -1,0 +1,21 @@
+services:
+  teachagent-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teachagent-web
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./app/data:/app/app/data
+      - ./data:/app/data
+      - ./scratch:/app/scratch
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/healthz', timeout=3).read()"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3

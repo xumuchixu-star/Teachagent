@@ -1,0 +1,23 @@
+{
+  "case_id": "review_case_leaf_skip_temporarily",
+  "description": "知识点模式下暂时跳过后，该知识点应从第一位移开",
+  "review_state_fixture": "review_state_fixture_v1.json",
+  "mode": "leaf_first",
+  "steps": [
+    {
+      "action": "build_bundle"
+    },
+    {
+      "action": "review_action",
+      "review_action": "skip_temporarily",
+      "target_type": "knowledge_point",
+      "target_source": "first_bundle_node"
+    },
+    {
+      "action": "build_bundle"
+    }
+  ],
+  "expectation": {
+    "first_node_should_drop_out_of_top_n": 1
+  }
+}

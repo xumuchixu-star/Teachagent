@@ -1,0 +1,743 @@
+{
+  "generated_at": "2026-06-24T21:00:00+08:00",
+  "review_state_record_id": "review_state.teachagent_system_overview.v1",
+  "review_plan": {
+    "mode": "leaf_first",
+    "recommended_node_ids": [
+      "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "math.解析几何.圆的方程.圆的标准方程"
+    ],
+    "recommended_question_ids": [
+      "wq_overview_circle_001",
+      "wq_overview_seq_001",
+      "wq_overview_vec_001"
+    ],
+    "recommended_bundles": [
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "question_ids": [
+          "wq_overview_vec_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "question_ids": [
+          "wq_overview_vec_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "question_ids": [
+          "wq_overview_seq_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "question_ids": [
+          "wq_overview_seq_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.解析几何.圆的方程.圆的标准方程",
+        "question_ids": [
+          "wq_overview_circle_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      }
+    ],
+    "student_override_supported": true,
+    "student_memory_bias_enabled": false,
+    "student_memory_stage": null,
+    "override_actions": [
+      "mark_important",
+      "skip_temporarily"
+    ],
+    "bundle_policy": {
+      "bundle_limit": 5,
+      "bundle_question_min": 2,
+      "bundle_question_max": 3,
+      "due_time_anchor": "next_review_at"
+    }
+  },
+  "review_bundles": [
+    {
+      "bundle_id": "bundle_01",
+      "mode": "leaf_first",
+      "rank": 1,
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "priority_score": 0.8975,
+      "bundle_reason": "知识点已到复习时间，并联动 1 道练习题一起复习",
+      "leaf_card": {
+        "chunk_id": "chunk.math.三角函数_平面向量与解三角形.平面向量.向量夹角公式.formula_card.v1",
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "title": "向量夹角公式",
+        "card_type": "formula_card",
+        "node_kind": "formula",
+        "path": [
+          "数学",
+          "三角函数、平面向量与解三角形",
+          "平面向量",
+          "向量夹角公式"
+        ],
+        "keywords": [
+          "夹角公式",
+          "cosθ",
+          "数量积",
+          "模长"
+        ],
+        "text": "知识点：向量夹角公式。路径：数学 > 三角函数、平面向量与解三角形 > 平面向量 > 向量夹角公式。别名：向量夹角。关键词：夹角公式；cosθ；数量积；模长。公式：对非零向量 a、b，有 cosθ=(a·b)/(|a||b|)。适用条件：两个向量都非零；需要求向量夹角或借夹角公式反求数量积、模长关系；已知坐标或几何量可求出 a·b、|a|、|b|。特殊情况：若 a·b=0，则夹角为 90°；求几何中的锐角时，常要结合题意对 arccos 结果作范围判断。变量说明：θ 表示两个向量的夹角，一般取 [0,π]；a·b 是数量积，|a|、|b| 是向量模长。推导提示：夹角公式把数量积定义反向用于求角，是向量法处理中角度问题的核心工具。常见错误：忘记向量不能是零向量；模长漏开根号；算出 cosθ 后不会结合范围取角；几何所成锐角与向量夹角混淆。复习提示：用夹角公式前先核对三项：点积有了没，两个模有了没，向量是不是非零。",
+        "review_cue": "用夹角公式前先核对三项：点积有了没，两个模有了没，向量是不是非零。",
+        "structured_content": {
+          "definition": null,
+          "core_idea": null,
+          "boundary": null,
+          "formula": "对非零向量 a、b，有 cosθ=(a·b)/(|a||b|)",
+          "variable_notes": "θ 表示两个向量的夹角，一般取 [0,π]；a·b 是数量积，|a|、|b| 是向量模长。",
+          "applicable_conditions": [
+            "两个向量都非零",
+            "需要求向量夹角或借夹角公式反求数量积、模长关系",
+            "已知坐标或几何量可求出 a·b、|a|、|b|"
+          ],
+          "special_cases": [
+            "若 a·b=0，则夹角为 90°",
+            "求几何中的锐角时，常要结合题意对 arccos 结果作范围判断"
+          ],
+          "method_goal": null,
+          "trigger_signals": null,
+          "steps": null,
+          "common_errors": [
+            "忘记向量不能是零向量",
+            "模长漏开根号",
+            "算出 cosθ 后不会结合范围取角",
+            "几何所成锐角与向量夹角混淆"
+          ],
+          "failure_modes": null
+        },
+        "student_actions": [
+          {
+            "label": "掌握很熟练",
+            "action": "node_mastered_well",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "effect": "延后该知识点的下次复习时间"
+          },
+          {
+            "label": "还要练题",
+            "action": "node_needs_more_practice",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "effect": "提高该知识点关联题目的练习优先级"
+          },
+          {
+            "label": "暂时跳过",
+            "action": "skip_temporarily",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+            "effect": "短期内不再推送这个知识点"
+          }
+        ]
+      },
+      "question_count": 1,
+      "questions": [
+        {
+          "question_id": "wq_overview_vec_001",
+          "summary": {
+            "question_type": "选择题",
+            "priority_score": 0.8375,
+            "last_result": "unseen",
+            "is_due_now": true
+          },
+          "content": {
+            "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+            "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。"
+          },
+          "hidden_answer_block": {
+            "revealed": false,
+            "correct_answer": "2π/3",
+            "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。"
+          },
+          "student_actions": [
+            {
+              "label": "显示答案",
+              "action": "reveal_answer",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001"
+            },
+            {
+              "label": "这题做对了",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "correct"
+            },
+            {
+              "label": "这题没做对",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "wrong"
+            },
+            {
+              "label": "部分会做",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "partial"
+            },
+            {
+              "label": "先跳过",
+              "action": "skip_temporarily",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_02",
+      "mode": "leaf_first",
+      "rank": 2,
+      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "priority_score": 0.8975,
+      "bundle_reason": "知识点已到复习时间，并联动 1 道练习题一起复习",
+      "leaf_card": {
+        "chunk_id": "chunk.math.三角函数_平面向量与解三角形.平面向量.数量积几何意义.concept_card.v1",
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "title": "数量积几何意义",
+        "card_type": "concept_card",
+        "node_kind": "concept",
+        "path": [
+          "数学",
+          "三角函数、平面向量与解三角形",
+          "平面向量",
+          "数量积几何意义"
+        ],
+        "keywords": [
+          "几何意义",
+          "夹角",
+          "垂直判定",
+          "模长平方"
+        ],
+        "text": "知识点：数量积几何意义。路径：数学 > 三角函数、平面向量与解三角形 > 平面向量 > 数量积几何意义。别名：数量积几何解释。关键词：几何意义；夹角；垂直判定；模长平方。定义：数量积的几何意义包括衡量两个向量夹角关系、判断垂直、表示一个向量在另一个方向上的投影量，以及 a·a=|a|² 这样的长度平方关系。识别信号：题目要求解释 a·b 的正负或大小；需要由数量积判断锐角、钝角、直角；题目从公式转向几何图形理解。核心理解：数量积不只是一个计算公式，更是连接长度、夹角、投影和垂直关系的桥梁。边界：数量积为 0 说明向量垂直，但前提通常是两个向量都是正常定义的向量；数量积大小还依赖模长，不能只凭绝对值直接比较夹角大小。常见错误：只记住“等于 0”这一点却不会解释其他情形；把 a·a 误当成 0；将数量积正负和向量方向完全等同；不会从几何角度解释结果。复习提示：看到数量积，优先联想四件事：夹角、垂直、投影、模长平方。",
+        "review_cue": "看到数量积，优先联想四件事：夹角、垂直、投影、模长平方。",
+        "structured_content": {
+          "definition": "数量积的几何意义包括衡量两个向量夹角关系、判断垂直、表示一个向量在另一个方向上的投影量，以及 a·a=|a|² 这样的长度平方关系。",
+          "core_idea": "数量积不只是一个计算公式，更是连接长度、夹角、投影和垂直关系的桥梁。",
+          "boundary": "数量积为 0 说明向量垂直，但前提通常是两个向量都是正常定义的向量；数量积大小还依赖模长，不能只凭绝对值直接比较夹角大小。",
+          "formula": null,
+          "variable_notes": null,
+          "applicable_conditions": null,
+          "special_cases": null,
+          "method_goal": null,
+          "trigger_signals": null,
+          "steps": null,
+          "common_errors": [
+            "只记住“等于 0”这一点却不会解释其他情形",
+            "把 a·a 误当成 0",
+            "将数量积正负和向量方向完全等同",
+            "不会从几何角度解释结果"
+          ],
+          "failure_modes": null
+        },
+        "student_actions": [
+          {
+            "label": "掌握很熟练",
+            "action": "node_mastered_well",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "effect": "延后该知识点的下次复习时间"
+          },
+          {
+            "label": "还要练题",
+            "action": "node_needs_more_practice",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "effect": "提高该知识点关联题目的练习优先级"
+          },
+          {
+            "label": "暂时跳过",
+            "action": "skip_temporarily",
+            "target_type": "knowledge_point",
+            "target_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+            "effect": "短期内不再推送这个知识点"
+          }
+        ]
+      },
+      "question_count": 1,
+      "questions": [
+        {
+          "question_id": "wq_overview_vec_001",
+          "summary": {
+            "question_type": "选择题",
+            "priority_score": 0.8375,
+            "last_result": "unseen",
+            "is_due_now": true
+          },
+          "content": {
+            "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+            "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。"
+          },
+          "hidden_answer_block": {
+            "revealed": false,
+            "correct_answer": "2π/3",
+            "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。"
+          },
+          "student_actions": [
+            {
+              "label": "显示答案",
+              "action": "reveal_answer",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001"
+            },
+            {
+              "label": "这题做对了",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "correct"
+            },
+            {
+              "label": "这题没做对",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "wrong"
+            },
+            {
+              "label": "部分会做",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001",
+              "result": "partial"
+            },
+            {
+              "label": "先跳过",
+              "action": "skip_temporarily",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_vec_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_03",
+      "mode": "leaf_first",
+      "rank": 3,
+      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "priority_score": 0.8975,
+      "bundle_reason": "知识点已到复习时间，并联动 1 道练习题一起复习",
+      "leaf_card": {
+        "chunk_id": "chunk.math.数列与不等式.数列.基础概念.数列递推公式解读.method_card.v1",
+        "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "title": "数列递推公式解读",
+        "card_type": "method_card",
+        "node_kind": "method",
+        "path": [
+          "数学",
+          "数列与不等式",
+          "数列",
+          "基础概念",
+          "数列递推公式解读"
+        ],
+        "keywords": [
+          "递推公式",
+          "前后项关系",
+          "首项",
+          "数列"
+        ],
+        "text": "方法：数列递推公式解读。路径：数学 > 数列与不等式 > 数列 > 基础概念 > 数列递推公式解读。关键词：递推公式；前后项关系；首项；数列。目标：从递推关系中读出前后项联系、初始条件和可转化方向。触发信号：题目出现 a_(n+1) 与 a_n 的关系；同时给出首项或前几项；需要由递推式求若干项、性质或通项。适用题型：由递推式写前几项；由递推式判断单调性；由递推式转化为等差或等比模型。步骤：先找清楚递推涉及哪些项以及起始下标；单独记录首项或初值条件；试写前几项观察差、比或可变形结构；判断适合逐差、逐商还是构造新数列。常见失败：忽略初始条件；下标错位导致前后项关系写反；只会机械代几项，不会观察转化方向。复习提示：读递推式时先找“谁由谁决定”，再看“从哪一项开始”。",
+        "review_cue": "读递推式时先找“谁由谁决定”，再看“从哪一项开始”。",
+        "structured_content": {
+          "definition": null,
+          "core_idea": null,
+          "boundary": null,
+          "formula": null,
+          "variable_notes": null,
+          "applicable_conditions": null,
+          "special_cases": null,
+          "method_goal": "从递推关系中读出前后项联系、初始条件和可转化方向。",
+          "trigger_signals": [
+            "题目出现 a_(n+1) 与 a_n 的关系",
+            "同时给出首项或前几项",
+            "需要由递推式求若干项、性质或通项"
+          ],
+          "steps": [
+            "先找清楚递推涉及哪些项以及起始下标",
+            "单独记录首项或初值条件",
+            "试写前几项观察差、比或可变形结构",
+            "判断适合逐差、逐商还是构造新数列"
+          ],
+          "common_errors": null,
+          "failure_modes": [
+            "忽略初始条件",
+            "下标错位导致前后项关系写反",
+            "只会机械代几项，不会观察转化方向"
+          ]
+        },
+        "student_actions": [
+          {
+            "label": "掌握很熟练",
+            "action": "node_mastered_well",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "effect": "延后该知识点的下次复习时间"
+          },
+          {
+            "label": "还要练题",
+            "action": "node_needs_more_practice",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "effect": "提高该知识点关联题目的练习优先级"
+          },
+          {
+            "label": "暂时跳过",
+            "action": "skip_temporarily",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+            "effect": "短期内不再推送这个知识点"
+          }
+        ]
+      },
+      "question_count": 1,
+      "questions": [
+        {
+          "question_id": "wq_overview_seq_001",
+          "summary": {
+            "question_type": "证明题",
+            "priority_score": 0.8375,
+            "last_result": "unseen",
+            "is_due_now": true
+          },
+          "content": {
+            "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+            "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。"
+          },
+          "hidden_answer_block": {
+            "revealed": false,
+            "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+            "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+          },
+          "student_actions": [
+            {
+              "label": "显示答案",
+              "action": "reveal_answer",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001"
+            },
+            {
+              "label": "这题做对了",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "correct"
+            },
+            {
+              "label": "这题没做对",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "wrong"
+            },
+            {
+              "label": "部分会做",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "partial"
+            },
+            {
+              "label": "先跳过",
+              "action": "skip_temporarily",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_04",
+      "mode": "leaf_first",
+      "rank": 4,
+      "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "priority_score": 0.8975,
+      "bundle_reason": "知识点已到复习时间，并联动 1 道练习题一起复习",
+      "leaf_card": {
+        "chunk_id": "chunk.math.数列与不等式.数列.递推数列转化方法.构造等比数列.method_card.v1",
+        "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "title": "构造等比数列",
+        "card_type": "method_card",
+        "node_kind": "method",
+        "path": [
+          "数学",
+          "数列与不等式",
+          "数列",
+          "递推数列转化方法",
+          "构造等比数列"
+        ],
+        "keywords": [
+          "构造等比",
+          "递推转化",
+          "常比",
+          "辅助数列"
+        ],
+        "text": "方法：构造等比数列。路径：数学 > 数列与不等式 > 数列 > 递推数列转化方法 > 构造等比数列。别名：构造比值不变。关键词：构造等比；递推转化；常比；辅助数列。目标：通过乘除、移项或代换把原递推式转化成某个辅助数列满足固定公比，从而求解原数列。触发信号：递推式经过整理后可能出现“新量前后项比值恒定”；原数列不直接等比但有乘法型递推结构；题目适合构造辅助数列。适用题型：比例型递推数列；乘法递推转化；辅助数列构造题。步骤：先判断是否能通过变形得到某个新量的前后项比值恒定；构造辅助数列 b_n 并求出公比；利用等比数列通项公式求 b_n；最后再还原原数列 a_n。常见失败：公比识别错误；构造的新量不能真正形成等比；忽略项非零前提；还原原数列时代换回去出错。复习提示：构造等比时，重点看能不能把递推式整理成“后一项是前一项乘一个固定因子”。",
+        "review_cue": "构造等比时，重点看能不能把递推式整理成“后一项是前一项乘一个固定因子”。",
+        "structured_content": {
+          "definition": null,
+          "core_idea": null,
+          "boundary": null,
+          "formula": null,
+          "variable_notes": null,
+          "applicable_conditions": null,
+          "special_cases": null,
+          "method_goal": "通过乘除、移项或代换把原递推式转化成某个辅助数列满足固定公比，从而求解原数列。",
+          "trigger_signals": [
+            "递推式经过整理后可能出现“新量前后项比值恒定”",
+            "原数列不直接等比但有乘法型递推结构",
+            "题目适合构造辅助数列"
+          ],
+          "steps": [
+            "先判断是否能通过变形得到某个新量的前后项比值恒定",
+            "构造辅助数列 b_n 并求出公比",
+            "利用等比数列通项公式求 b_n",
+            "最后再还原原数列 a_n"
+          ],
+          "common_errors": null,
+          "failure_modes": [
+            "公比识别错误",
+            "构造的新量不能真正形成等比",
+            "忽略项非零前提",
+            "还原原数列时代换回去出错"
+          ]
+        },
+        "student_actions": [
+          {
+            "label": "掌握很熟练",
+            "action": "node_mastered_well",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "effect": "延后该知识点的下次复习时间"
+          },
+          {
+            "label": "还要练题",
+            "action": "node_needs_more_practice",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "effect": "提高该知识点关联题目的练习优先级"
+          },
+          {
+            "label": "暂时跳过",
+            "action": "skip_temporarily",
+            "target_type": "knowledge_point",
+            "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+            "effect": "短期内不再推送这个知识点"
+          }
+        ]
+      },
+      "question_count": 1,
+      "questions": [
+        {
+          "question_id": "wq_overview_seq_001",
+          "summary": {
+            "question_type": "证明题",
+            "priority_score": 0.8375,
+            "last_result": "unseen",
+            "is_due_now": true
+          },
+          "content": {
+            "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+            "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。"
+          },
+          "hidden_answer_block": {
+            "revealed": false,
+            "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+            "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+          },
+          "student_actions": [
+            {
+              "label": "显示答案",
+              "action": "reveal_answer",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001"
+            },
+            {
+              "label": "这题做对了",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "correct"
+            },
+            {
+              "label": "这题没做对",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "wrong"
+            },
+            {
+              "label": "部分会做",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001",
+              "result": "partial"
+            },
+            {
+              "label": "先跳过",
+              "action": "skip_temporarily",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_seq_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_05",
+      "mode": "leaf_first",
+      "rank": 5,
+      "node_id": "math.解析几何.圆的方程.圆的标准方程",
+      "priority_score": 0.8975,
+      "bundle_reason": "知识点已到复习时间，并联动 1 道练习题一起复习",
+      "leaf_card": {
+        "chunk_id": "chunk.math.解析几何.圆的方程.圆的标准方程.formula_card.v1",
+        "node_id": "math.解析几何.圆的方程.圆的标准方程",
+        "title": "圆的标准方程",
+        "card_type": "formula_card",
+        "node_kind": "formula",
+        "path": [
+          "数学",
+          "解析几何",
+          "圆的方程",
+          "圆的标准方程"
+        ],
+        "keywords": [
+          "圆标准方程",
+          "圆心",
+          "半径",
+          "解析几何"
+        ],
+        "text": "知识点：圆的标准方程。路径：数学 > 解析几何 > 圆的方程 > 圆的标准方程。别名：圆标准式。关键词：圆标准方程；圆心；半径；解析几何。公式：圆心为 (a,b)、半径为 r(r>0) 的圆的标准方程为 (x-a)²+(y-b)²=r²。适用条件：已知圆心和半径；题目要求直接写圆方程；圆可由平移基本圆得到。特殊情况：当圆心在原点时，方程简化为 x²+y²=r²；若 r=0 则退化为一个点，不再是通常意义下的圆。变量说明：(a,b) 表示圆心坐标，r 为半径，r 必须为正。推导提示：标准方程直接来自圆的定义“到定点距离等于定长”。常见错误：圆心坐标符号写反；半径平方漏写；把圆心和点坐标位置混淆。复习提示：圆标准方程读法很简单：括号里看圆心，右边看半径平方。",
+        "review_cue": "圆标准方程读法很简单：括号里看圆心，右边看半径平方。",
+        "structured_content": {
+          "definition": null,
+          "core_idea": null,
+          "boundary": null,
+          "formula": "圆心为 (a,b)、半径为 r(r>0) 的圆的标准方程为 (x-a)²+(y-b)²=r²",
+          "variable_notes": "(a,b) 表示圆心坐标，r 为半径，r 必须为正。",
+          "applicable_conditions": [
+            "已知圆心和半径",
+            "题目要求直接写圆方程",
+            "圆可由平移基本圆得到"
+          ],
+          "special_cases": [
+            "当圆心在原点时，方程简化为 x²+y²=r²",
+            "若 r=0 则退化为一个点，不再是通常意义下的圆"
+          ],
+          "method_goal": null,
+          "trigger_signals": null,
+          "steps": null,
+          "common_errors": [
+            "圆心坐标符号写反",
+            "半径平方漏写",
+            "把圆心和点坐标位置混淆"
+          ],
+          "failure_modes": null
+        },
+        "student_actions": [
+          {
+            "label": "掌握很熟练",
+            "action": "node_mastered_well",
+            "target_type": "knowledge_point",
+            "target_id": "math.解析几何.圆的方程.圆的标准方程",
+            "effect": "延后该知识点的下次复习时间"
+          },
+          {
+            "label": "还要练题",
+            "action": "node_needs_more_practice",
+            "target_type": "knowledge_point",
+            "target_id": "math.解析几何.圆的方程.圆的标准方程",
+            "effect": "提高该知识点关联题目的练习优先级"
+          },
+          {
+            "label": "暂时跳过",
+            "action": "skip_temporarily",
+            "target_type": "knowledge_point",
+            "target_id": "math.解析几何.圆的方程.圆的标准方程",
+            "effect": "短期内不再推送这个知识点"
+          }
+        ]
+      },
+      "question_count": 1,
+      "questions": [
+        {
+          "question_id": "wq_overview_circle_001",
+          "summary": {
+            "question_type": "选择题",
+            "priority_score": 0.8375,
+            "last_result": "unseen",
+            "is_due_now": true
+          },
+          "content": {
+            "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+            "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。"
+          },
+          "hidden_answer_block": {
+            "revealed": false,
+            "correct_answer": "-12≤t≤8",
+            "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。"
+          },
+          "student_actions": [
+            {
+              "label": "显示答案",
+              "action": "reveal_answer",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_circle_001"
+            },
+            {
+              "label": "这题做对了",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_circle_001",
+              "result": "correct"
+            },
+            {
+              "label": "这题没做对",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_circle_001",
+              "result": "wrong"
+            },
+            {
+              "label": "部分会做",
+              "action": "review_result",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_circle_001",
+              "result": "partial"
+            },
+            {
+              "label": "先跳过",
+              "action": "skip_temporarily",
+              "target_type": "wrong_question",
+              "target_id": "wq_overview_circle_001"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

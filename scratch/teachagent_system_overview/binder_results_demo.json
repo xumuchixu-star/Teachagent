@@ -1,0 +1,154 @@
+{
+  "results": [
+    {
+      "case_id": "binder_case_sequence_shift",
+      "description": "递推构造等比数列证明题",
+      "question_id": "wq_overview_seq_001",
+      "primary_node_id": "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+      "secondary_node_ids": [],
+      "binding_confidence": 0.2688,
+      "coarse_subtrees": [
+        "math.数列与不等式.数列",
+        "math.数列与不等式.数列.等差_等比数列",
+        "math.数列与不等式.数列.基础概念"
+      ],
+      "top_k_preview": [
+        {
+          "rank": 1,
+          "node_id": "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+          "title": "等比数列通项公式",
+          "bind_score": 0.3476,
+          "reason": "命中关键词：等比数列、公比、a_n；路径语境贴近：数列；解析模式匹配：等比数列；该叶子对题目核心求解动作的解释最完整"
+        },
+        {
+          "rank": 2,
+          "node_id": "math.数列与不等式.数列.等差_等比数列.等比数列性质与判定",
+          "title": "等比数列性质与判定",
+          "bind_score": 0.3311,
+          "reason": "命中关键词：等比数列、公比；路径语境贴近：数列；解析模式匹配：等比数列"
+        },
+        {
+          "rank": 3,
+          "node_id": "math.数列与不等式.数列.等差_等比数列.等比数列求和公式",
+          "title": "等比数列求和公式",
+          "bind_score": 0.3228,
+          "reason": "命中关键词：等比数列；路径语境贴近：数列；解析模式匹配：等比数列"
+        },
+        {
+          "rank": 4,
+          "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+          "title": "构造等比数列",
+          "bind_score": 0.321,
+          "reason": "路径语境贴近：数列"
+        },
+        {
+          "rank": 5,
+          "node_id": "math.数列与不等式.数列.等差_等比数列.等差数列通项公式",
+          "title": "等差数列通项公式",
+          "bind_score": 0.3023,
+          "reason": "命中关键词：a_n；路径语境贴近：数列；解析模式匹配：a_n"
+        }
+      ]
+    },
+    {
+      "case_id": "binder_case_vector_angle",
+      "description": "单位向量和为零，借数量积与夹角公式求夹角",
+      "question_id": "wq_overview_vec_001",
+      "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "secondary_node_ids": [],
+      "binding_confidence": 0.3465,
+      "coarse_subtrees": [
+        "math.三角函数_平面向量与解三角形.平面向量",
+        "math.三角函数_平面向量与解三角形.三角函数",
+        "math.空间几何.空间向量与坐标"
+      ],
+      "top_k_preview": [
+        {
+          "rank": 1,
+          "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+          "title": "向量夹角公式",
+          "bind_score": 0.3955,
+          "reason": "命中关键词：夹角公式、cosθ、数量积；解析模式匹配：cosθ；该叶子对题目核心求解动作的解释最完整"
+        },
+        {
+          "rank": 2,
+          "node_id": "math.空间几何.空间向量与坐标.空间向量夹角计算",
+          "title": "空间向量夹角计算",
+          "bind_score": 0.3404,
+          "reason": "命中关键词：数量积、夹角公式"
+        },
+        {
+          "rank": 3,
+          "node_id": "math.三角函数_平面向量与解三角形.平面向量.平面向量数量积",
+          "title": "平面向量数量积",
+          "bind_score": 0.3332,
+          "reason": "命中关键词：数量积、夹角"
+        },
+        {
+          "rank": 4,
+          "node_id": "math.三角函数_平面向量与解三角形.解三角形.余弦定理及推论",
+          "title": "余弦定理及推论",
+          "bind_score": 0.3137,
+          "reason": "命中关键词：夹角；解析模式匹配：标准答案与该公式卡的表达式或使用条件接近"
+        },
+        {
+          "rank": 5,
+          "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.二倍角公式",
+          "title": "二倍角公式",
+          "bind_score": 0.3108,
+          "reason": "解析模式匹配：标准答案与该公式卡的表达式或使用条件接近"
+        }
+      ]
+    },
+    {
+      "case_id": "binder_case_circle_distance",
+      "description": "圆上张角存在性转化为圆心到直线距离范围",
+      "question_id": "wq_overview_circle_001",
+      "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+      "secondary_node_ids": [],
+      "binding_confidence": 0.2984,
+      "coarse_subtrees": [
+        "math.解析几何.直线的方程",
+        "math.解析几何.圆的方程",
+        "math.统计与概率.随机变量"
+      ],
+      "top_k_preview": [
+        {
+          "rank": 1,
+          "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+          "title": "点到直线的距离公式",
+          "bind_score": 0.3317,
+          "reason": "命中别名：点到直线距离；解析模式匹配：标准答案与该公式卡的表达式或使用条件接近；该叶子对题目核心求解动作的解释最完整"
+        },
+        {
+          "rank": 2,
+          "node_id": "math.解析几何.圆的方程.圆的标准方程",
+          "title": "圆的标准方程",
+          "bind_score": 0.2785,
+          "reason": "命中关键词：圆心、半径；解析模式匹配：标准答案与该公式卡的表达式或使用条件接近"
+        },
+        {
+          "rank": 3,
+          "node_id": "math.解析几何.直线的方程.直线一般式方程",
+          "title": "直线一般式方程",
+          "bind_score": 0.2609,
+          "reason": "解析模式匹配：标准答案与该公式卡的表达式或使用条件接近"
+        },
+        {
+          "rank": 4,
+          "node_id": "math.解析几何.圆的方程.直线与圆的位置关系",
+          "title": "直线与圆的位置关系",
+          "bind_score": 0.2579,
+          "reason": "题干与解析文本和叶子卡“直线与圆的位置关系”的检索文本最接近"
+        },
+        {
+          "rank": 5,
+          "node_id": "math.解析几何.圆的方程.两个圆的位置关系",
+          "title": "两个圆的位置关系",
+          "bind_score": 0.2576,
+          "reason": "命中关键词：圆心距；解析模式匹配：圆心距"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "binder_case_circle_distance",
+  "description": "圆上张角存在性转化为圆心到直线距离范围",
+  "question_payload": {
+    "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+    "question_type": "选择题",
+    "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。",
+    "correct_answer": "-12≤t≤8",
+    "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。",
+    "teacher_comment": "关键不是直接算 t，而是先把张角存在性转化成圆心到直线的距离约束。",
+    "source_name": "binder_harness",
+    "source_section": "圆与直线综合",
+    "tags": [
+      "解析几何",
+      "圆",
+      "点到直线距离"
+    ]
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.解析几何.直线的方程.点到直线的距离公式",
+      "math.解析几何.圆的方程.直线与圆的位置关系",
+      "math.解析几何.圆的方程.圆的标准方程"
+    ],
+    "must_hit_node_ids": [
+      "math.解析几何.直线的方程.点到直线的距离公式",
+      "math.解析几何.圆的方程.圆的标准方程"
+    ],
+    "must_hit_within_top_k": 5,
+    "allowed_coarse_subtrees": [
+      "math.解析几何.直线的方程",
+      "math.解析几何.圆的方程"
+    ]
+  }
+}

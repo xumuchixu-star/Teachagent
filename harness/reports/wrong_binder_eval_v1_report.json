@@ -1,0 +1,499 @@
+{
+  "generated_at": "2026-06-22T17:23:19.528062+00:00",
+  "suite_name": "wrong_binder",
+  "fixture_dir": "harness/fixtures/wrong_binder_eval_v1",
+  "passed_case_count": 1,
+  "failed_case_count": 3,
+  "score": {
+    "earned_points": 1.6,
+    "total_points": 4.0,
+    "score_ratio": 0.4,
+    "score_percent": 40.0
+  },
+  "score_policy": {
+    "primary_weight": 0.15,
+    "top_k_weight": 0.65,
+    "coarse_weight": 0.2,
+    "note": "当前阶段以 top-k 召回为主，primary 只作为次级指标。"
+  },
+  "failure_flow": {
+    "suite_layer": "wrong_question_binder",
+    "when_failed_check_order": [
+      "binder.coarse_routing",
+      "binder.top_k_recall",
+      "binder.primary_selection"
+    ],
+    "note": "先看大方向子树，再看候选召回，再看最终主知识点选择。"
+  },
+  "cases": [
+    {
+      "case_id": "q001_set_intersection",
+      "description": "集合交集与数轴区间表示",
+      "passed": false,
+      "failed_expectations": [
+        "primary_node_id_not_in_allowed_set",
+        "missing_required_node_ids_within_top_k:math.集合_映射_函数与导数.集合.集合交集运算"
+      ],
+      "score": {
+        "earned_points": 0.2,
+        "total_points": 1.0,
+        "score_ratio": 0.2,
+        "score_percent": 20.0,
+        "rubric_items": [
+          {
+            "metric": "primary_node_allowed",
+            "weight": 0.15,
+            "passed": false,
+            "actual": "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+            "expected": [
+              "math.集合_映射_函数与导数.集合.集合交集运算"
+            ]
+          },
+          {
+            "metric": "top_k_must_hit",
+            "weight": 0.65,
+            "passed": false,
+            "actual": [
+              "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+              "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+              "math.计数_二项式_推理证明_逻辑与复数.二项式定理.二项式系数性质",
+              "math.解析几何.直线的方程.直线截距式方程",
+              "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质"
+            ],
+            "expected": {
+              "must_hit_node_ids": [
+                "math.集合_映射_函数与导数.集合.集合交集运算"
+              ],
+              "must_hit_within_top_k": 5
+            }
+          },
+          {
+            "metric": "coarse_subtree_allowed",
+            "weight": 0.2,
+            "passed": true,
+            "actual": "math.集合_映射_函数与导数.集合",
+            "expected": [
+              "math.集合_映射_函数与导数.集合"
+            ]
+          }
+        ]
+      },
+      "diagnostics": [
+        {
+          "failure_code": "primary_node_id_not_in_allowed_set",
+          "layer": "binder.primary_selection",
+          "message": "主知识点没有落在允许集合内。",
+          "inspect_fields": [
+            "primary_node_id",
+            "top_k_node_ids",
+            "coarse_subtrees"
+          ],
+          "suggested_next_step": "先看粗路由是否偏了，再看叶子排序规则是否把更细的叶子压下去了。",
+          "actual": "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+          "expected": [
+            "math.集合_映射_函数与导数.集合.集合交集运算"
+          ]
+        },
+        {
+          "failure_code": "missing_required_node_ids_within_top_k",
+          "layer": "binder.top_k_recall",
+          "message": "预期知识点没有在要求的 top-k 范围内被召回。",
+          "inspect_fields": [
+            "top_k_node_ids",
+            "candidate_pool_size",
+            "binding_confidence"
+          ],
+          "suggested_next_step": "优先检查候选池召回是否太窄，其次再看重排分数是否把目标叶子压低。",
+          "actual": [
+            "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+            "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+            "math.计数_二项式_推理证明_逻辑与复数.二项式定理.二项式系数性质",
+            "math.解析几何.直线的方程.直线截距式方程",
+            "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质"
+          ],
+          "expected": {
+            "must_hit_node_ids": [
+              "math.集合_映射_函数与导数.集合.集合交集运算"
+            ],
+            "must_hit_within_top_k": 5
+          }
+        }
+      ],
+      "details": {
+        "summary": {
+          "question_id": "wq_fd12aeb3b2df",
+          "primary_node_id": "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+          "secondary_node_ids": [],
+          "binding_confidence": 0.2224,
+          "top_k_node_ids": [
+            "math.统计与概率.概率.概率基本性质.互斥事件加法公式",
+            "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+            "math.计数_二项式_推理证明_逻辑与复数.二项式定理.二项式系数性质",
+            "math.解析几何.直线的方程.直线截距式方程",
+            "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质"
+          ],
+          "coarse_subtrees": [
+            "math.集合_映射_函数与导数.集合",
+            "math.三角函数_平面向量与解三角形.三角函数",
+            "math.统计与概率.概率"
+          ],
+          "candidate_pool_size": 75
+        },
+        "expectation": {
+          "allowed_primary_node_ids": [
+            "math.集合_映射_函数与导数.集合.集合交集运算"
+          ],
+          "must_hit_node_ids": [
+            "math.集合_映射_函数与导数.集合.集合交集运算"
+          ],
+          "must_hit_within_top_k": 5,
+          "allowed_coarse_subtrees": [
+            "math.集合_映射_函数与导数.集合"
+          ]
+        }
+      },
+      "fixture_path": "harness/fixtures/wrong_binder_eval_v1/q001_set_intersection.json"
+    },
+    {
+      "case_id": "q002_complex_modulus",
+      "description": "复数除法后求模",
+      "passed": false,
+      "failed_expectations": [
+        "primary_node_id_not_in_allowed_set",
+        "missing_required_node_ids_within_top_k:math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+      ],
+      "score": {
+        "earned_points": 0.2,
+        "total_points": 1.0,
+        "score_ratio": 0.2,
+        "score_percent": 20.0,
+        "rubric_items": [
+          {
+            "metric": "primary_node_allowed",
+            "weight": 0.15,
+            "passed": false,
+            "actual": "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+            "expected": [
+              "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+            ]
+          },
+          {
+            "metric": "top_k_must_hit",
+            "weight": 0.65,
+            "passed": false,
+            "actual": [
+              "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+              "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+              "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质",
+              "math.解析几何.圆锥曲线.椭圆定义_标准方程与性质",
+              "math.三角函数_平面向量与解三角形.三角函数.公式体系.二倍角公式"
+            ],
+            "expected": {
+              "must_hit_node_ids": [
+                "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+              ],
+              "must_hit_within_top_k": 5
+            }
+          },
+          {
+            "metric": "coarse_subtree_allowed",
+            "weight": 0.2,
+            "passed": true,
+            "actual": "math.计数_二项式_推理证明_逻辑与复数.复数",
+            "expected": [
+              "math.计数_二项式_推理证明_逻辑与复数.复数"
+            ]
+          }
+        ]
+      },
+      "diagnostics": [
+        {
+          "failure_code": "primary_node_id_not_in_allowed_set",
+          "layer": "binder.primary_selection",
+          "message": "主知识点没有落在允许集合内。",
+          "inspect_fields": [
+            "primary_node_id",
+            "top_k_node_ids",
+            "coarse_subtrees"
+          ],
+          "suggested_next_step": "先看粗路由是否偏了，再看叶子排序规则是否把更细的叶子压下去了。",
+          "actual": "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+          "expected": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+          ]
+        },
+        {
+          "failure_code": "missing_required_node_ids_within_top_k",
+          "layer": "binder.top_k_recall",
+          "message": "预期知识点没有在要求的 top-k 范围内被召回。",
+          "inspect_fields": [
+            "top_k_node_ids",
+            "candidate_pool_size",
+            "binding_confidence"
+          ],
+          "suggested_next_step": "优先检查候选池召回是否太窄，其次再看重排分数是否把目标叶子压低。",
+          "actual": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+            "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+            "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质",
+            "math.解析几何.圆锥曲线.椭圆定义_标准方程与性质",
+            "math.三角函数_平面向量与解三角形.三角函数.公式体系.二倍角公式"
+          ],
+          "expected": {
+            "must_hit_node_ids": [
+              "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+            ],
+            "must_hit_within_top_k": 5
+          }
+        }
+      ],
+      "details": {
+        "summary": {
+          "question_id": "wq_def8e612d3fd",
+          "primary_node_id": "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+          "secondary_node_ids": [],
+          "binding_confidence": 0.2226,
+          "top_k_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数.复数乘除法运算",
+            "math.三角函数_平面向量与解三角形.解三角形.三角形面积公式",
+            "math.解析几何.圆锥曲线.双曲线定义_标准方程与性质",
+            "math.解析几何.圆锥曲线.椭圆定义_标准方程与性质",
+            "math.三角函数_平面向量与解三角形.三角函数.公式体系.二倍角公式"
+          ],
+          "coarse_subtrees": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数",
+            "math.三角函数_平面向量与解三角形.三角函数",
+            "math.计数_二项式_推理证明_逻辑与复数.二项式定理"
+          ],
+          "candidate_pool_size": 56
+        },
+        "expectation": {
+          "allowed_primary_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+          ],
+          "must_hit_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+          ],
+          "must_hit_within_top_k": 5,
+          "allowed_coarse_subtrees": [
+            "math.计数_二项式_推理证明_逻辑与复数.复数"
+          ]
+        }
+      },
+      "fixture_path": "harness/fixtures/wrong_binder_eval_v1/q002_complex_modulus.json"
+    },
+    {
+      "case_id": "q005_necessary_not_sufficient",
+      "description": "等差数列性质与充分必要条件混合判断",
+      "passed": true,
+      "failed_expectations": [],
+      "score": {
+        "earned_points": 1.0,
+        "total_points": 1.0,
+        "score_ratio": 1.0,
+        "score_percent": 100.0,
+        "rubric_items": [
+          {
+            "metric": "primary_node_allowed",
+            "weight": 0.15,
+            "passed": true,
+            "actual": "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+            "expected": [
+              "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+            ]
+          },
+          {
+            "metric": "top_k_must_hit",
+            "weight": 0.65,
+            "passed": true,
+            "actual": [
+              "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+              "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定",
+              "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.充分非必要条件"
+            ],
+            "expected": {
+              "must_hit_node_ids": [
+                "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+              ],
+              "must_hit_within_top_k": 3
+            }
+          },
+          {
+            "metric": "coarse_subtree_allowed",
+            "weight": 0.2,
+            "passed": true,
+            "actual": "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件",
+            "expected": [
+              "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件"
+            ]
+          }
+        ]
+      },
+      "diagnostics": [],
+      "details": {
+        "summary": {
+          "question_id": "wq_f77dc9f49089",
+          "primary_node_id": "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+          "secondary_node_ids": [],
+          "binding_confidence": 0.2784,
+          "top_k_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件",
+            "math.数列与不等式.数列.等差_等比数列.等差数列性质与判定",
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.充分非必要条件",
+            "math.数列与不等式.数列.等差_等比数列.等差数列通项公式",
+            "math.数列与不等式.数列.等差_等比数列.等差数列求和公式"
+          ],
+          "coarse_subtrees": [
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件",
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法",
+            "math.数列与不等式.数列.等差_等比数列"
+          ],
+          "candidate_pool_size": 50
+        },
+        "expectation": {
+          "allowed_primary_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+          ],
+          "must_hit_node_ids": [
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+          ],
+          "must_hit_within_top_k": 3,
+          "allowed_coarse_subtrees": [
+            "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件"
+          ]
+        }
+      },
+      "fixture_path": "harness/fixtures/wrong_binder_eval_v1/q005_necessary_not_sufficient.json"
+    },
+    {
+      "case_id": "q010_recursive_transform",
+      "description": "递推式变形与平方转化综合题",
+      "passed": false,
+      "failed_expectations": [
+        "primary_node_id_not_in_allowed_set",
+        "missing_required_node_ids_within_top_k:math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+      ],
+      "score": {
+        "earned_points": 0.2,
+        "total_points": 1.0,
+        "score_ratio": 0.2,
+        "score_percent": 20.0,
+        "rubric_items": [
+          {
+            "metric": "primary_node_allowed",
+            "weight": 0.15,
+            "passed": false,
+            "actual": "math.数列与不等式.数列.基础概念.数列通项公式求解",
+            "expected": [
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+            ]
+          },
+          {
+            "metric": "top_k_must_hit",
+            "weight": 0.65,
+            "passed": false,
+            "actual": [
+              "math.数列与不等式.数列.基础概念.数列通项公式求解",
+              "math.数列与不等式.数列.等差_等比数列.等差数列求和公式",
+              "math.数列与不等式.数列.等差_等比数列.等差数列通项公式",
+              "math.数列与不等式.数列.递推数列转化方法.逐商累积法",
+              "math.数列与不等式.数列.递推数列转化方法.逐差累加法"
+            ],
+            "expected": {
+              "must_hit_node_ids": [
+                "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+              ],
+              "must_hit_within_top_k": 5
+            }
+          },
+          {
+            "metric": "coarse_subtree_allowed",
+            "weight": 0.2,
+            "passed": true,
+            "actual": "math.数列与不等式.数列",
+            "expected": [
+              "math.数列与不等式.数列",
+              "math.数列与不等式.数列.递推数列转化方法"
+            ]
+          }
+        ]
+      },
+      "diagnostics": [
+        {
+          "failure_code": "primary_node_id_not_in_allowed_set",
+          "layer": "binder.primary_selection",
+          "message": "主知识点没有落在允许集合内。",
+          "inspect_fields": [
+            "primary_node_id",
+            "top_k_node_ids",
+            "coarse_subtrees"
+          ],
+          "suggested_next_step": "先看粗路由是否偏了，再看叶子排序规则是否把更细的叶子压下去了。",
+          "actual": "math.数列与不等式.数列.基础概念.数列通项公式求解",
+          "expected": [
+            "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+          ]
+        },
+        {
+          "failure_code": "missing_required_node_ids_within_top_k",
+          "layer": "binder.top_k_recall",
+          "message": "预期知识点没有在要求的 top-k 范围内被召回。",
+          "inspect_fields": [
+            "top_k_node_ids",
+            "candidate_pool_size",
+            "binding_confidence"
+          ],
+          "suggested_next_step": "优先检查候选池召回是否太窄，其次再看重排分数是否把目标叶子压低。",
+          "actual": [
+            "math.数列与不等式.数列.基础概念.数列通项公式求解",
+            "math.数列与不等式.数列.等差_等比数列.等差数列求和公式",
+            "math.数列与不等式.数列.等差_等比数列.等差数列通项公式",
+            "math.数列与不等式.数列.递推数列转化方法.逐商累积法",
+            "math.数列与不等式.数列.递推数列转化方法.逐差累加法"
+          ],
+          "expected": {
+            "must_hit_node_ids": [
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+            ],
+            "must_hit_within_top_k": 5
+          }
+        }
+      ],
+      "details": {
+        "summary": {
+          "question_id": "wq_9b506705ba8b",
+          "primary_node_id": "math.数列与不等式.数列.基础概念.数列通项公式求解",
+          "secondary_node_ids": [],
+          "binding_confidence": 0.2016,
+          "top_k_node_ids": [
+            "math.数列与不等式.数列.基础概念.数列通项公式求解",
+            "math.数列与不等式.数列.等差_等比数列.等差数列求和公式",
+            "math.数列与不等式.数列.等差_等比数列.等差数列通项公式",
+            "math.数列与不等式.数列.递推数列转化方法.逐商累积法",
+            "math.数列与不等式.数列.递推数列转化方法.逐差累加法"
+          ],
+          "coarse_subtrees": [
+            "math.数列与不等式.数列",
+            "math.数列与不等式.数列.等差_等比数列",
+            "math.数列与不等式.数列.基础概念"
+          ],
+          "candidate_pool_size": 38
+        },
+        "expectation": {
+          "allowed_primary_node_ids": [
+            "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+          ],
+          "must_hit_node_ids": [
+            "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+          ],
+          "must_hit_within_top_k": 5,
+          "allowed_coarse_subtrees": [
+            "math.数列与不等式.数列",
+            "math.数列与不等式.数列.递推数列转化方法"
+          ]
+        }
+      },
+      "fixture_path": "harness/fixtures/wrong_binder_eval_v1/q010_recursive_transform.json"
+    }
+  ]
+}

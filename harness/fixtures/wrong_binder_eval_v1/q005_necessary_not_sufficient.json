@@ -1,0 +1,30 @@
+{
+  "case_id": "q005_necessary_not_sufficient",
+  "description": "等差数列性质与充分必要条件混合判断",
+  "question_payload": {
+    "stem": "“a1+a5=2a3”是“数列{an}为等差数列”的",
+    "question_type": "选择题",
+    "student_answer": "我知道等差数列有这个性质，但分不清必要和充分。",
+    "correct_answer": "必要不充分条件",
+    "solution_text": "若数列为等差数列，则必有 a1+a5=2a3；反之可举反例说明不一定是等差数列，所以是必要不充分条件。",
+    "source_name": "wrong_binder_eval_v1",
+    "source_section": "充分必要条件",
+    "tags": [
+      "数列",
+      "充分必要条件",
+      "等差数列"
+    ]
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+    ],
+    "must_hit_node_ids": [
+      "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件.必要非充分条件"
+    ],
+    "must_hit_within_top_k": 3,
+    "allowed_coarse_subtrees": [
+      "math.计数_二项式_推理证明_逻辑与复数.简易逻辑与算法.充分必要条件"
+    ]
+  }
+}

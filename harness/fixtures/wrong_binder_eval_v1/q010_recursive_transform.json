@@ -1,0 +1,31 @@
+{
+  "case_id": "q010_recursive_transform",
+  "description": "递推式变形与平方转化综合题",
+  "question_payload": {
+    "stem": "已知正项数列{a_n}满足 a_{n+1}=(a_n+√(a_n^2+1))/2，则下列结论正确的是",
+    "question_type": "多选题",
+    "student_answer": "我不会把递推式变形成更好用的平方关系，也不会判断选项。",
+    "correct_answer": "ACD",
+    "solution_text": "由 2a_{n+1}=a_n+√(a_n^2+1) 可得 2a_{n+1}-a_n=√(a_n^2+1)，平方得 4a_{n+1}^2-4a_{n+1}a_n=1，再结合 a_{n+1}-a_n>0 判断各选项。",
+    "source_name": "wrong_binder_eval_v1",
+    "source_section": "递推数列",
+    "tags": [
+      "数列",
+      "递推",
+      "平方转化"
+    ]
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+    ],
+    "must_hit_node_ids": [
+      "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+    ],
+    "must_hit_within_top_k": 5,
+    "allowed_coarse_subtrees": [
+      "math.数列与不等式.数列",
+      "math.数列与不等式.数列.递推数列转化方法"
+    ]
+  }
+}

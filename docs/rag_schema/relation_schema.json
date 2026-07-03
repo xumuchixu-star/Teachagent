@@ -1,0 +1,55 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "knowledge_relation_schema",
+  "required": [
+    "relation_id",
+    "source_node_id",
+    "target_node_id",
+    "relation_type",
+    "weight",
+    "expand_when",
+    "source"
+  ],
+  "field_specs": {
+    "relation_id": "Unique relation id. Recommended format: rel.<source>.<relation_type>.<target>.v<version>",
+    "source_node_id": "Origin node id",
+    "target_node_id": "Target node id",
+    "relation_type": "Typed relation between leaf nodes",
+    "weight": "0-1 score used for retrieval expansion priority",
+    "expand_when": "When this relation should be expanded during retrieval",
+    "source": "Source file or generator"
+  },
+  "optional": [
+    "bidirectional",
+    "source_card_type",
+    "target_card_type",
+    "note"
+  ],
+  "relation_types": {
+    "prerequisite": {
+      "meaning": "The source node usually requires the target node as prior knowledge",
+      "default_expand_when": "low_confidence"
+    },
+    "uses_method": {
+      "meaning": "The source node often needs the target method card during explanation or review",
+      "default_expand_when": "method_needed"
+    },
+    "confusable_with": {
+      "meaning": "The source node is often confused with the target node",
+      "default_expand_when": "confusion"
+    }
+  },
+  "expand_when_values": [
+    "always",
+    "low_confidence",
+    "method_needed",
+    "confusion"
+  ],
+  "retrieval_rules": [
+    "First retrieve the primary card of the chosen core leaf node",
+    "Expand prerequisite relations before uses_method relations",
+    "Only expand confusable_with when the student error suggests concept confusion",
+    "Supporting cards should usually be capped at one or two per retrieval"
+  ]
+}

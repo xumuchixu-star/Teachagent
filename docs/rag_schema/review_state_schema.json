@@ -1,0 +1,124 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "review_state_schema",
+  "positioning": "Use the knowledge tree as the review backbone. Example problems and future wrong questions both feed the same review state.",
+  "core_entities": [
+    "knowledge_point_state",
+    "example_question_state",
+    "review_plan"
+  ],
+  "review_flow": [
+    "seed_example_problems",
+    "initialize_knowledge_point_states",
+    "student_reviews_leaf_cards",
+    "student_reviews_example_questions",
+    "update_memory_state",
+    "generate_next_plan"
+  ],
+  "record_schema": {
+    "required": [
+      "record_id",
+      "student_id",
+      "knowledge_point_states",
+      "example_question_states",
+      "generated_at"
+    ],
+    "optional": [
+      "review_plan",
+      "notes"
+    ]
+  },
+  "knowledge_point_state_schema": {
+    "required": [
+      "node_id",
+      "state",
+      "mastery"
+    ],
+    "optional": [
+      "stability",
+      "linked_question_ids",
+      "source_batch_ids",
+      "first_seen_at",
+      "last_reviewed_at",
+      "next_review_at",
+      "correct_count",
+      "wrong_count",
+      "priority_note"
+    ],
+    "field_specs": {
+      "node_id": "Leaf node id in the knowledge tree",
+      "state": "new / learning / review / stable",
+      "mastery": "0-1 rough mastery estimate",
+      "stability": "Positive memory stability value for forgetting scheduling",
+      "linked_question_ids": "Example or wrong-question ids linked to this leaf",
+      "source_batch_ids": "Which example batch or wrong-question batch introduced this node",
+      "first_seen_at": "When this node entered the student's review system",
+      "last_reviewed_at": "Most recent review time",
+      "next_review_at": "Next suggested review time",
+      "correct_count": "Correct review count on this node",
+      "wrong_count": "Wrong review count on this node",
+      "priority_note": "Short human-readable reason for current priority"
+    }
+  },
+  "example_question_state_schema": {
+    "required": [
+      "question_id",
+      "state",
+      "linked_node_ids"
+    ],
+    "optional": [
+      "primary_node_ids",
+      "secondary_node_ids",
+      "source_batch_id",
+      "last_result",
+      "review_count",
+      "last_reviewed_at",
+      "next_review_at",
+      "difficulty_estimate",
+      "priority_note"
+    ],
+    "field_specs": {
+      "question_id": "Stable example-question or wrong-question id",
+      "state": "new / learning / review / stable",
+      "linked_node_ids": "All linked leaf nodes used by review scheduling",
+      "primary_node_ids": "Main linked leaf nodes",
+      "secondary_node_ids": "Auxiliary linked leaf nodes",
+      "source_batch_id": "Which batch this question came from",
+      "last_result": "unseen / correct / wrong / partial",
+      "review_count": "How many times the question has been revisited",
+      "last_reviewed_at": "Most recent review time",
+      "next_review_at": "Next suggested revisit time",
+      "difficulty_estimate": "Optional 0-1 or categorical difficulty estimate",
+      "priority_note": "Why this question should be shown now"
+    }
+  },
+  "review_plan_schema": {
+    "optional": [
+      "mode",
+      "recommended_node_ids",
+      "recommended_question_ids",
+      "recommended_bundles"
+    ],
+    "field_specs": {
+      "mode": "leaf_first / question_first / mixed",
+      "recommended_node_ids": "Knowledge points to review first",
+      "recommended_question_ids": "Example or wrong-question ids to revisit first",
+      "recommended_bundles": "Small mixed bundles such as one leaf plus one representative question"
+    }
+  },
+  "recommended_defaults": {
+    "initial_knowledge_state": "new",
+    "initial_question_state": "new",
+    "initial_mastery": 0.0,
+    "initial_stability": 0.0,
+    "review_mode": "mixed"
+  },
+  "simple_scheduler_rules": [
+    "New knowledge points should be reviewed before they are considered stable",
+    "Each newly introduced knowledge point should have at least one representative example question",
+    "If a question is answered wrong, raise the priority of all linked knowledge points",
+    "If a knowledge point remains unstable, prioritize leaf-card review before pushing more similar questions",
+    "A daily plan can mix knowledge-point review and question review, but should stay lightweight"
+  ]
+}

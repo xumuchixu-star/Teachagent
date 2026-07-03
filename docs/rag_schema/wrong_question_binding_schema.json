@@ -1,0 +1,231 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "wrong_question_binding_schema",
+  "layers": [
+    "wrong_question_record",
+    "candidate_retrieval",
+    "leaf_binding",
+    "review_priority"
+  ],
+  "binding_rules": [
+    "Each wrong question should bind exactly 1 primary leaf node",
+    "Each wrong question may bind 0 to 2 secondary leaf nodes",
+    "Primary leaf nodes should usually have binding_role=primary_allowed",
+    "Secondary leaf nodes may be primary_allowed or secondary_only, but must explain why they are auxiliary rather than primary",
+    "Top-k candidate retrieval should be preserved for auditability even when final binding is only 1+0..2 leaves",
+    "Binding score and forgetting score must be stored separately",
+    "Review priority may combine binding evidence and forgetting state, but should not replace either"
+  ],
+  "record_schema": {
+    "required": [
+      "question_id",
+      "question_payload",
+      "primary_binding",
+      "top_k_candidates",
+      "binding_confidence",
+      "binding_version",
+      "created_at"
+    ],
+    "optional": [
+      "secondary_bindings",
+      "review_recommendation",
+      "binding_notes",
+      "source"
+    ],
+    "field_specs": {
+      "question_id": "Stable wrong-question id",
+      "question_payload": "Normalized wrong-question input record used by the binder",
+      "primary_binding": "Final primary leaf binding result",
+      "secondary_bindings": "0-2 auxiliary leaf bindings",
+      "top_k_candidates": "Retrieved and reranked candidate leaf nodes, usually top-5",
+      "binding_confidence": "0-1 confidence for the final primary binding",
+      "binding_version": "Version label of the binder or scoring policy",
+      "review_recommendation": "Review ordering and scores after combining binding result with memory state",
+      "binding_notes": "Optional additional notes from rule layer / model layer / teacher correction",
+      "source": "Source file, script, or service that produced the binding",
+      "created_at": "ISO-8601 timestamp when this binding record was produced"
+    }
+  },
+  "question_payload_schema": {
+    "required": [
+      "stem"
+    ],
+    "optional": [
+      "question_type",
+      "student_answer",
+      "correct_answer",
+      "solution_text",
+      "teacher_comment",
+      "source_name",
+      "source_section",
+      "source_created_at",
+      "difficulty_guess",
+      "tags"
+    ],
+    "field_specs": {
+      "stem": "Question stem text",
+      "question_type": "Choice / fill-in / open response / etc.",
+      "student_answer": "Student answer content if available",
+      "correct_answer": "Reference answer if available",
+      "solution_text": "Reference solution or teacher explanation",
+      "teacher_comment": "Optional teacher note on why the student was wrong",
+      "source_name": "Paper / notebook / worksheet / OCR source name",
+      "source_section": "Optional chapter or source section label",
+      "source_created_at": "Original question timestamp if available",
+      "difficulty_guess": "Optional 0-1 or categorical estimate before binding",
+      "tags": "Optional source-side tags"
+    }
+  },
+  "binding_entry_schema": {
+    "required": [
+      "node_id",
+      "rank",
+      "bind_score",
+      "reason"
+    ],
+    "optional": [
+      "title",
+      "node_kind",
+      "review_role",
+      "binding_role",
+      "path",
+      "score_breakdown",
+      "evidence",
+      "why_not_primary",
+      "memory_state",
+      "forget_score",
+      "review_priority_score"
+    ],
+    "field_specs": {
+      "node_id": "Leaf node id from the knowledge tree",
+      "rank": "Rank within the candidate set or final selected list",
+      "bind_score": "0-1 score representing how strongly the question matches this leaf",
+      "title": "Leaf title for human readability",
+      "node_kind": "Leaf node kind such as concept / formula / method / application",
+      "review_role": "core or supporting",
+      "binding_role": "primary_allowed or secondary_only",
+      "path": "Full tree path",
+      "score_breakdown": "Subscores used by the binder",
+      "evidence": "Matched evidence extracted from the question and/or solution",
+      "reason": "Human-readable explanation for why this leaf is a candidate or final binding",
+      "why_not_primary": "Required when a secondary binding has high relevance but is not chosen as primary",
+      "memory_state": "Optional student-specific memory state snapshot for this leaf",
+      "forget_score": "0-1 forgetting score for this leaf at binding time",
+      "review_priority_score": "0-1 or unbounded review priority score after combining memory and binding"
+    }
+  },
+  "top_k_candidate_rules": [
+    "Candidates should preserve their reranked order",
+    "Candidates should usually be capped at 5 for product display and audit logs",
+    "Candidates should include both score and reason",
+    "Candidates should include enough metadata to explain why one node beat another"
+  ],
+  "score_breakdown_schema": {
+    "optional": [
+      "semantic_match_score",
+      "keyword_match_score",
+      "solution_alignment_score",
+      "granularity_fit_score",
+      "binding_role_score",
+      "embedding_score",
+      "bm25_score",
+      "rule_score"
+    ],
+    "field_specs": {
+      "semantic_match_score": "Dense semantic similarity between question and leaf",
+      "keyword_match_score": "Sparse / lexical overlap quality",
+      "solution_alignment_score": "How strongly the solution pattern matches the leaf",
+      "granularity_fit_score": "How well the leaf matches the needed level of specificity",
+      "binding_role_score": "Light prior favoring primary_allowed over secondary_only when appropriate",
+      "embedding_score": "Raw or normalized dense retrieval score",
+      "bm25_score": "Raw or normalized sparse retrieval score",
+      "rule_score": "Score contributed by explicit subject rules or subtree priors"
+    }
+  },
+  "evidence_schema": {
+    "optional": [
+      "matched_keywords",
+      "matched_aliases",
+      "matched_path_terms",
+      "matched_solution_pattern",
+      "matched_error_pattern",
+      "quoted_fragments"
+    ],
+    "field_specs": {
+      "matched_keywords": "Question or solution keywords that matched the leaf",
+      "matched_aliases": "Leaf aliases or alternate names that were triggered",
+      "matched_path_terms": "Useful path-level terms such as chapter or subtree labels",
+      "matched_solution_pattern": "Short description of the solving procedure that matched the leaf",
+      "matched_error_pattern": "Short description of the student error pattern if available",
+      "quoted_fragments": "Short copied fragments from the question / answer / solution used as evidence"
+    }
+  },
+  "memory_state_schema": {
+    "optional": [
+      "student_id",
+      "mastery",
+      "stability",
+      "last_seen_at",
+      "last_wrong_at",
+      "wrong_count",
+      "correct_count",
+      "difficulty_estimate"
+    ],
+    "field_specs": {
+      "student_id": "Student id if binding is personalized",
+      "mastery": "0-1 estimated mastery of the leaf",
+      "stability": "Positive stability value controlling forgetting speed",
+      "last_seen_at": "Last time this leaf was studied or tested",
+      "last_wrong_at": "Last time the student missed a question bound to this leaf",
+      "wrong_count": "Historical wrong-question count for this leaf",
+      "correct_count": "Historical correct-question count for this leaf",
+      "difficulty_estimate": "Optional student-specific or global difficulty estimate"
+    }
+  },
+  "review_recommendation_schema": {
+    "optional": [
+      "review_mode",
+      "leaf_review_priority",
+      "wrong_question_review_priority",
+      "recommended_leaf_order",
+      "recommended_question_order",
+      "recommended_bundle"
+    ],
+    "field_specs": {
+      "review_mode": "leaf_first / question_first / mixed",
+      "leaf_review_priority": "Leaf-centered review priority entries",
+      "wrong_question_review_priority": "Question-centered review priority entries",
+      "recommended_leaf_order": "Ordered list of leaf node ids to review first",
+      "recommended_question_order": "Ordered list of wrong-question ids to revisit first",
+      "recommended_bundle": "Optional mixed recommendation such as one leaf card plus one representative wrong question"
+    }
+  },
+  "review_priority_entry_schema": {
+    "required": [
+      "target_id",
+      "target_type",
+      "priority_score"
+    ],
+    "optional": [
+      "bind_score",
+      "forget_score",
+      "recent_wrong_pressure",
+      "reason"
+    ],
+    "field_specs": {
+      "target_id": "Leaf node id or wrong-question id",
+      "target_type": "leaf or wrong_question",
+      "priority_score": "Combined score used by the review scheduler",
+      "bind_score": "Optional binding contribution to final priority",
+      "forget_score": "Optional forgetting contribution to final priority",
+      "recent_wrong_pressure": "Optional recent error pressure component",
+      "reason": "Why this item is recommended now"
+    }
+  },
+  "recommended_defaults": {
+    "top_k": 5,
+    "max_secondary_bindings": 2,
+    "primary_binding_count": 1
+  }
+}

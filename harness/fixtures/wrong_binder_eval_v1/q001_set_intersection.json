@@ -1,0 +1,30 @@
+{
+  "case_id": "q001_set_intersection",
+  "description": "集合交集与数轴区间表示",
+  "question_payload": {
+    "stem": "设集合 A={x| |x|>=1}, B={x| x<2}，则 A∩B=",
+    "question_type": "选择题",
+    "student_answer": "我会分别化集合，但一到交集和数轴范围就容易漏区间。",
+    "correct_answer": "(-∞,-1]∪[1,2)",
+    "solution_text": "A=(-∞,-1]∪[1,+∞)，B=(-∞,2)，所以 A∩B=(-∞,-1]∪[1,2)。",
+    "source_name": "wrong_binder_eval_v1",
+    "source_section": "集合",
+    "tags": [
+      "集合",
+      "交集",
+      "数轴"
+    ]
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.集合_映射_函数与导数.集合.集合交集运算"
+    ],
+    "must_hit_node_ids": [
+      "math.集合_映射_函数与导数.集合.集合交集运算"
+    ],
+    "must_hit_within_top_k": 5,
+    "allowed_coarse_subtrees": [
+      "math.集合_映射_函数与导数.集合"
+    ]
+  }
+}

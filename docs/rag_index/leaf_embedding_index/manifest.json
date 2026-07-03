@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "artifact": "leaf_embedding_index",
+  "created_at": "2026-06-20T18:23:34+08:00",
+  "project_endpoint": "https://teachagent-xumuchi-20260614.services.ai.azure.com/api/projects/proj-default",
+  "resource_root": "https://teachagent-xumuchi-20260614.services.ai.azure.com",
+  "openai_base_url": "https://teachagent-xumuchi-20260614.services.ai.azure.com/openai/v1",
+  "embedding_deployment": "text-embedding-3-small",
+  "auth_mode": "api_key",
+  "record_count": 279,
+  "vector_normalized": true,
+  "records_path": "/Users/xumuchi/Desktop/TeachAgent/docs/rag_index/leaf_embedding_index/leaf_embeddings.jsonl",
+  "source_glob": "/Users/xumuchi/Desktop/TeachAgent/docs/rag_samples/*leaf_cards.jsonl",
+  "source_fields": [
+    "title",
+    "aliases",
+    "keywords",
+    "path",
+    "texts",
+    "support_snippets",
+    "error_snippets"
+  ]
+}

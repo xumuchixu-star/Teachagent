@@ -1,0 +1,212 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "derived_from": "docs/math_knowledge_tree.md",
+  "chunk_unit": "leaf_node_knowledge_card",
+  "binding_rule": "one_wrong_question_bind_1_to_2_leaf_nodes",
+  "nodes": [
+    {
+      "node_id": "math",
+      "name": "数学",
+      "parent_id": null,
+      "level": 0,
+      "is_leaf": false,
+      "path": ["数学"],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.geometry",
+      "name": "空间几何",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "path": ["数学", "空间几何"],
+      "aliases": ["立体几何"],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.geometry.angle_distance",
+      "name": "空间的角与距离",
+      "parent_id": "math.geometry",
+      "level": 2,
+      "is_leaf": false,
+      "path": ["数学", "空间几何", "空间的角与距离"],
+      "aliases": [],
+      "prerequisites": ["math.geometry"],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.geometry.angle_distance.skew_lines_angle",
+      "name": "异面直线所成角",
+      "parent_id": "math.geometry.angle_distance",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "空间几何", "空间的角与距离", "异面直线所成角"],
+      "aliases": ["异面直线夹角"],
+      "prerequisites": ["math.geometry", "math.geometry.angle_distance"],
+      "common_errors": [
+        "把异面直线直接放在原图中求角，没有先平移到相交位置",
+        "把补角当成所求角，没有取约定范围内的角"
+      ]
+    },
+    {
+      "node_id": "math.geometry.angle_distance.dihedral_angle",
+      "name": "二面角",
+      "parent_id": "math.geometry.angle_distance",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "空间几何", "空间的角与距离", "二面角"],
+      "aliases": ["平面角对应的二面角"],
+      "prerequisites": ["math.geometry", "math.geometry.angle_distance"],
+      "common_errors": [
+        "把线面角误当成二面角",
+        "不会作二面角的平面角"
+      ]
+    },
+    {
+      "node_id": "math.probability_statistics",
+      "name": "统计与概率",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "path": ["数学", "统计与概率"],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics.probability",
+      "name": "概率",
+      "parent_id": "math.probability_statistics",
+      "level": 2,
+      "is_leaf": false,
+      "path": ["数学", "统计与概率", "概率"],
+      "aliases": [],
+      "prerequisites": ["math.probability_statistics"],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics.probability.conditional_probability",
+      "name": "条件概率",
+      "parent_id": "math.probability_statistics.probability",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "统计与概率", "概率", "条件概率"],
+      "aliases": ["P(B|A)"],
+      "prerequisites": [
+        "math.probability_statistics.probability"
+      ],
+      "common_errors": [
+        "把条件概率和独立事件乘法公式混用",
+        "没有先看清条件是谁，样本空间缩错"
+      ]
+    },
+    {
+      "node_id": "math.probability_statistics.random_variable",
+      "name": "随机变量",
+      "parent_id": "math.probability_statistics",
+      "level": 2,
+      "is_leaf": false,
+      "path": ["数学", "统计与概率", "随机变量"],
+      "aliases": [],
+      "prerequisites": ["math.probability_statistics"],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics.random_variable.binomial_distribution",
+      "name": "二项分布",
+      "parent_id": "math.probability_statistics.random_variable",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "统计与概率", "随机变量", "二项分布"],
+      "aliases": ["X~B(n,p)"],
+      "prerequisites": [
+        "math.probability_statistics.probability",
+        "math.probability_statistics.random_variable"
+      ],
+      "common_errors": [
+        "题目不是独立重复试验却硬套二项分布",
+        "把恰好发生 k 次和至少发生一次混在一起"
+      ]
+    },
+    {
+      "node_id": "math.sequence_inequality",
+      "name": "数列与不等式",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "path": ["数学", "数列与不等式"],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.sequence_inequality.sequence",
+      "name": "数列",
+      "parent_id": "math.sequence_inequality",
+      "level": 2,
+      "is_leaf": false,
+      "path": ["数学", "数列与不等式", "数列"],
+      "aliases": [],
+      "prerequisites": ["math.sequence_inequality"],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.sequence_inequality.sequence.geometric_series_sum_formula",
+      "name": "等比数列求和公式",
+      "parent_id": "math.sequence_inequality.sequence",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "数列与不等式", "数列", "等比数列求和公式"],
+      "aliases": ["等比前n项和"],
+      "prerequisites": [
+        "math.sequence_inequality.sequence"
+      ],
+      "common_errors": [
+        "漏分 q=1 和 q!=1 两种情况",
+        "首项、公比、项数识别错误"
+      ]
+    },
+    {
+      "node_id": "math.functions_calculus",
+      "name": "集合、映射、函数与导数",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "path": ["数学", "集合、映射、函数与导数"],
+      "aliases": ["函数与导数"],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.functions_calculus.function",
+      "name": "函数",
+      "parent_id": "math.functions_calculus",
+      "level": 2,
+      "is_leaf": false,
+      "path": ["数学", "集合、映射、函数与导数", "函数"],
+      "aliases": [],
+      "prerequisites": ["math.functions_calculus"],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.functions_calculus.function.monotonicity",
+      "name": "单调性",
+      "parent_id": "math.functions_calculus.function",
+      "level": 3,
+      "is_leaf": true,
+      "path": ["数学", "集合、映射、函数与导数", "函数", "单调性"],
+      "aliases": ["函数单调性"],
+      "prerequisites": [
+        "math.functions_calculus.function"
+      ],
+      "common_errors": [
+        "把某个区间的增减性误写成整个定义域的性质",
+        "复合函数判断时忽略内外层单调方向"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "version": "0.2",
+  "project": "TeachAgent",
+  "artifact": "wrong_question_tree_annotation_schema",
+  "positioning": "Model is only used for recommendation. The student makes the final choice by navigating the knowledge tree.",
+  "core_flow": [
+    "wrong_question_input",
+    "system_recommendation",
+    "student_tree_selection",
+    "optional_new_node_proposal",
+    "review_linkage"
+  ],
+  "record_schema": {
+    "required": [
+      "annotation_id",
+      "question_id",
+      "question_payload",
+      "recommendation",
+      "student_selection",
+      "created_at"
+    ],
+    "optional": [
+      "new_node_proposal",
+      "review_linkage",
+      "source"
+    ]
+  },
+  "question_payload_schema": {
+    "required": [
+      "stem"
+    ],
+    "optional": [
+      "question_type",
+      "student_answer",
+      "correct_answer",
+      "solution_text",
+      "teacher_comment",
+      "source_name",
+      "source_section",
+      "tags"
+    ],
+    "field_specs": {
+      "stem": "题目本身",
+      "question_type": "题型",
+      "student_answer": "学生答案",
+      "correct_answer": "标准答案",
+      "solution_text": "参考解析",
+      "teacher_comment": "老师备注",
+      "source_name": "来源名称",
+      "source_section": "来源章节",
+      "tags": "来源标签"
+    }
+  },
+  "recommendation_schema": {
+    "required": [
+      "mode"
+    ],
+    "optional": [
+      "coarse_candidate_node_ids",
+      "candidate_leaf_node_ids",
+      "candidate_items",
+      "notes"
+    ],
+    "field_specs": {
+      "mode": "none / heuristic / model / hybrid",
+      "coarse_candidate_node_ids": "系统推荐的上层分支",
+      "candidate_leaf_node_ids": "系统推荐的叶子知识点",
+      "candidate_items": "带标题、路径、理由的候选项",
+      "notes": "推荐备注"
+    }
+  },
+  "candidate_item_schema": {
+    "required": [
+      "node_id"
+    ],
+    "optional": [
+      "title",
+      "path",
+      "rank",
+      "reason"
+    ],
+    "field_specs": {
+      "node_id": "候选节点 id",
+      "title": "候选标题",
+      "path": "候选完整路径",
+      "rank": "推荐顺序",
+      "reason": "为什么推荐它"
+    }
+  },
+  "student_selection_schema": {
+    "required": [
+      "selection_status",
+      "selected_node_ids"
+    ],
+    "optional": [
+      "primary_node_ids",
+      "secondary_node_ids",
+      "mistake_node_ids",
+      "selected_paths",
+      "selection_notes",
+      "used_recommendation"
+    ],
+    "field_specs": {
+      "selection_status": "confirmed / unsure / none_fit",
+      "selected_node_ids": "学生最终选中的所有节点",
+      "primary_node_ids": "主知识点",
+      "secondary_node_ids": "次知识点",
+      "mistake_node_ids": "学生认为自己错在的知识点",
+      "selected_paths": "对应完整路径",
+      "selection_notes": "学生或老师备注",
+      "used_recommendation": "学生是否采用了系统推荐"
+    }
+  },
+  "new_node_proposal_schema": {
+    "optional": [
+      "proposed_parent_node_id",
+      "proposed_title",
+      "proposed_description",
+      "linked_question_ids",
+      "proposal_status"
+    ],
+    "field_specs": {
+      "proposed_parent_node_id": "学生认为新知识点应该挂在哪个父节点下",
+      "proposed_title": "学生提议的新知识点标题",
+      "proposed_description": "为什么觉得应该新建这个点",
+      "linked_question_ids": "哪些错题想先绑到这个新点上",
+      "proposal_status": "pending / accepted / rejected"
+    }
+  },
+  "review_linkage_schema": {
+    "optional": [
+      "review_node_ids",
+      "review_chunk_ids",
+      "review_notes"
+    ],
+    "field_specs": {
+      "review_node_ids": "后续复习时要调用的知识点",
+      "review_chunk_ids": "后续复习时要调用的 leaf card chunk",
+      "review_notes": "复习备注"
+    }
+  },
+  "recommended_defaults": {
+    "max_coarse_candidates": 3,
+    "max_leaf_candidates": 8,
+    "max_primary_nodes": 2,
+    "max_secondary_nodes": 3,
+    "max_mistake_nodes": 3
+  }
+}

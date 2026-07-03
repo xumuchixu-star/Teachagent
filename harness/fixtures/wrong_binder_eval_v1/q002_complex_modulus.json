@@ -1,0 +1,30 @@
+{
+  "case_id": "q002_complex_modulus",
+  "description": "复数除法后求模",
+  "question_payload": {
+    "stem": "已知复数 z 满足 zi=1+i，则 |z|=",
+    "question_type": "选择题",
+    "student_answer": "我会解 z，但总在复数除法和模长上出错。",
+    "correct_answer": "√2",
+    "solution_text": "由 zi=1+i，得 z=(1+i)/i=1-i，所以 |z|=√(1^2+(-1)^2)=√2。",
+    "source_name": "wrong_binder_eval_v1",
+    "source_section": "复数",
+    "tags": [
+      "复数",
+      "复数除法",
+      "模"
+    ]
+  },
+  "expectation": {
+    "allowed_primary_node_ids": [
+      "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+    ],
+    "must_hit_node_ids": [
+      "math.计数_二项式_推理证明_逻辑与复数.复数.复数的模及几何意义"
+    ],
+    "must_hit_within_top_k": 5,
+    "allowed_coarse_subtrees": [
+      "math.计数_二项式_推理证明_逻辑与复数.复数"
+    ]
+  }
+}

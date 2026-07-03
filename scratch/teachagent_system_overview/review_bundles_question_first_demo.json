@@ -1,0 +1,478 @@
+{
+  "generated_at": "2026-06-24T21:00:00+08:00",
+  "review_state_record_id": "review_state.teachagent_system_overview.v1",
+  "review_plan": {
+    "mode": "question_first",
+    "recommended_node_ids": [
+      "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+      "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+      "math.数列与不等式.数列.基础概念.数列递推公式解读",
+      "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+      "math.解析几何.圆的方程.圆的标准方程"
+    ],
+    "recommended_question_ids": [
+      "wq_overview_circle_001",
+      "wq_overview_seq_001",
+      "wq_overview_vec_001"
+    ],
+    "recommended_bundles": [
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+        "question_ids": [
+          "wq_overview_vec_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+        "question_ids": [
+          "wq_overview_vec_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+        "question_ids": [
+          "wq_overview_seq_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+        "question_ids": [
+          "wq_overview_seq_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      },
+      {
+        "node_id": "math.解析几何.圆的方程.圆的标准方程",
+        "question_ids": [
+          "wq_overview_circle_001"
+        ],
+        "bundle_reason": "知识点到期，且需要配套题联动复习",
+        "priority_score": 0.8975
+      }
+    ],
+    "student_override_supported": true,
+    "student_memory_bias_enabled": false,
+    "student_memory_stage": null,
+    "override_actions": [
+      "mark_important",
+      "skip_temporarily"
+    ],
+    "bundle_policy": {
+      "bundle_limit": 5,
+      "bundle_question_min": 2,
+      "bundle_question_max": 3,
+      "due_time_anchor": "next_review_at"
+    }
+  },
+  "review_bundles": [
+    {
+      "bundle_id": "bundle_01",
+      "mode": "question_first",
+      "rank": 1,
+      "question_id": "wq_overview_circle_001",
+      "priority_score": 0.8375,
+      "bundle_reason": "这道题已到复习时间，并附带 1 个关联知识点卡片",
+      "question": {
+        "question_id": "wq_overview_circle_001",
+        "summary": {
+          "question_type": "选择题",
+          "priority_score": 0.8375,
+          "last_result": "unseen",
+          "is_due_now": true
+        },
+        "content": {
+          "stem": "若圆 (x+1)^2+(y-2)^2=1 上存在两个不同的点 M,N，直线 4x+3y+t=0 上存在一点 P，使得 ∠MPN=60°，则实数 t 的取值范围是",
+          "student_answer": "我知道要用点到直线距离，但不知道为什么先转成圆心到直线距离不超过 2。"
+        },
+        "hidden_answer_block": {
+          "revealed": false,
+          "correct_answer": "-12≤t≤8",
+          "solution_text": "圆心 O(-1,2)，半径为 1。要存在 ∠MPN=60°，点 P 到圆心距离 d 需满足 d≤2。又点 P 在直线 4x+3y+t=0 上，所以圆心到该直线距离 |t+2|/5≤2，解得 -12≤t≤8。"
+        },
+        "student_actions": [
+          {
+            "label": "显示答案",
+            "action": "reveal_answer",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_circle_001"
+          },
+          {
+            "label": "这题做对了",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_circle_001",
+            "result": "correct"
+          },
+          {
+            "label": "这题没做对",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_circle_001",
+            "result": "wrong"
+          },
+          {
+            "label": "部分会做",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_circle_001",
+            "result": "partial"
+          },
+          {
+            "label": "先跳过",
+            "action": "skip_temporarily",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_circle_001"
+          }
+        ]
+      },
+      "linked_leaf_cards": [
+        {
+          "chunk_id": "chunk.math.解析几何.直线的方程.点到直线的距离公式.formula_card.v1",
+          "node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+          "title": "点到直线的距离公式",
+          "card_type": "formula_card",
+          "node_kind": "formula",
+          "path": [
+            "数学",
+            "解析几何",
+            "直线的方程",
+            "点到直线的距离公式"
+          ],
+          "keywords": [
+            "点线距离",
+            "距离公式",
+            "垂线段",
+            "一般式"
+          ],
+          "text": "知识点：点到直线的距离公式。路径：数学 > 解析几何 > 直线的方程 > 点到直线的距离公式。别名：点到直线距离。关键词：点线距离；距离公式；垂线段；一般式。公式：点 P(x₀,y₀) 到直线 Ax+By+C=0 的距离为 d=|Ax₀+By₀+C|/√(A²+B²)。适用条件：直线已写成一般式；需要求点到直线的最短距离；后续涉及最值、圆、对称等问题。特殊情况：若点在直线上，则距离为 0；使用前要确保 A、B 不同时为 0。变量说明：(x₀,y₀) 是定点坐标，A、B、C 是直线一般式系数，分子取绝对值保证距离非负。推导提示：该公式本质上来自“点到直线的距离是垂线段长”，一般式让垂距计算变得统一。常见错误：忘记绝对值；分母少开根号；直线没先整理成一般式；把代入结果直接当距离不取非负。复习提示：距离公式题先把直线整理成 Ax+By+C=0，再一口气代。",
+          "review_cue": "距离公式题先把直线整理成 Ax+By+C=0，再一口气代。",
+          "structured_content": {
+            "definition": null,
+            "core_idea": null,
+            "boundary": null,
+            "formula": "点 P(x₀,y₀) 到直线 Ax+By+C=0 的距离为 d=|Ax₀+By₀+C|/√(A²+B²)",
+            "variable_notes": "(x₀,y₀) 是定点坐标，A、B、C 是直线一般式系数，分子取绝对值保证距离非负。",
+            "applicable_conditions": [
+              "直线已写成一般式",
+              "需要求点到直线的最短距离",
+              "后续涉及最值、圆、对称等问题"
+            ],
+            "special_cases": [
+              "若点在直线上，则距离为 0",
+              "使用前要确保 A、B 不同时为 0"
+            ],
+            "method_goal": null,
+            "trigger_signals": null,
+            "steps": null,
+            "common_errors": [
+              "忘记绝对值",
+              "分母少开根号",
+              "直线没先整理成一般式",
+              "把代入结果直接当距离不取非负"
+            ],
+            "failure_modes": null
+          },
+          "student_actions": [
+            {
+              "label": "掌握很熟练",
+              "action": "node_mastered_well",
+              "target_type": "knowledge_point",
+              "target_id": "math.解析几何.直线的方程.点到直线的距离公式",
+              "effect": "延后该知识点的下次复习时间"
+            },
+            {
+              "label": "还要练题",
+              "action": "node_needs_more_practice",
+              "target_type": "knowledge_point",
+              "target_id": "math.解析几何.直线的方程.点到直线的距离公式",
+              "effect": "提高该知识点关联题目的练习优先级"
+            },
+            {
+              "label": "暂时跳过",
+              "action": "skip_temporarily",
+              "target_type": "knowledge_point",
+              "target_id": "math.解析几何.直线的方程.点到直线的距离公式",
+              "effect": "短期内不再推送这个知识点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_02",
+      "mode": "question_first",
+      "rank": 2,
+      "question_id": "wq_overview_seq_001",
+      "priority_score": 0.8375,
+      "bundle_reason": "这道题已到复习时间，并附带 1 个关联知识点卡片",
+      "question": {
+        "question_id": "wq_overview_seq_001",
+        "summary": {
+          "question_type": "证明题",
+          "priority_score": 0.8375,
+          "last_result": "unseen",
+          "is_due_now": true
+        },
+        "content": {
+          "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+          "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。"
+        },
+        "hidden_answer_block": {
+          "revealed": false,
+          "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+          "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+        },
+        "student_actions": [
+          {
+            "label": "显示答案",
+            "action": "reveal_answer",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_seq_001"
+          },
+          {
+            "label": "这题做对了",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_seq_001",
+            "result": "correct"
+          },
+          {
+            "label": "这题没做对",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_seq_001",
+            "result": "wrong"
+          },
+          {
+            "label": "部分会做",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_seq_001",
+            "result": "partial"
+          },
+          {
+            "label": "先跳过",
+            "action": "skip_temporarily",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_seq_001"
+          }
+        ]
+      },
+      "linked_leaf_cards": [
+        {
+          "chunk_id": "chunk.math.数列与不等式.数列.递推数列转化方法.构造等比数列.method_card.v1",
+          "node_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+          "title": "构造等比数列",
+          "card_type": "method_card",
+          "node_kind": "method",
+          "path": [
+            "数学",
+            "数列与不等式",
+            "数列",
+            "递推数列转化方法",
+            "构造等比数列"
+          ],
+          "keywords": [
+            "构造等比",
+            "递推转化",
+            "常比",
+            "辅助数列"
+          ],
+          "text": "方法：构造等比数列。路径：数学 > 数列与不等式 > 数列 > 递推数列转化方法 > 构造等比数列。别名：构造比值不变。关键词：构造等比；递推转化；常比；辅助数列。目标：通过乘除、移项或代换把原递推式转化成某个辅助数列满足固定公比，从而求解原数列。触发信号：递推式经过整理后可能出现“新量前后项比值恒定”；原数列不直接等比但有乘法型递推结构；题目适合构造辅助数列。适用题型：比例型递推数列；乘法递推转化；辅助数列构造题。步骤：先判断是否能通过变形得到某个新量的前后项比值恒定；构造辅助数列 b_n 并求出公比；利用等比数列通项公式求 b_n；最后再还原原数列 a_n。常见失败：公比识别错误；构造的新量不能真正形成等比；忽略项非零前提；还原原数列时代换回去出错。复习提示：构造等比时，重点看能不能把递推式整理成“后一项是前一项乘一个固定因子”。",
+          "review_cue": "构造等比时，重点看能不能把递推式整理成“后一项是前一项乘一个固定因子”。",
+          "structured_content": {
+            "definition": null,
+            "core_idea": null,
+            "boundary": null,
+            "formula": null,
+            "variable_notes": null,
+            "applicable_conditions": null,
+            "special_cases": null,
+            "method_goal": "通过乘除、移项或代换把原递推式转化成某个辅助数列满足固定公比，从而求解原数列。",
+            "trigger_signals": [
+              "递推式经过整理后可能出现“新量前后项比值恒定”",
+              "原数列不直接等比但有乘法型递推结构",
+              "题目适合构造辅助数列"
+            ],
+            "steps": [
+              "先判断是否能通过变形得到某个新量的前后项比值恒定",
+              "构造辅助数列 b_n 并求出公比",
+              "利用等比数列通项公式求 b_n",
+              "最后再还原原数列 a_n"
+            ],
+            "common_errors": null,
+            "failure_modes": [
+              "公比识别错误",
+              "构造的新量不能真正形成等比",
+              "忽略项非零前提",
+              "还原原数列时代换回去出错"
+            ]
+          },
+          "student_actions": [
+            {
+              "label": "掌握很熟练",
+              "action": "node_mastered_well",
+              "target_type": "knowledge_point",
+              "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "effect": "延后该知识点的下次复习时间"
+            },
+            {
+              "label": "还要练题",
+              "action": "node_needs_more_practice",
+              "target_type": "knowledge_point",
+              "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "effect": "提高该知识点关联题目的练习优先级"
+            },
+            {
+              "label": "暂时跳过",
+              "action": "skip_temporarily",
+              "target_type": "knowledge_point",
+              "target_id": "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+              "effect": "短期内不再推送这个知识点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bundle_id": "bundle_03",
+      "mode": "question_first",
+      "rank": 3,
+      "question_id": "wq_overview_vec_001",
+      "priority_score": 0.8375,
+      "bundle_reason": "这道题已到复习时间，并附带 1 个关联知识点卡片",
+      "question": {
+        "question_id": "wq_overview_vec_001",
+        "summary": {
+          "question_type": "选择题",
+          "priority_score": 0.8375,
+          "last_result": "unseen",
+          "is_due_now": true
+        },
+        "content": {
+          "stem": "已知向量 a,b,c 均为单位向量，若 a+b+c=0，则 a 与 b 的夹角为",
+          "student_answer": "我能想到数量积，但不会把向量和的模平方展开到夹角公式。"
+        },
+        "hidden_answer_block": {
+          "revealed": false,
+          "correct_answer": "2π/3",
+          "solution_text": "由 a+b=-c，得 |a+b|^2=1。又 |a+b|^2=|a|^2+|b|^2+2a·b，所以 a·b=-1/2。再由 cosθ=(a·b)/(|a||b|) 得 θ=2π/3。"
+        },
+        "student_actions": [
+          {
+            "label": "显示答案",
+            "action": "reveal_answer",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_vec_001"
+          },
+          {
+            "label": "这题做对了",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_vec_001",
+            "result": "correct"
+          },
+          {
+            "label": "这题没做对",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_vec_001",
+            "result": "wrong"
+          },
+          {
+            "label": "部分会做",
+            "action": "review_result",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_vec_001",
+            "result": "partial"
+          },
+          {
+            "label": "先跳过",
+            "action": "skip_temporarily",
+            "target_type": "wrong_question",
+            "target_id": "wq_overview_vec_001"
+          }
+        ]
+      },
+      "linked_leaf_cards": [
+        {
+          "chunk_id": "chunk.math.三角函数_平面向量与解三角形.平面向量.向量夹角公式.formula_card.v1",
+          "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+          "title": "向量夹角公式",
+          "card_type": "formula_card",
+          "node_kind": "formula",
+          "path": [
+            "数学",
+            "三角函数、平面向量与解三角形",
+            "平面向量",
+            "向量夹角公式"
+          ],
+          "keywords": [
+            "夹角公式",
+            "cosθ",
+            "数量积",
+            "模长"
+          ],
+          "text": "知识点：向量夹角公式。路径：数学 > 三角函数、平面向量与解三角形 > 平面向量 > 向量夹角公式。别名：向量夹角。关键词：夹角公式；cosθ；数量积；模长。公式：对非零向量 a、b，有 cosθ=(a·b)/(|a||b|)。适用条件：两个向量都非零；需要求向量夹角或借夹角公式反求数量积、模长关系；已知坐标或几何量可求出 a·b、|a|、|b|。特殊情况：若 a·b=0，则夹角为 90°；求几何中的锐角时，常要结合题意对 arccos 结果作范围判断。变量说明：θ 表示两个向量的夹角，一般取 [0,π]；a·b 是数量积，|a|、|b| 是向量模长。推导提示：夹角公式把数量积定义反向用于求角，是向量法处理中角度问题的核心工具。常见错误：忘记向量不能是零向量；模长漏开根号；算出 cosθ 后不会结合范围取角；几何所成锐角与向量夹角混淆。复习提示：用夹角公式前先核对三项：点积有了没，两个模有了没，向量是不是非零。",
+          "review_cue": "用夹角公式前先核对三项：点积有了没，两个模有了没，向量是不是非零。",
+          "structured_content": {
+            "definition": null,
+            "core_idea": null,
+            "boundary": null,
+            "formula": "对非零向量 a、b，有 cosθ=(a·b)/(|a||b|)",
+            "variable_notes": "θ 表示两个向量的夹角，一般取 [0,π]；a·b 是数量积，|a|、|b| 是向量模长。",
+            "applicable_conditions": [
+              "两个向量都非零",
+              "需要求向量夹角或借夹角公式反求数量积、模长关系",
+              "已知坐标或几何量可求出 a·b、|a|、|b|"
+            ],
+            "special_cases": [
+              "若 a·b=0，则夹角为 90°",
+              "求几何中的锐角时，常要结合题意对 arccos 结果作范围判断"
+            ],
+            "method_goal": null,
+            "trigger_signals": null,
+            "steps": null,
+            "common_errors": [
+              "忘记向量不能是零向量",
+              "模长漏开根号",
+              "算出 cosθ 后不会结合范围取角",
+              "几何所成锐角与向量夹角混淆"
+            ],
+            "failure_modes": null
+          },
+          "student_actions": [
+            {
+              "label": "掌握很熟练",
+              "action": "node_mastered_well",
+              "target_type": "knowledge_point",
+              "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "effect": "延后该知识点的下次复习时间"
+            },
+            {
+              "label": "还要练题",
+              "action": "node_needs_more_practice",
+              "target_type": "knowledge_point",
+              "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "effect": "提高该知识点关联题目的练习优先级"
+            },
+            {
+              "label": "暂时跳过",
+              "action": "skip_temporarily",
+              "target_type": "knowledge_point",
+              "target_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "effect": "短期内不再推送这个知识点"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

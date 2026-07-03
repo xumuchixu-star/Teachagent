@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: teachagent-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: TEACHAGENT_HOST
+        value: 0.0.0.0
+      - key: TEACHAGENT_USE_DEFAULT_CREDENTIAL
+        value: "1"
+      - key: TEACHAGENT_DB_APPLICATION_NAME
+        value: teachagent
+      - key: TEACHAGENT_DB_CONNECT_TIMEOUT
+        value: "10"
+      - key: TEACHAGENT_DATABASE_URL
+        sync: false
+      - key: AZURE_AI_PROJECT_ENDPOINT
+        sync: false
+      - key: AZURE_AI_MODEL_DEPLOYMENT
+        sync: false
+      - key: AZURE_CLIENT_ID
+        sync: false
+      - key: AZURE_TENANT_ID
+        sync: false
+      - key: AZURE_CLIENT_SECRET
+        sync: false

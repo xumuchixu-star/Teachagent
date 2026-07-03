@@ -1,0 +1,341 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "derived_from": "docs/math_knowledge_tree.md",
+  "chunk_unit": "typed_leaf_card",
+  "binding_rule": "one_wrong_question_bind_1_core_leaf_plus_0_to_1_supporting_leaf",
+  "nodes": [
+    {
+      "node_id": "math",
+      "name": "数学",
+      "parent_id": null,
+      "level": 0,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学"
+      ],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics",
+      "name": "统计与概率",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "统计与概率"
+      ],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics.probability",
+      "name": "概率",
+      "parent_id": "math.probability_statistics",
+      "level": 2,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "统计与概率",
+        "概率"
+      ],
+      "aliases": [],
+      "prerequisites": [
+        "math.probability_statistics"
+      ],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.probability_statistics.probability.conditional_probability",
+      "name": "条件概率",
+      "parent_id": "math.probability_statistics.probability",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "concept",
+      "review_role": "core",
+      "binding_role": "primary_allowed",
+      "path": [
+        "数学",
+        "统计与概率",
+        "概率",
+        "条件概率"
+      ],
+      "aliases": [
+        "P(B|A)"
+      ],
+      "prerequisites": [
+        "math.probability_statistics.probability"
+      ],
+      "common_errors": [
+        "把条件概率和独立事件公式混用",
+        "没有先重建样本空间"
+      ]
+    },
+    {
+      "node_id": "math.probability_statistics.probability.independent_events",
+      "name": "相互独立事件概率",
+      "parent_id": "math.probability_statistics.probability",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "concept",
+      "review_role": "core",
+      "binding_role": "primary_allowed",
+      "path": [
+        "数学",
+        "统计与概率",
+        "概率",
+        "相互独立事件概率"
+      ],
+      "aliases": [
+        "独立事件"
+      ],
+      "prerequisites": [
+        "math.probability_statistics.probability"
+      ],
+      "common_errors": [
+        "把独立误当成互斥",
+        "把已知条件发生误当成独立"
+      ]
+    },
+    {
+      "node_id": "math.sequence_inequality",
+      "name": "数列与不等式",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "数列与不等式"
+      ],
+      "aliases": [],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.sequence_inequality.sequence",
+      "name": "数列",
+      "parent_id": "math.sequence_inequality",
+      "level": 2,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "数列与不等式",
+        "数列"
+      ],
+      "aliases": [],
+      "prerequisites": [
+        "math.sequence_inequality"
+      ],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.sequence_inequality.sequence.geometric_sequence_general_term",
+      "name": "等比数列通项公式",
+      "parent_id": "math.sequence_inequality.sequence",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "formula",
+      "review_role": "core",
+      "binding_role": "primary_allowed",
+      "path": [
+        "数学",
+        "数列与不等式",
+        "数列",
+        "等比数列通项公式"
+      ],
+      "aliases": [
+        "a_n=a_1q^(n-1)"
+      ],
+      "prerequisites": [
+        "math.sequence_inequality.sequence"
+      ],
+      "common_errors": [
+        "首项和项号对应错误",
+        "把 n-1 写成 n"
+      ]
+    },
+    {
+      "node_id": "math.sequence_inequality.sequence.geometric_series_sum_formula",
+      "name": "等比数列求和公式",
+      "parent_id": "math.sequence_inequality.sequence",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "formula",
+      "review_role": "core",
+      "binding_role": "primary_allowed",
+      "path": [
+        "数学",
+        "数列与不等式",
+        "数列",
+        "等比数列求和公式"
+      ],
+      "aliases": [
+        "等比前n项和"
+      ],
+      "prerequisites": [
+        "math.sequence_inequality.sequence.geometric_sequence_general_term"
+      ],
+      "common_errors": [
+        "漏分 q=1 和 q!=1",
+        "项数识别错误"
+      ]
+    },
+    {
+      "node_id": "math.functions_calculus",
+      "name": "集合、映射、函数与导数",
+      "parent_id": "math",
+      "level": 1,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "集合、映射、函数与导数"
+      ],
+      "aliases": [
+        "函数与导数"
+      ],
+      "prerequisites": [],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.functions_calculus.function",
+      "name": "函数",
+      "parent_id": "math.functions_calculus",
+      "level": 2,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "集合、映射、函数与导数",
+        "函数"
+      ],
+      "aliases": [],
+      "prerequisites": [
+        "math.functions_calculus"
+      ],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.functions_calculus.function.monotonicity",
+      "name": "函数单调性",
+      "parent_id": "math.functions_calculus.function",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "concept",
+      "review_role": "core",
+      "binding_role": "primary_allowed",
+      "path": [
+        "数学",
+        "集合、映射、函数与导数",
+        "函数",
+        "函数单调性"
+      ],
+      "aliases": [
+        "单调性"
+      ],
+      "prerequisites": [
+        "math.functions_calculus.function"
+      ],
+      "common_errors": [
+        "把局部单调当成整体单调",
+        "忽略定义域分段"
+      ]
+    },
+    {
+      "node_id": "math.functions_calculus.derivative",
+      "name": "导数",
+      "parent_id": "math.functions_calculus",
+      "level": 2,
+      "is_leaf": false,
+      "node_kind": "category",
+      "review_role": null,
+      "binding_role": null,
+      "path": [
+        "数学",
+        "集合、映射、函数与导数",
+        "导数"
+      ],
+      "aliases": [],
+      "prerequisites": [
+        "math.functions_calculus"
+      ],
+      "common_errors": []
+    },
+    {
+      "node_id": "math.functions_calculus.derivative.basic_derivative_formulas",
+      "name": "基本初等函数导数公式",
+      "parent_id": "math.functions_calculus.derivative",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "formula",
+      "review_role": "supporting",
+      "binding_role": "secondary_only",
+      "path": [
+        "数学",
+        "集合、映射、函数与导数",
+        "导数",
+        "基本初等函数导数公式"
+      ],
+      "aliases": [
+        "导数公式"
+      ],
+      "prerequisites": [
+        "math.functions_calculus.derivative"
+      ],
+      "common_errors": [
+        "幂函数和指数函数导数公式混淆",
+        "忽略对数函数定义域"
+      ]
+    },
+    {
+      "node_id": "math.functions_calculus.derivative.use_derivative_to_judge_monotonicity",
+      "name": "利用导数判断单调性",
+      "parent_id": "math.functions_calculus.derivative",
+      "level": 3,
+      "is_leaf": true,
+      "node_kind": "method",
+      "review_role": "supporting",
+      "binding_role": "secondary_only",
+      "path": [
+        "数学",
+        "集合、映射、函数与导数",
+        "导数",
+        "利用导数判断单调性"
+      ],
+      "aliases": [
+        "导数判单调"
+      ],
+      "prerequisites": [
+        "math.functions_calculus.function.monotonicity",
+        "math.functions_calculus.derivative.basic_derivative_formulas"
+      ],
+      "common_errors": [
+        "只会求导，不会结合导数符号分区间",
+        "没有验证驻点两侧的符号变化"
+      ]
+    }
+  ]
+}

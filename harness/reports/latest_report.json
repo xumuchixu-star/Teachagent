@@ -1,0 +1,2002 @@
+{
+  "generated_at": "2026-06-24T08:55:05.008285+00:00",
+  "summary": {
+    "suite_count": 2,
+    "case_count": 10,
+    "passed_case_count": 10,
+    "failed_case_count": 0
+  },
+  "score": {
+    "earned_points": 11.0,
+    "total_points": 11.0,
+    "score_ratio": 1.0,
+    "score_percent": 100.0
+  },
+  "suites": [
+    {
+      "generated_at": "2026-06-24T08:55:04.988558+00:00",
+      "suite_name": "wrong_binder",
+      "fixture_dir": "harness/fixtures/wrong_binder",
+      "passed_case_count": 4,
+      "failed_case_count": 0,
+      "score": {
+        "earned_points": 4.0,
+        "total_points": 4.0,
+        "score_ratio": 1.0,
+        "score_percent": 100.0
+      },
+      "score_policy": {
+        "primary_weight": 0.15,
+        "top_k_weight": 0.65,
+        "coarse_weight": 0.2,
+        "note": "当前阶段以 top-k 召回为主，primary 只作为次级指标。"
+      },
+      "failure_flow": {
+        "suite_layer": "wrong_question_binder",
+        "when_failed_check_order": [
+          "binder.coarse_routing",
+          "binder.top_k_recall",
+          "binder.primary_selection"
+        ],
+        "note": "先看大方向子树，再看候选召回，再看最终主知识点选择。"
+      },
+      "cases": [
+        {
+          "case_id": "binder_case_circle_distance",
+          "description": "圆上张角存在性转化为圆心到直线距离范围",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "primary_node_allowed",
+                "weight": 0.15,
+                "passed": true,
+                "actual": "math.解析几何.直线的方程.点到直线的距离公式",
+                "expected": [
+                  "math.解析几何.直线的方程.点到直线的距离公式",
+                  "math.解析几何.圆的方程.直线与圆的位置关系",
+                  "math.解析几何.圆的方程.圆的标准方程"
+                ]
+              },
+              {
+                "metric": "top_k_must_hit",
+                "weight": 0.65,
+                "passed": true,
+                "actual": [
+                  "math.解析几何.直线的方程.点到直线的距离公式",
+                  "math.解析几何.圆的方程.圆的标准方程",
+                  "math.解析几何.直线的方程.直线一般式方程",
+                  "math.解析几何.圆的方程.直线与圆的位置关系",
+                  "math.解析几何.圆的方程.两个圆的位置关系"
+                ],
+                "expected": {
+                  "must_hit_node_ids": [
+                    "math.解析几何.直线的方程.点到直线的距离公式",
+                    "math.解析几何.圆的方程.圆的标准方程"
+                  ],
+                  "must_hit_within_top_k": 5
+                }
+              },
+              {
+                "metric": "coarse_subtree_allowed",
+                "weight": 0.2,
+                "passed": true,
+                "actual": "math.解析几何.直线的方程",
+                "expected": [
+                  "math.解析几何.直线的方程",
+                  "math.解析几何.圆的方程"
+                ]
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "summary": {
+              "question_id": "wq_b63bde0962cb",
+              "primary_node_id": "math.解析几何.直线的方程.点到直线的距离公式",
+              "secondary_node_ids": [],
+              "binding_confidence": 0.2984,
+              "top_k_node_ids": [
+                "math.解析几何.直线的方程.点到直线的距离公式",
+                "math.解析几何.圆的方程.圆的标准方程",
+                "math.解析几何.直线的方程.直线一般式方程",
+                "math.解析几何.圆的方程.直线与圆的位置关系",
+                "math.解析几何.圆的方程.两个圆的位置关系"
+              ],
+              "coarse_subtrees": [
+                "math.解析几何.直线的方程",
+                "math.解析几何.圆的方程",
+                "math.统计与概率.随机变量"
+              ],
+              "candidate_pool_size": 39
+            },
+            "expectation": {
+              "allowed_primary_node_ids": [
+                "math.解析几何.直线的方程.点到直线的距离公式",
+                "math.解析几何.圆的方程.直线与圆的位置关系",
+                "math.解析几何.圆的方程.圆的标准方程"
+              ],
+              "must_hit_node_ids": [
+                "math.解析几何.直线的方程.点到直线的距离公式",
+                "math.解析几何.圆的方程.圆的标准方程"
+              ],
+              "must_hit_within_top_k": 5,
+              "allowed_coarse_subtrees": [
+                "math.解析几何.直线的方程",
+                "math.解析几何.圆的方程"
+              ]
+            }
+          },
+          "fixture_path": "harness/fixtures/wrong_binder/binder_case_circle_distance.json"
+        },
+        {
+          "case_id": "binder_case_derivative_monotonicity",
+          "description": "导数判断单调性的典型讲解题",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "primary_node_allowed",
+                "weight": 0.15,
+                "passed": true,
+                "actual": "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+                "expected": [
+                  "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+                  "math.集合_映射_函数与导数.函数.基础性质.函数单调性判断与应用"
+                ]
+              },
+              {
+                "metric": "top_k_must_hit",
+                "weight": 0.65,
+                "passed": true,
+                "actual": [
+                  "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+                  "math.集合_映射_函数与导数.导数.利用导数求函数极值",
+                  "math.集合_映射_函数与导数.映射.利用单调性求值域"
+                ],
+                "expected": {
+                  "must_hit_node_ids": [
+                    "math.集合_映射_函数与导数.导数.利用导数判断单调性"
+                  ],
+                  "must_hit_within_top_k": 3
+                }
+              },
+              {
+                "metric": "coarse_subtree_allowed",
+                "weight": 0.2,
+                "passed": true,
+                "actual": "math.集合_映射_函数与导数.导数",
+                "expected": [
+                  "math.集合_映射_函数与导数.导数"
+                ]
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "summary": {
+              "question_id": "wq_66ca8cab0453",
+              "primary_node_id": "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+              "secondary_node_ids": [],
+              "binding_confidence": 0.429,
+              "top_k_node_ids": [
+                "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+                "math.集合_映射_函数与导数.导数.利用导数求函数极值",
+                "math.集合_映射_函数与导数.映射.利用单调性求值域",
+                "math.集合_映射_函数与导数.函数.基础性质.函数单调性判断与应用",
+                "math.集合_映射_函数与导数.函数.特殊函数.复合函数定义域与单调性"
+              ],
+              "coarse_subtrees": [
+                "math.集合_映射_函数与导数.导数",
+                "math.集合_映射_函数与导数.函数",
+                "math.集合_映射_函数与导数.函数.基础性质"
+              ],
+              "candidate_pool_size": 45
+            },
+            "expectation": {
+              "allowed_primary_node_ids": [
+                "math.集合_映射_函数与导数.导数.利用导数判断单调性",
+                "math.集合_映射_函数与导数.函数.基础性质.函数单调性判断与应用"
+              ],
+              "must_hit_node_ids": [
+                "math.集合_映射_函数与导数.导数.利用导数判断单调性"
+              ],
+              "must_hit_within_top_k": 3,
+              "allowed_coarse_subtrees": [
+                "math.集合_映射_函数与导数.导数"
+              ]
+            }
+          },
+          "fixture_path": "harness/fixtures/wrong_binder/binder_case_derivative_monotonicity.json"
+        },
+        {
+          "case_id": "binder_case_sequence_shift",
+          "description": "递推构造等比数列证明题",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "primary_node_allowed",
+                "weight": 0.15,
+                "passed": true,
+                "actual": "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+                "expected": [
+                  "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+                  "math.数列与不等式.数列.等差_等比数列.等比数列性质与判定",
+                  "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+                ]
+              },
+              {
+                "metric": "top_k_must_hit",
+                "weight": 0.65,
+                "passed": true,
+                "actual": [
+                  "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+                  "math.数列与不等式.数列.等差_等比数列.等比数列性质与判定",
+                  "math.数列与不等式.数列.等差_等比数列.等比数列求和公式",
+                  "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+                  "math.数列与不等式.数列.等差_等比数列.等差数列通项公式"
+                ],
+                "expected": {
+                  "must_hit_node_ids": [
+                    "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+                  ],
+                  "must_hit_within_top_k": 5
+                }
+              },
+              {
+                "metric": "coarse_subtree_allowed",
+                "weight": 0.2,
+                "passed": true,
+                "actual": "math.数列与不等式.数列",
+                "expected": [
+                  "math.数列与不等式.数列",
+                  "math.数列与不等式.数列.等差_等比数列"
+                ]
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "summary": {
+              "question_id": "wq_8cb78288353e",
+              "primary_node_id": "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+              "secondary_node_ids": [],
+              "binding_confidence": 0.2688,
+              "top_k_node_ids": [
+                "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+                "math.数列与不等式.数列.等差_等比数列.等比数列性质与判定",
+                "math.数列与不等式.数列.等差_等比数列.等比数列求和公式",
+                "math.数列与不等式.数列.递推数列转化方法.构造等比数列",
+                "math.数列与不等式.数列.等差_等比数列.等差数列通项公式"
+              ],
+              "coarse_subtrees": [
+                "math.数列与不等式.数列",
+                "math.数列与不等式.数列.等差_等比数列",
+                "math.数列与不等式.数列.基础概念"
+              ],
+              "candidate_pool_size": 36
+            },
+            "expectation": {
+              "allowed_primary_node_ids": [
+                "math.数列与不等式.数列.等差_等比数列.等比数列通项公式",
+                "math.数列与不等式.数列.等差_等比数列.等比数列性质与判定",
+                "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+              ],
+              "must_hit_node_ids": [
+                "math.数列与不等式.数列.递推数列转化方法.构造等比数列"
+              ],
+              "must_hit_within_top_k": 5,
+              "allowed_coarse_subtrees": [
+                "math.数列与不等式.数列",
+                "math.数列与不等式.数列.等差_等比数列"
+              ]
+            }
+          },
+          "fixture_path": "harness/fixtures/wrong_binder/binder_case_sequence_shift.json"
+        },
+        {
+          "case_id": "binder_case_vector_angle",
+          "description": "单位向量和为零，借数量积与夹角公式求夹角",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "primary_node_allowed",
+                "weight": 0.15,
+                "passed": true,
+                "actual": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                "expected": [
+                  "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                  "math.三角函数_平面向量与解三角形.平面向量.平面向量数量积",
+                  "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                ]
+              },
+              {
+                "metric": "top_k_must_hit",
+                "weight": 0.65,
+                "passed": true,
+                "actual": [
+                  "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                  "math.空间几何.空间向量与坐标.空间向量夹角计算",
+                  "math.三角函数_平面向量与解三角形.平面向量.平面向量数量积"
+                ],
+                "expected": {
+                  "must_hit_node_ids": [
+                    "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                  ],
+                  "must_hit_within_top_k": 3
+                }
+              },
+              {
+                "metric": "coarse_subtree_allowed",
+                "weight": 0.2,
+                "passed": true,
+                "actual": "math.三角函数_平面向量与解三角形.平面向量",
+                "expected": [
+                  "math.三角函数_平面向量与解三角形.平面向量"
+                ]
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "summary": {
+              "question_id": "wq_fb808897859d",
+              "primary_node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "secondary_node_ids": [],
+              "binding_confidence": 0.3465,
+              "top_k_node_ids": [
+                "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                "math.空间几何.空间向量与坐标.空间向量夹角计算",
+                "math.三角函数_平面向量与解三角形.平面向量.平面向量数量积",
+                "math.三角函数_平面向量与解三角形.解三角形.余弦定理及推论",
+                "math.三角函数_平面向量与解三角形.三角函数.公式体系.二倍角公式"
+              ],
+              "coarse_subtrees": [
+                "math.三角函数_平面向量与解三角形.平面向量",
+                "math.三角函数_平面向量与解三角形.三角函数",
+                "math.空间几何.空间向量与坐标"
+              ],
+              "candidate_pool_size": 61
+            },
+            "expectation": {
+              "allowed_primary_node_ids": [
+                "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                "math.三角函数_平面向量与解三角形.平面向量.平面向量数量积",
+                "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+              ],
+              "must_hit_node_ids": [
+                "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+              ],
+              "must_hit_within_top_k": 3,
+              "allowed_coarse_subtrees": [
+                "math.三角函数_平面向量与解三角形.平面向量"
+              ]
+            }
+          },
+          "fixture_path": "harness/fixtures/wrong_binder/binder_case_vector_angle.json"
+        }
+      ]
+    },
+    {
+      "generated_at": "2026-06-24T08:55:05.006717+00:00",
+      "suite_name": "review_flow",
+      "fixture_dir": "harness/fixtures/review_flow",
+      "passed_case_count": 6,
+      "failed_case_count": 0,
+      "score": {
+        "earned_points": 7.0,
+        "total_points": 7.0,
+        "score_ratio": 1.0,
+        "score_percent": 100.0
+      },
+      "failure_flow": {
+        "suite_layer": "review_flow",
+        "when_failed_check_order": [
+          "review.state_update",
+          "review.question_requeue",
+          "review.bundle_ranking",
+          "review.bundle_composition"
+        ],
+        "note": "先看动作有没有正确写入状态，再看题/知识点是否重新排队，最后看 bundle 组装结果。"
+      },
+      "cases": [
+        {
+          "case_id": "review_case_leaf_mastered",
+          "description": "知识点模式下点击掌握很熟练后，该知识点应从第一位移开",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_node_drops_out_of_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": null,
+                  "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                },
+                "expected": {
+                  "min_rank_exclusive": 1
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_node_should_drop_out_of_top_n": 1
+            },
+            "captured_targets": {
+              "first_bundle_node": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+            },
+            "before_top_nodes": [
+              "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读",
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+            ],
+            "after_top_nodes": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读",
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+              "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+            ],
+            "before_top_questions": [],
+            "after_top_questions": [],
+            "action_history": [
+              {
+                "action": "node_mastered_well",
+                "target_type": "knowledge_point",
+                "target_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "图象变换例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "review",
+                      "mastery": 0.16,
+                      "stability": 0.55,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T23:12:00+08:00",
+                      "priority_note": "学生反馈：该知识点掌握很熟练，可后移复习。",
+                      "correct_count": 1,
+                      "wrong_count": 0,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": -0.2,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "学生反馈当前很熟练，本轮先后移"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "图象平移与诱导公式"
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_leaf_mastered.json"
+        },
+        {
+          "case_id": "review_case_leaf_practice",
+          "description": "知识点模式下点击还要练题后，该知识点应继续保持在顶部",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 2.0,
+            "total_points": 2.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_node_remains_within_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": 1,
+                  "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                },
+                "expected": {
+                  "max_rank": 1
+                }
+              },
+              {
+                "metric": "first_bundle_question_count_min",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "question_count": 2
+                },
+                "expected": {
+                  "min_question_count": 2
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_node_should_remain_within_top_n": 1,
+              "first_bundle_question_count_min": 2
+            },
+            "captured_targets": {
+              "first_bundle_node": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+            },
+            "before_top_nodes": [
+              "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读",
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+            ],
+            "after_top_nodes": [
+              "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+              "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读"
+            ],
+            "before_top_questions": [],
+            "after_top_questions": [],
+            "action_history": [
+              {
+                "action": "node_needs_more_practice",
+                "target_type": "knowledge_point",
+                "target_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "图象变换例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "learning",
+                      "mastery": 0.0,
+                      "stability": 0.25,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "学生反馈：知识点看懂但还需要继续练题。",
+                      "correct_count": 0,
+                      "wrong_count": 1,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.55,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "学生希望继续围绕该知识点练题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "partial",
+                      "review_count": 0,
+                      "priority_note": "关联知识点复习后，学生选择继续练题。",
+                      "manual_priority_bias": 0.18,
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.55,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "关联知识点刚复习完，学生要求立刻继续练这类题"
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_leaf_practice.json"
+        },
+        {
+          "case_id": "review_case_leaf_skip_temporarily",
+          "description": "知识点模式下暂时跳过后，该知识点应从第一位移开",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_node_drops_out_of_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": null,
+                  "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                },
+                "expected": {
+                  "min_rank_exclusive": 1
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_node_should_drop_out_of_top_n": 1
+            },
+            "captured_targets": {
+              "first_bundle_node": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+            },
+            "before_top_nodes": [
+              "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读",
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+            ],
+            "after_top_nodes": [
+              "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+              "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+              "math.数列与不等式.数列.基础概念.数列递推公式解读",
+              "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+              "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+            ],
+            "before_top_questions": [],
+            "after_top_questions": [],
+            "action_history": [
+              {
+                "action": "skip_temporarily",
+                "target_type": "knowledge_point",
+                "target_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "图象变换例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "三角公式例题",
+                      "manual_skip_until": "2026-06-25T10:00:00+08:00"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "图象平移与诱导公式"
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_leaf_skip_temporarily.json"
+        },
+        {
+          "case_id": "review_case_question_correct",
+          "description": "题目模式下做对后，该题应从第一位移开",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_question_drops_out_of_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": 4,
+                  "question_id": "q004"
+                },
+                "expected": {
+                  "min_rank_exclusive": 1
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_question_should_drop_out_of_top_n": 1
+            },
+            "captured_targets": {
+              "first_bundle_question": "q004"
+            },
+            "before_top_nodes": [],
+            "after_top_nodes": [],
+            "before_top_questions": [
+              "q004",
+              "q006",
+              "q010",
+              "wq_demo_001"
+            ],
+            "after_top_questions": [
+              "q006",
+              "q010",
+              "wq_demo_001",
+              "q004"
+            ],
+            "action_history": [
+              {
+                "action": "review_result",
+                "target_type": "wrong_question",
+                "target_id": "q004",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "review",
+                      "mastery": 0.1,
+                      "stability": 0.3625,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T18:42:00+08:00",
+                      "priority_note": "图象变换例题",
+                      "correct_count": 1,
+                      "wrong_count": 0,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.0,
+                      "session_priority_until": null,
+                      "session_priority_reason": null
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "review",
+                      "mastery": 0.05,
+                      "stability": 0.3,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T17:12:00+08:00",
+                      "priority_note": "三角公式例题",
+                      "correct_count": 1,
+                      "wrong_count": 0,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.0,
+                      "session_priority_until": null,
+                      "session_priority_reason": null
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "review",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T19:36:00+08:00",
+                      "last_result": "correct",
+                      "review_count": 1,
+                      "priority_note": "图象平移与诱导公式",
+                      "mastery": 0.12,
+                      "stability": 0.4,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.0,
+                      "session_priority_until": null,
+                      "session_priority_reason": null
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_question_correct.json"
+        },
+        {
+          "case_id": "review_case_question_skip_temporarily",
+          "description": "题目模式下暂时跳过后，该题应从第一位移开",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_question_drops_out_of_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": null,
+                  "question_id": "q004"
+                },
+                "expected": {
+                  "min_rank_exclusive": 1
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_question_should_drop_out_of_top_n": 1
+            },
+            "captured_targets": {
+              "first_bundle_question": "q004"
+            },
+            "before_top_nodes": [],
+            "after_top_nodes": [],
+            "before_top_questions": [
+              "q004",
+              "q006",
+              "q010",
+              "wq_demo_001"
+            ],
+            "after_top_questions": [
+              "q006",
+              "q010",
+              "wq_demo_001"
+            ],
+            "action_history": [
+              {
+                "action": "skip_temporarily",
+                "target_type": "wrong_question",
+                "target_id": "q004",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "图象变换例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "三角公式例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "图象平移与诱导公式",
+                      "manual_skip_until": "2026-06-25T10:00:00+08:00"
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_question_skip_temporarily.json"
+        },
+        {
+          "case_id": "review_case_question_wrong",
+          "description": "题目模式下做错后，该题应继续保持在顶部",
+          "passed": true,
+          "failed_expectations": [],
+          "score": {
+            "earned_points": 1.0,
+            "total_points": 1.0,
+            "score_ratio": 1.0,
+            "score_percent": 100.0,
+            "rubric_items": [
+              {
+                "metric": "first_question_remains_within_top_n",
+                "weight": 1.0,
+                "passed": true,
+                "actual": {
+                  "rank": 1,
+                  "question_id": "q004"
+                },
+                "expected": {
+                  "max_rank": 1
+                }
+              }
+            ]
+          },
+          "diagnostics": [],
+          "details": {
+            "expectation": {
+              "first_question_should_remain_within_top_n": 1
+            },
+            "captured_targets": {
+              "first_bundle_question": "q004"
+            },
+            "before_top_nodes": [],
+            "after_top_nodes": [],
+            "before_top_questions": [
+              "q004",
+              "q006",
+              "q010",
+              "wq_demo_001"
+            ],
+            "after_top_questions": [
+              "q004",
+              "q006",
+              "q010",
+              "wq_demo_001"
+            ],
+            "action_history": [
+              {
+                "action": "review_result",
+                "target_type": "wrong_question",
+                "target_id": "q004",
+                "executed_at": "2026-06-22T10:00:00+08:00",
+                "updated_payload": {
+                  "record_id": "review_fixture.v1",
+                  "student_id": "demo_student",
+                  "generated_at": "2026-06-22T10:00:00+08:00",
+                  "knowledge_point_states": [
+                    {
+                      "node_id": "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                      "state": "learning",
+                      "mastery": 0.0,
+                      "stability": 0.25,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "图象变换例题",
+                      "correct_count": 0,
+                      "wrong_count": 1,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.55,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式",
+                      "state": "learning",
+                      "mastery": 0.0,
+                      "stability": 0.25,
+                      "linked_question_ids": [
+                        "q004"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "三角公式例题",
+                      "correct_count": 0,
+                      "wrong_count": 1,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.55,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "关联题刚做错，当前知识点需要马上加强"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "向量夹角例题"
+                    },
+                    {
+                      "node_id": "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q006"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "数量积例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推构造例题"
+                    },
+                    {
+                      "node_id": "math.数列与不等式.数列.基础概念.数列递推公式解读",
+                      "state": "new",
+                      "mastery": 0.0,
+                      "stability": 0.0,
+                      "linked_question_ids": [
+                        "q010",
+                        "wq_demo_001"
+                      ],
+                      "source_batch_ids": [
+                        "review_fixture"
+                      ],
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "priority_note": "递推解读例题"
+                    }
+                  ],
+                  "example_question_states": [
+                    {
+                      "question_id": "q004",
+                      "state": "learning",
+                      "linked_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换",
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "primary_node_ids": [
+                        "math.集合_映射_函数与导数.函数.图象变换.函数图象平移变换"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.三角函数.公式体系.三角函数诱导公式"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "wrong",
+                      "review_count": 1,
+                      "priority_note": "图象平移与诱导公式",
+                      "mastery": 0.0,
+                      "stability": 0.25,
+                      "last_reviewed_at": "2026-06-22T10:00:00+08:00",
+                      "manual_skip_until": null,
+                      "session_priority_boost": 0.65,
+                      "session_priority_until": "2026-06-22T18:00:00+08:00",
+                      "session_priority_reason": "本轮刚做错，立即回炉复习"
+                    },
+                    {
+                      "question_id": "q006",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式",
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "primary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.向量夹角公式"
+                      ],
+                      "secondary_node_ids": [
+                        "math.三角函数_平面向量与解三角形.平面向量.数量积几何意义"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "向量夹角"
+                    },
+                    {
+                      "question_id": "q010",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "递推构造等比"
+                    },
+                    {
+                      "question_id": "wq_demo_001",
+                      "state": "new",
+                      "linked_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化",
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "primary_node_ids": [
+                        "math.数列与不等式.数列.递推数列转化方法.标准型递推公式转化"
+                      ],
+                      "secondary_node_ids": [
+                        "math.数列与不等式.数列.基础概念.数列递推公式解读"
+                      ],
+                      "question_payload": {
+                        "stem": "已知数列 a_n 满足 a_{n+1}=3a_n+1，且 a_1=1/2，求证：数列 {a_n+1/2} 为等比数列。",
+                        "question_type": "证明题",
+                        "student_answer": "我知道要从递推式入手，但不知道为什么要构造 a_n+1/2，也不会判断新数列为什么是等比数列。",
+                        "correct_answer": "数列 {a_n+1/2} 是以 1 为首项、3 为公比的等比数列。",
+                        "solution_text": "由 a_{n+1}=3a_n+1，得 a_{n+1}+1/2=3a_n+1+1/2=3(a_n+1/2)。又 a_1+1/2=1/2+1/2=1，因此新数列满足后一项等于前一项乘 3，且首项为 1，所以 {a_n+1/2} 是首项为 1、公比为 3 的等比数列。"
+                      },
+                      "source_batch_id": "review_fixture",
+                      "first_seen_at": "2026-06-22T10:00:00+08:00",
+                      "next_review_at": "2026-06-22T10:00:00+08:00",
+                      "last_result": "unseen",
+                      "review_count": 0,
+                      "priority_note": "学生已确认递推变形薄弱"
+                    }
+                  ],
+                  "notes": {
+                    "fixture_source": "harness_review_fixture_v1"
+                  }
+                }
+              }
+            ]
+          },
+          "fixture_path": "harness/fixtures/review_flow/review_case_question_wrong.json"
+        }
+      ]
+    }
+  ]
+}

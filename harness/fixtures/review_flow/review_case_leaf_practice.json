@@ -1,0 +1,24 @@
+{
+  "case_id": "review_case_leaf_practice",
+  "description": "知识点模式下点击还要练题后，该知识点应继续保持在顶部",
+  "review_state_fixture": "review_state_fixture_v1.json",
+  "mode": "leaf_first",
+  "steps": [
+    {
+      "action": "build_bundle"
+    },
+    {
+      "action": "review_action",
+      "review_action": "node_needs_more_practice",
+      "target_type": "knowledge_point",
+      "target_source": "first_bundle_node"
+    },
+    {
+      "action": "build_bundle"
+    }
+  ],
+  "expectation": {
+    "first_node_should_remain_within_top_n": 1,
+    "first_bundle_question_count_min": 2
+  }
+}

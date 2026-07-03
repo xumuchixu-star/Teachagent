@@ -1,0 +1,277 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "student_memory_event_schema",
+  "positioning": "Canonical event-layer schema for building long-term student memory. These events are the raw observations that can later be aggregated into student_memory_profile or exported into Cognee/graph storage.",
+  "core_entities": [
+    "student_memory_event",
+    "diagnosis_event",
+    "coach_event",
+    "review_event",
+    "binding_event",
+    "student_choice_event"
+  ],
+  "design_principles": [
+    "Store raw observations first, avoid overly strong conclusions at event level",
+    "Keep event schema compatible with current diagnosis / coach / review pipeline outputs",
+    "Allow future export to graph memory systems without changing upstream payloads",
+    "Prefer stable student_id / question_id / node_id references over free-form text matching"
+  ],
+  "event_type_values": [
+    "diagnosis",
+    "coach",
+    "review",
+    "binding",
+    "student_choice"
+  ],
+  "base_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at"
+    ],
+    "recommended": [
+      "event_id",
+      "student_id",
+      "session_id",
+      "question_id",
+      "primary_node_id",
+      "secondary_node_ids",
+      "source_name",
+      "source_section",
+      "metadata"
+    ],
+    "field_specs": {
+      "event_id": "Optional stable event id. Can be generated upstream or by the storage layer.",
+      "event_type": "One of diagnosis / coach / review / binding / student_choice.",
+      "student_id": "Stable student id. Recommended even if local single-student experiments omit it temporarily.",
+      "session_id": "Optional learning session id for grouping nearby events.",
+      "occurred_at": "ISO-8601 timestamp when the event happened.",
+      "question_id": "Stable question id when the event is tied to a specific example or wrong question.",
+      "primary_node_id": "Main linked knowledge leaf for the event.",
+      "secondary_node_ids": "Auxiliary linked leaves for the event.",
+      "source_name": "Optional content source, batch, notebook, or upstream pipeline source name.",
+      "source_section": "Optional chapter / section / material subsection name.",
+      "metadata": "Optional extra structured payload for future extensions."
+    }
+  },
+  "diagnosis_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at",
+      "question_id",
+      "error_type"
+    ],
+    "recommended": [
+      "student_id",
+      "primary_node_id",
+      "secondary_node_ids",
+      "reason",
+      "evidence",
+      "confidence",
+      "coach_mode",
+      "coach_trap",
+      "coach_prompt",
+      "diagnosis_source"
+    ],
+    "field_specs": {
+      "event_type": "Must be diagnosis.",
+      "question_id": "Question being diagnosed.",
+      "error_type": "concept_gap / missing_strategy / misreading / calculation / careless.",
+      "reason": "Short explanation of why this error type was assigned.",
+      "evidence": "Quoted or summarized evidence from the student's answer.",
+      "confidence": "Optional numeric confidence from the diagnosis tool.",
+      "coach_mode": "Immediate coach mode suggested by diagnosis.",
+      "coach_trap": "Expected student trap extracted from diagnosis stage.",
+      "coach_prompt": "Suggested first-step coaching prompt or strategy hint.",
+      "diagnosis_source": "Which tool/path produced this diagnosis event."
+    },
+    "current_pipeline_compatibility": [
+      "student_memory_manager.normalize_diagnosis_event_payload",
+      "DiagnosisResult.as_dict() wrapped with binding / annotation / source context"
+    ]
+  },
+  "coach_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at",
+      "question_id"
+    ],
+    "recommended": [
+      "student_id",
+      "primary_node_id",
+      "secondary_node_ids",
+      "error_type",
+      "coach_mode",
+      "coach_trap",
+      "coach_prompt",
+      "reply_quality",
+      "understands",
+      "completed",
+      "turn_index",
+      "done",
+      "stop_reason",
+      "reason"
+    ],
+    "field_specs": {
+      "event_type": "Must be coach.",
+      "error_type": "Current working diagnosis type passed into coach stage.",
+      "coach_mode": "socratic_standard / socratic_light / direct_explain or future extended values.",
+      "coach_trap": "Main trap this coach turn is trying to address.",
+      "coach_prompt": "Resolved strategy prompt used for this turn.",
+      "reply_quality": "empty / weak / good.",
+      "understands": "Whether the student appears to understand at this turn.",
+      "completed": "Whether the current question has effectively been completed at this turn.",
+      "turn_index": "1-based turn index recommended for event storage.",
+      "done": "Whether the coach session ended after this response.",
+      "stop_reason": "student_understood / max_turns / continue or future values.",
+      "reason": "Reason from reply analysis or coach fallback logic."
+    },
+    "current_pipeline_compatibility": [
+      "student_memory_manager.normalize_coach_event_payload",
+      "CoachResponse.as_dict() wrapped with binding / annotation / source context"
+    ]
+  },
+  "review_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at",
+      "action",
+      "target_type",
+      "target_id"
+    ],
+    "recommended": [
+      "student_id",
+      "result",
+      "updated_payload",
+      "linked_node_ids",
+      "linked_question_ids"
+    ],
+    "field_specs": {
+      "event_type": "Must be review.",
+      "action": "review_result / mark_important / skip_temporarily / node_mastered_well / node_needs_more_practice.",
+      "target_type": "wrong_question / knowledge_point.",
+      "target_id": "Question id or node id targeted by this update.",
+      "result": "For review_result events: correct / wrong / partial / skip.",
+      "updated_payload": "Optional full updated review_state snapshot after applying the action.",
+      "linked_node_ids": "Optional explicit node references if known at event production time.",
+      "linked_question_ids": "Optional explicit question references if known at event production time."
+    },
+    "current_pipeline_compatibility": [
+      "ReviewStateUpdateResult.as_dict() from review_state_manager.py"
+    ]
+  },
+  "binding_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at",
+      "question_id"
+    ],
+    "recommended": [
+      "student_id",
+      "primary_node_id",
+      "secondary_node_ids",
+      "candidate_node_ids",
+      "binding_source",
+      "binding_confidence",
+      "annotation_mode"
+    ],
+    "field_specs": {
+      "event_type": "Must be binding.",
+      "candidate_node_ids": "Optional top-k candidate node ids shown before final confirmation.",
+      "binding_source": "system_recommendation / student_confirmed / student_created_new_node / teacher_override.",
+      "binding_confidence": "Optional recommendation confidence if the system proposed the binding.",
+      "annotation_mode": "Optional note about whether binding came from auto-route, tree-selection UI, or imported batch."
+    },
+    "recommended_usage": [
+      "Use when a wrong question is newly bound or re-bound to leaf nodes.",
+      "Use even if the final choice is made by the student, because that choice itself is valuable memory evidence."
+    ]
+  },
+  "student_choice_event_schema": {
+    "required": [
+      "event_type",
+      "occurred_at",
+      "action_type"
+    ],
+    "recommended": [
+      "student_id",
+      "question_id",
+      "target_type",
+      "target_id",
+      "selected_node_ids",
+      "note"
+    ],
+    "field_specs": {
+      "event_type": "Must be student_choice.",
+      "action_type": "select_node / create_node / mark_important / request_more_examples / mark_mastered / request_reteach.",
+      "target_type": "question / knowledge_point / custom_node / session or future values.",
+      "target_id": "Main object the student explicitly acted on.",
+      "selected_node_ids": "Node ids the student explicitly selected in the tree UI.",
+      "note": "Optional free-text explanation from the student."
+    },
+    "recommended_usage": [
+      "Use for tree-based student knowledge-point selection.",
+      "Use for future UI feedback such as 'I still need more examples' or 'this is already mastered'."
+    ]
+  },
+  "shared_value_constraints": {
+    "error_type_values": [
+      "concept_gap",
+      "missing_strategy",
+      "misreading",
+      "calculation",
+      "careless"
+    ],
+    "reply_quality_values": [
+      "empty",
+      "weak",
+      "good"
+    ],
+    "review_action_values": [
+      "review_result",
+      "mark_important",
+      "skip_temporarily",
+      "node_mastered_well",
+      "node_needs_more_practice"
+    ],
+    "review_result_values": [
+      "correct",
+      "wrong",
+      "partial",
+      "skip"
+    ],
+    "target_type_values": [
+      "wrong_question",
+      "knowledge_point"
+    ],
+    "memory_stage_values": [
+      "early_observation",
+      "forming_pattern"
+    ],
+    "signal_strength_values": [
+      "tentative",
+      "established"
+    ]
+  },
+  "aggregation_guidance": {
+    "event_store_role": "Event layer should preserve observation history and support replay / recount / later graph export.",
+    "profile_builder_role": "student_memory_manager.py or future rebuilder should aggregate these events into student_memory_profile.",
+    "runtime_reading_role": "coach_agent and review_scheduler should generally read aggregated profile output, not the full raw event history.",
+    "storage_recommendation": [
+      "Local JSON/JSONL or SQLite is enough for first implementation.",
+      "Cognee/graph storage is recommended as a later storage backend, not as the default runtime prompt source."
+    ]
+  },
+  "minimum_mvp_guidance": {
+    "must_have_first": [
+      "diagnosis_event",
+      "coach_event",
+      "review_event"
+    ],
+    "should_add_next": [
+      "binding_event",
+      "student_choice_event"
+    ],
+    "reason": "Diagnosis / coach / review already exist in code and can close the first student-memory loop. Binding and student-choice events become especially valuable once the tree-selection UI is in place."
+  }
+}

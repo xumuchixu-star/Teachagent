@@ -1,0 +1,181 @@
+{
+  "version": "0.1",
+  "project": "TeachAgent",
+  "artifact": "student_memory_profile_schema",
+  "positioning": "Student-specific memory layer that summarizes long-term error patterns, recurrent troubled knowledge leaves, and personalized teaching/review preferences.",
+  "core_entities": [
+    "student_memory_profile",
+    "node_memory",
+    "question_memory",
+    "personalization_summary",
+    "memory_graph"
+  ],
+  "accepted_inputs": [
+    "review_state_manager / review_scheduler outputs",
+    "diagnosis_agent DiagnosisResult.as_dict() wrapped with question binding context",
+    "coach_agent CoachResponse.as_dict() wrapped with question binding context",
+    "lightweight diagnosis/review/coach event logs"
+  ],
+  "record_schema": {
+    "required": [
+      "record_id",
+      "student_id",
+      "profile_version",
+      "error_type_counts",
+      "node_memories",
+      "question_memories",
+      "teaching_preferences",
+      "practice_preferences",
+      "personalization_summary",
+      "memory_graph",
+      "agent_memory_text",
+      "generated_at",
+      "updated_at"
+    ],
+    "optional": [
+      "event_history",
+      "notes"
+    ]
+  },
+  "error_type_counts_schema": {
+    "required": [
+      "concept_gap",
+      "missing_strategy",
+      "misreading",
+      "calculation",
+      "careless"
+    ],
+    "field_specs": {
+      "concept_gap": "Count of concept/definition/formula misunderstanding events",
+      "missing_strategy": "Count of events where the student lacked solving route or intermediate target",
+      "misreading": "Count of events where the student misread conditions or target",
+      "calculation": "Count of computational or algebraic execution mistakes",
+      "careless": "Count of avoidable slips or self-check failures"
+    }
+  },
+  "node_memory_schema": {
+    "required": [
+      "node_id",
+      "error_type_counts",
+      "observed_wrong_count",
+      "review_wrong_count",
+      "mastery_hint",
+      "stability_hint"
+    ],
+    "optional": [
+      "linked_question_ids",
+      "diagnosis_count",
+      "review_correct_count",
+      "review_partial_count",
+      "practice_request_count",
+      "consecutive_wrong_count",
+      "last_seen_at",
+      "last_wrong_at",
+      "last_event_at",
+      "dominant_error_type",
+      "recommended_intervention",
+      "signal_strength",
+      "observation_stage"
+    ]
+  },
+  "question_memory_schema": {
+    "required": [
+      "question_id",
+      "linked_node_ids",
+      "wrong_count",
+      "review_count",
+      "last_result"
+    ],
+    "optional": [
+      "error_type_counts",
+      "diagnosis_count",
+      "correct_count",
+      "partial_count",
+      "last_error_type",
+      "source_name",
+      "source_section",
+      "last_seen_at",
+      "last_wrong_at",
+      "last_event_at",
+      "signal_strength",
+      "observation_stage"
+    ]
+  },
+  "teaching_preferences_schema": {
+    "required": [
+      "dominant_error_type",
+      "scores",
+      "recommended_mode"
+    ],
+    "field_specs": {
+      "dominant_error_type": "Most frequent current error type",
+      "scores": "0-1 normalized emphasis weights for teaching styles",
+      "recommended_mode": "Balanced / concept_first / strategy_first / condition_first / checklist_first"
+    }
+  },
+  "practice_preferences_schema": {
+    "required": [
+      "scores",
+      "recommended_review_mode"
+    ],
+    "field_specs": {
+      "scores": "0-1 normalized emphasis weights for practice scheduling styles",
+      "recommended_review_mode": "leaf_first / question_first / mixed"
+    }
+  },
+  "personalization_summary_schema": {
+    "required": [
+      "dominant_error_type",
+      "top_error_types",
+      "top_recurrent_nodes",
+      "recommended_teaching_mode",
+      "recommended_review_mode",
+      "alerts",
+      "notes"
+    ],
+    "optional": [
+      "dominant_error_signal_strength",
+      "memory_stage",
+      "observation_counts"
+    ]
+  },
+  "memory_graph_schema": {
+    "required": [
+      "nodes",
+      "edges"
+    ],
+    "field_specs": {
+      "nodes": "Graph nodes that can later be embedded or exported to Cognee-like memory systems",
+      "edges": "Typed links such as shows_error_pattern / recurrently_struggles_with / binds_to"
+    }
+  },
+  "agent_memory_text_schema": {
+    "required": [
+      "agent_memory_text"
+    ],
+    "field_specs": {
+      "agent_memory_text": "Compact text block for feeding into downstream AI prompts as personalized memory context"
+    }
+  },
+  "integration_notes": {
+    "signal_strength_values": [
+      "tentative",
+      "established"
+    ],
+    "memory_stage_values": [
+      "early_observation",
+      "forming_pattern"
+    ],
+    "diagnosis_event_minimum": [
+      "question_id",
+      "diagnosis.error_type or error_type",
+      "binding.primary_node_id or equivalent node selection context"
+    ],
+    "coach_event_minimum": [
+      "question_id",
+      "coach_response.reply_analysis or reply_quality",
+      "binding.primary_node_id or equivalent node selection context"
+    ],
+    "review_event_source": "Prefer ReviewStateUpdateResult.as_dict() from review_state_manager.py"
+  }
+}
