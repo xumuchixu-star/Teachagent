@@ -121,6 +121,9 @@ DEPLOY_HOST_HINT_ENV_KEYS = (
     "RAILWAY_PROJECT_ID",
     "K_SERVICE",
 )
+OCR_PROVIDER_NAME = "MinerU"
+OCR_UNAVAILABLE_MESSAGE = "当前网页端还没有配置 MinerU OCR，拍题识别暂时不可用。"
+OCR_DISABLED_MESSAGE = "当前服务已关闭 OCR 识别。"
 
 
 def empty_review_state(*, student_id: str) -> dict[str, Any]:
@@ -174,6 +177,76 @@ ALLOWED_MODES = {
 
 def now_slug() -> str:
     return datetime.now().strftime("%Y%m%d_%H%M%S")
+
+
+def resolve_mineru_binary_path() -> Path | None:
+    embedded_binary = ROOT / ".venv_mineru" / "bin" / "mineru"
+    if embedded_binary.exists():
+        return embedded_binary
+    system_binary = shutil.which("mineru")
+    if system_binary:
+        return Path(system_binary)
+    return None
+
+
+def summarize_exception_text(error_text: str) -> str:
+    text = str(error_text or "").strip()
+    if not text:
+        return ""
+    if "Traceback" not in text:
+        return text
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    for line in reversed(lines):
+        if re.match(r"^[A-Za-z_][A-Za-z0-9_.]*:", line):
+            return line
+    return lines[-1] if lines else text
+
+
+def normalize_mineru_error_message(error_text: str) -> str:
+    summary = summarize_exception_text(error_text)
+    lower_text = summary.lower()
+    if "mineru executable not found" in lower_text:
+        return OCR_UNAVAILABLE_MESSAGE
+    if "mineru wrapper not found" in lower_text:
+        return "当前服务缺少 OCR 启动脚本，拍题识别暂时不可用。"
+    if "no module named" in lower_text or "modulenotfounderror" in lower_text:
+        return "当前服务的 OCR 依赖没有安装完整，暂时无法识别图片。"
+    return summary or "OCR 识别失败，请稍后重试。"
+
+
+def build_ocr_feature_payload() -> dict[str, Any]:
+    explicit = env_flag("TEACHAGENT_OCR_ENABLED")
+    if explicit is False:
+        return {
+            "provider": OCR_PROVIDER_NAME,
+            "available": False,
+            "message": OCR_DISABLED_MESSAGE,
+        }
+    if not MINERU_WRAPPER_PATH.exists():
+        return {
+            "provider": OCR_PROVIDER_NAME,
+            "available": False,
+            "message": "当前服务缺少 OCR 处理脚本，拍题识别暂时不可用。",
+        }
+    binary_path = resolve_mineru_binary_path()
+    if binary_path is None:
+        return {
+            "provider": OCR_PROVIDER_NAME,
+            "available": False,
+            "message": OCR_UNAVAILABLE_MESSAGE,
+        }
+    return {
+        "provider": OCR_PROVIDER_NAME,
+        "available": True,
+        "message": "MinerU OCR 已就绪，可以直接拍题识别。",
+        "binary_path": str(binary_path),
+    }
+
+
+def ensure_ocr_available() -> None:
+    feature = build_ocr_feature_payload()
+    if not feature.get("available"):
+        raise RuntimeError(str(feature.get("message") or OCR_UNAVAILABLE_MESSAGE))
 
 
 def slugify_text(value: str) -> str:
@@ -554,7 +627,7 @@ def save_uploaded_ocr_file(*, filename: str, content: bytes) -> Path:
 
 def run_mineru_ocr(upload_path: Path, *, target: str) -> tuple[dict[str, Any], str]:
     if not MINERU_WRAPPER_PATH.exists():
-        raise FileNotFoundError(f"MinerU wrapper not found: {MINERU_WRAPPER_PATH}")
+        raise FileNotFoundError("当前服务缺少 OCR 启动脚本，拍题识别暂时不可用。")
 
     run_name = f"app_{target}_{now_slug()}_{slugify_text(upload_path.stem)}"
     method = "ocr" if upload_path.suffix.lower() in IMAGE_SUFFIXES else "auto"
@@ -585,8 +658,8 @@ def run_mineru_ocr(upload_path: Path, *, target: str) -> tuple[dict[str, Any], s
     run_dir = OCR_RUNS_DIR / run_name
     summary_path = run_dir / "ocr_run_summary.json"
     if not summary_path.exists():
-        error_text = (completed.stderr or completed.stdout or "").strip()
-        raise RuntimeError(error_text or "MinerU did not produce an OCR summary.")
+        error_text = normalize_mineru_error_message(completed.stderr or completed.stdout or "")
+        raise RuntimeError(error_text or "OCR 没有产出可读取的结果。")
 
     summary = json.loads(summary_path.read_text(encoding="utf-8"))
     preview_path = Path(summary.get("preview_text_path") or "")
@@ -596,10 +669,10 @@ def run_mineru_ocr(upload_path: Path, *, target: str) -> tuple[dict[str, Any], s
         else ""
     )
     if completed.returncode != 0:
-        error_text = (completed.stderr or completed.stdout or "").strip()
+        error_text = normalize_mineru_error_message(completed.stderr or completed.stdout or "")
         raise RuntimeError(
             error_text
-            or f"MinerU failed. Check {summary.get('stderr_path') or summary_path}."
+            or f"OCR 执行失败，请检查 {summary.get('stderr_path') or summary_path}。"
         )
     return summary, preview_text
 
@@ -1604,6 +1677,9 @@ class ReviewAppState:
         )
         return {
             "student": self.build_student_payload(),
+            "features": {
+                "ocr": build_ocr_feature_payload(),
+            },
             "session": {
                 "student_id": self.student_id,
                 "storage_mode": (
@@ -2686,6 +2762,7 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
             )
             return
         if parsed.path == "/healthz":
+            ocr_feature = build_ocr_feature_payload()
             self.respond_json(
                 {
                     "status": "ok",
@@ -2694,6 +2771,8 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
                     "credential_mode": (
                         "default" if should_use_default_credential() else "azure_cli"
                     ),
+                    "ocr_available": bool(ocr_feature.get("available")),
+                    "ocr_provider": ocr_feature.get("provider"),
                 }
             )
             return
@@ -2709,6 +2788,7 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
                         "PostgreSQL" if state.using_database_store() else "本地 JSON"
                     ),
                     "database_enabled": state.using_database_store(),
+                    "ocr": build_ocr_feature_payload(),
                 }
             )
             return
@@ -2786,6 +2866,7 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
                 if state is None:
                     return
             if parsed.path == "/api/ocr/extract":
+                ensure_ocr_available()
                 fields, files = self.read_multipart_form_body()
                 uploads = [
                     file_payload
@@ -2992,10 +3073,17 @@ class TeachAgentAppHandler(BaseHTTPRequestHandler):
         )
         fields: dict[str, str] = {}
         files: dict[str, dict[str, Any]] = {}
+        file_counts: dict[str, int] = {}
         for item in form.list or []:
             if item.filename:
                 file_content = item.file.read() if item.file is not None else b""
-                files[item.name] = {
+                file_counts[item.name] = file_counts.get(item.name, 0) + 1
+                file_key = (
+                    item.name
+                    if file_counts[item.name] == 1
+                    else f"{item.name}_{file_counts[item.name]}"
+                )
+                files[file_key] = {
                     "filename": Path(item.filename).name,
                     "content": file_content,
                     "content_type": item.type,

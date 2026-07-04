@@ -25,6 +25,13 @@ const state = {
     storage_label: "",
     database_enabled: false,
   },
+  features: {
+    ocr: {
+      available: false,
+      provider: "MinerU",
+      message: "",
+    },
+  },
   studentDirectory: [],
   activeTab: "import",
   importDraft: null,
@@ -519,9 +526,23 @@ function create(tag, className, text) {
   return node;
 }
 
+async function readResponsePayload(response) {
+  const rawText = await response.text();
+  if (!rawText.trim()) {
+    return {};
+  }
+  try {
+    return JSON.parse(rawText);
+  } catch (error) {
+    return {
+      error: rawText.trim(),
+    };
+  }
+}
+
 async function fetchJson(url, options = {}) {
   const response = await fetch(url, options);
-  const payload = await response.json();
+  const payload = await readResponsePayload(response);
   if (!response.ok) {
     throw new Error(payload.error || "请求失败");
   }
@@ -533,17 +554,45 @@ async function fetchFormJson(url, formData) {
     method: "POST",
     body: formData,
   });
-  const payload = await response.json();
+  const payload = await readResponsePayload(response);
   if (!response.ok) {
     throw new Error(payload.error || "上传失败");
   }
   return payload;
 }
 
+function normalizeOcrErrorMessage(error) {
+  const raw = String(error?.message || error || "OCR 识别失败").trim();
+  if (!raw) return "OCR 识别失败";
+  const lower = raw.toLowerCase();
+  if (lower.startsWith("<!doctype") || lower.startsWith("<html")) {
+    return "OCR 服务返回了异常页面，请稍后重试。";
+  }
+  if (raw.includes("MinerU executable not found")) {
+    return "当前网页端还没有配置 MinerU OCR，拍题识别暂时不可用。";
+  }
+  if (raw.includes("MinerU wrapper not found")) {
+    return "当前服务缺少 OCR 启动脚本，拍题识别暂时不可用。";
+  }
+  if (raw.includes("No module named") || raw.includes("ModuleNotFoundError")) {
+    return "当前服务的 OCR 依赖没有安装完整，暂时无法识别图片。";
+  }
+  if (raw.includes("Traceback")) {
+    const lines = raw
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+    const summary = lines.reverse().find((line) => line.includes(":"));
+    return summary || "OCR 识别失败";
+  }
+  return raw;
+}
+
 function syncStudentStateFromDashboard(payload = state.dashboard) {
   const student = payload?.student || {};
   const session = payload?.session || {};
   const reviewSummary = payload?.review_state_summary || {};
+  const ocrFeature = payload?.features?.ocr || {};
   state.student = {
     student_id: String(
       student.student_id
@@ -569,6 +618,28 @@ function syncStudentStateFromDashboard(payload = state.dashboard) {
         ? student.database_enabled
         : state.student.database_enabled
     ),
+  };
+  state.features = {
+    ...state.features,
+    ocr: {
+      ...state.features.ocr,
+      ...ocrFeature,
+      available: Boolean(
+        ocrFeature.available !== undefined
+          ? ocrFeature.available
+          : state.features.ocr?.available
+      ),
+      provider: String(
+        ocrFeature.provider
+        || state.features.ocr?.provider
+        || "MinerU"
+      ).trim(),
+      message: String(
+        ocrFeature.message
+        || state.features.ocr?.message
+        || ""
+      ).trim(),
+    },
   };
 }
 
@@ -877,6 +948,66 @@ function renderOcrFeedback(target, ocr) {
   }
 }
 
+function renderOcrFailure(message) {
+  const container = $("importOcrFeedback");
+  if (!container) return;
+  container.innerHTML = "";
+  const card = create("div", "ocr-feedback-card ocr-runtime-card unavailable");
+  card.append(
+    create("p", "ocr-feedback-title", "拍题识别暂不可用"),
+    create("p", "ocr-feedback-text", message)
+  );
+  container.appendChild(card);
+}
+
+function renderImportRuntimeStatus() {
+  const container = $("importOcrRuntimeStatus");
+  if (!container) return;
+  const ocr = state.features?.ocr || {};
+  const available = Boolean(ocr.available);
+  const message = String(
+    ocr.message
+    || (available
+      ? "MinerU OCR 已就绪，可以直接拍题识别。"
+      : "当前网页端还没有配置 MinerU OCR，拍题识别暂时不可用。")
+  ).trim();
+  container.innerHTML = "";
+  const card = create(
+    "div",
+    `ocr-feedback-card ocr-runtime-card${available ? " ready" : " unavailable"}`
+  );
+  card.append(
+    create("p", "ocr-feedback-title", available ? "拍题识别已就绪" : "拍题识别暂不可用"),
+    create("p", "ocr-feedback-text", message)
+  );
+  container.appendChild(card);
+
+  [
+    "importOcrBtn",
+    "importQuestionOcrBtn",
+    "importAnswerOcrBtn",
+    "importSolutionOcrBtn",
+  ].forEach((id) => {
+    const button = $(id);
+    if (!button) return;
+    if (!button.classList.contains("waiting")) {
+      button.disabled = !available;
+    }
+  });
+
+  [
+    "importOcrFile",
+    "importQuestionOcrFile",
+    "importAnswerOcrFile",
+    "importSolutionOcrFile",
+  ].forEach((id) => {
+    const input = $(id);
+    if (input) {
+      input.disabled = !available;
+    }
+  });
+}
+
 function populateImportFieldModes(target) {
   const select = $("importFieldMode");
   if (!select) return;
@@ -1070,6 +1201,11 @@ async function runOcrImport() {
     renderOcrFeedback(target, ocr);
     renderImportResult(target, ocr);
     showStatus("MinerU 识别完成，请先检查并修改 OCR 草稿");
+  } catch (error) {
+    const message = normalizeOcrErrorMessage(error);
+    console.error(error);
+    renderOcrFailure(message);
+    showStatus(`OCR 失败：${message}`);
   } finally {
     setButtonBusy(button, false);
   }
@@ -1113,6 +1249,11 @@ async function runFieldOcrImport(fieldKey) {
     renderOcrFeedback("wrongbook", ocr);
     applyFieldOcrResult(fieldKey, ocr);
     showStatus(`${IMPORT_FIELD_LABELS[fieldKey] || "字段"} OCR 已写入编辑区`);
+  } catch (error) {
+    const message = normalizeOcrErrorMessage(error);
+    console.error(error);
+    renderOcrFailure(message);
+    showStatus(`OCR 失败：${message}`);
   } finally {
     setButtonBusy(button, false);
   }
@@ -2761,6 +2902,7 @@ function render() {
   if (!state.dashboard) return;
   renderStudentCard();
   renderStudentDirectory();
+  renderImportRuntimeStatus();
   renderModeSwitch();
   renderQuickStartCard();
   renderSessionSummary();

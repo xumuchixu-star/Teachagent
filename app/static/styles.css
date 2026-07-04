@@ -717,6 +717,24 @@ body {
   background: rgba(255, 255, 255, 0.84);
 }
 
+.ocr-runtime-status {
+  margin-top: 14px;
+}
+
+.ocr-runtime-card.ready {
+  border-color: rgba(29, 116, 133, 0.24);
+  background:
+    linear-gradient(135deg, rgba(29, 116, 133, 0.07), rgba(29, 116, 133, 0.03)),
+    rgba(255, 255, 255, 0.9);
+}
+
+.ocr-runtime-card.unavailable {
+  border-color: rgba(186, 84, 59, 0.22);
+  background:
+    linear-gradient(135deg, rgba(186, 84, 59, 0.08), rgba(186, 84, 59, 0.03)),
+    rgba(255, 255, 255, 0.9);
+}
+
 .starter-card {
   margin-top: 16px;
   border: 1px solid rgba(24, 59, 103, 0.1);
