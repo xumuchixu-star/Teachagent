@@ -13,6 +13,10 @@ services:
         value: teachagent
       - key: TEACHAGENT_DB_CONNECT_TIMEOUT
         value: "10"
+      - key: TEACHAGENT_OCR_SERVICE_URL
+        sync: false
+      - key: TEACHAGENT_OCR_SERVICE_TIMEOUT_SECONDS
+        value: "120"
       - key: TEACHAGENT_DATABASE_URL
         sync: false
       - key: AZURE_AI_PROJECT_ENDPOINT
@@ -25,3 +29,27 @@ services:
         sync: false
       - key: AZURE_CLIENT_SECRET
         sync: false
+  - type: web
+    name: teachagent-ocr
+    runtime: docker
+    dockerfilePath: ./ocr_service/Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: OCR_SERVICE_HOST
+        value: 0.0.0.0
+      - key: OCR_SERVICE_PORT
+        value: "8890"
+      - key: OCR_SERVICE_OUTPUT_ROOT
+        value: /app/scratch/mineru_runs
+      - key: MINERU_MODEL_SOURCE
+        value: modelscope
+      - key: HF_HOME
+        value: /app/model-cache/huggingface
+      - key: MODELSCOPE_CACHE
+        value: /app/model-cache/modelscope
+      - key: TORCH_HOME
+        value: /app/model-cache/torch
+    disk:
+      name: teachagent-ocr-model-cache
+      mountPath: /app/model-cache
+      sizeGB: 20
